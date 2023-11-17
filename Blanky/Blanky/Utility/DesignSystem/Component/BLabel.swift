@@ -14,7 +14,6 @@ final class BLabel: UILabel {
        
         self.text = text
         self.font = .customFont(fontWeight, size: fontSize)
-        self.textColor = .white
         self.numberOfLines = 0
     }
     
