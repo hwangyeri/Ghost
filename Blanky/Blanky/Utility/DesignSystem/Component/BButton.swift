@@ -9,14 +9,18 @@ import UIKit
 
 final class BButton: UIButton {
     
-    init(text: String, titleColor: UIColor, cornerRadius: CGFloat, backgroundColor: UIColor) {
+    init(text: String) {
         super.init(frame: .zero)
         
         self.setTitle(text, for: .normal)
-        self.setTitleColor(titleColor, for: .normal)
-        self.layer.cornerRadius = cornerRadius
+        self.setTitleColor(.black, for: .normal)
+        self.layer.cornerRadius = 10
         self.titleLabel?.font = .customFont(.semiBold, size: .M)
-        self.backgroundColor = backgroundColor
+        self.backgroundColor = .gray
+        
+        // Disable 상태로 버튼 UI 초기화
+        self.setTitleColor(.darkGray, for: .disabled)
+        self.isEnabled = false
     }
     
     required init?(coder aDecoder: NSCoder) {
