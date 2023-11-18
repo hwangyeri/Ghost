@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import TextFieldEffects
 
-final class BTextField: UITextField {
+final class BTextField: HoshiTextField {
     
     init(keyboardType: UIKeyboardType, returnKeyType: UIReturnKeyType) {
         super.init(frame: .zero)
         
-        self.font = .customFont(.regular, size: .S)
+        self.font = .customFont(.regular, size: .M)
         self.tintColor = .point
         self.autocapitalizationType = .none // 자동 대문자
         self.autocorrectionType = .no // 자동 수정
@@ -21,6 +22,9 @@ final class BTextField: UITextField {
         self.clearsOnBeginEditing = true // 편집 시 기존 텍스트필드값 제거
         self.keyboardType = keyboardType
         self.returnKeyType = returnKeyType
+        self.borderActiveColor = .lightGray
+        self.borderInactiveColor = .darkGray
+        self.placeholderColor = .white
     }
     
     required init?(coder aDecoder: NSCoder) {
