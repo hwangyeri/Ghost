@@ -17,9 +17,17 @@ class LogInViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        view.backgroundColor = .brown
+        
     }
     
-
+    override func configureLayout() {
+        mainView.joinButton.addTarget(self, action: #selector(joinButtonTapped), for: .touchUpInside)
+    }
+    
+    // MARK: 회원가입 버튼
+    @objc private func joinButtonTapped() {
+        print(#function)
+        let vc = JoinViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
