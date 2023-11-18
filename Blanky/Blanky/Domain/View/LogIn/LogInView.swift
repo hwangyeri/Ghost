@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import TextFieldEffects
 
 class LogInView: BaseView {
     
@@ -42,12 +43,6 @@ class LogInView: BaseView {
             keyboardType: .emailAddress, 
             returnKeyType: .next
         )
-        view.placeholder = "예) blanky@blanky.com"
-        return view
-    }()
-    
-    let emailDivider = {
-        let view = BDivider()
         return view
     }()
     
@@ -65,11 +60,6 @@ class LogInView: BaseView {
             keyboardType: .default, 
             returnKeyType: .done
         )
-        return view
-    }()
-    
-    let passwordDivider = {
-        let view = BDivider()
         return view
     }()
     
@@ -112,12 +102,14 @@ class LogInView: BaseView {
     }()
     
     override func configureHierarchy() {
-        [mainLabel, subLabel, emailTitleLabel, emailTextField, emailDivider, passwordTitleLabel, passwordTextField, passwordDivider, logInButton, findPasswordButton, stack1Divider, stack2Divider, findEmailButton, joinButton].forEach {
+        [mainLabel, subLabel, emailTitleLabel, emailTextField, passwordTitleLabel, passwordTextField, logInButton, findPasswordButton, stack1Divider, stack2Divider, findEmailButton, joinButton].forEach {
             self.addSubview($0)
         }
     }
     
     override func configureLayout() {
+        self.backgroundColor = .black // TextFieldEffects Click issue
+        
         mainLabel.snp.makeConstraints { make in
             make.top.equalTo(self.safeAreaLayoutGuide).inset(30)
             make.centerX.equalToSuperview()
@@ -139,14 +131,8 @@ class LogInView: BaseView {
             make.height.equalTo(50)
         }
         
-        emailDivider.snp.makeConstraints { make in
-            make.top.equalTo(emailTextField.snp.bottom)
-            make.horizontalEdges.equalTo(emailTitleLabel)
-            make.height.equalTo(1)
-        }
-        
         passwordTitleLabel.snp.makeConstraints { make in
-            make.top.equalTo(emailDivider.snp.bottom).offset(20)
+            make.top.equalTo(emailTextField.snp.bottom).offset(20)
             make.horizontalEdges.equalTo(emailTitleLabel)
         }
         
@@ -156,16 +142,10 @@ class LogInView: BaseView {
             make.height.equalTo(emailTextField)
         }
         
-        passwordDivider.snp.makeConstraints { make in
-            make.top.equalTo(passwordTextField.snp.bottom)
-            make.horizontalEdges.equalTo(emailTitleLabel)
-            make.height.equalTo(emailDivider)
-        }
-        
         logInButton.snp.makeConstraints { make in
-            make.top.equalTo(passwordDivider.snp.bottom).offset(40)
-            make.horizontalEdges.equalTo(emailTitleLabel)
-            make.height.equalTo(55)
+            make.top.equalTo(passwordTextField.snp.bottom).offset(40)
+            make.horizontalEdges.equalToSuperview().inset(20)
+            make.height.equalTo(50)
         }
         
         findPasswordButton.snp.makeConstraints { make in
