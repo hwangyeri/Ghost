@@ -75,14 +75,8 @@ class LogInView: BaseView {
     
     let logInButton = {
         let view = BButton(
-            text: "로그인",
-            titleColor: .black,
-            cornerRadius: 10,
-            backgroundColor: .gray
+            text: "로그인"
         )
-        // Disable 상태로 버튼 UI 초기화
-        view.setTitleColor(.darkGray, for: .disabled)
-        view.isEnabled = false
         return view
     }()
     
