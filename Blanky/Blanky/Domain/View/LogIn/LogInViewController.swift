@@ -27,7 +27,7 @@ class LogInViewController: BaseViewController {
     // MARK: 회원가입 버튼
     @objc private func joinButtonTapped() {
         print(#function)
-        let vc = JoinViewController()
+        let vc = EmailStepViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
