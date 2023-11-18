@@ -13,6 +13,7 @@ final class BTextField: UITextField {
         super.init(frame: .zero)
         
         self.font = .customFont(.regular, size: .S)
+        self.tintColor = .point
         self.autocapitalizationType = .none // 자동 대문자
         self.autocorrectionType = .no // 자동 수정
         self.spellCheckingType = .no // 맞춤법 검사
