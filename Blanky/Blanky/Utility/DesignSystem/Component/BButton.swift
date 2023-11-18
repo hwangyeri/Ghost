@@ -14,7 +14,7 @@ final class BButton: UIButton {
         
         self.setTitle(text, for: .normal)
         self.setTitleColor(.black, for: .normal)
-        self.layer.cornerRadius = 10
+        self.layer.cornerRadius = 25 //10
         self.titleLabel?.font = .customFont(.semiBold, size: .M)
         self.backgroundColor = .gray
         
