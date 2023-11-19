@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Then
 
 class JoinStep1View: BaseView {
     
@@ -21,6 +22,14 @@ class JoinStep1View: BaseView {
         returnKeyType: .next,
         placeholder: "이메일은 영문, 숫자만 사용해야 합니다."
     )
+    
+    let checkDuplicationButton = UIButton().then {
+        $0.setTitle("중복 확인", for: .normal)
+        $0.setTitleColor(.black, for: .normal)
+        $0.layer.cornerRadius = 16
+        $0.titleLabel?.font = .customFont(.semiBold, size: .XXS)
+        $0.backgroundColor = .white
+    }
     
     let passwordLabel = BLabel(
         text: "비밀번호를 입력해 주세요.",
@@ -43,7 +52,7 @@ class JoinStep1View: BaseView {
     let nextButton = BButton(text: "다음")
     
     override func configureHierarchy() {
-        [emailLabel, emailTextField, passwordLabel, passwordTextField, checkPasswordTextField, nextButton].forEach {
+        [emailLabel, emailTextField, checkDuplicationButton, passwordLabel, passwordTextField, checkPasswordTextField, nextButton].forEach {
             self.addSubview($0)
         }
     }
@@ -59,7 +68,15 @@ class JoinStep1View: BaseView {
         emailTextField.snp.makeConstraints { make in
             make.top.equalTo(emailLabel.snp.bottom).offset(20)
             make.height.equalTo(50)
-            make.horizontalEdges.equalTo(emailLabel)
+            make.leading.equalTo(emailLabel)
+        }
+        
+        checkDuplicationButton.snp.makeConstraints { make in
+            make.centerY.equalTo(emailTextField)
+            make.leading.equalTo(emailTextField.snp.trailing).offset(10)
+            make.trailing.equalToSuperview().inset(5)
+            make.height.equalTo(33)
+            make.width.equalTo(65)
         }
         
         passwordLabel.snp.makeConstraints { make in
