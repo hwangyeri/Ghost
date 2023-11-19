@@ -18,8 +18,10 @@ class JoinStep1ViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.title = "회원가입"
     }
     
+    override func configureLayout() {
+        self.navigationItem.title = "회원가입"
+    }
 
 }
