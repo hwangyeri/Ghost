@@ -54,7 +54,10 @@ class JoinStep1ViewModel: BaseViewModel {
         let checkPasswordValidation = Observable
             .combineLatest(input.checkPasswordTextField.asObservable(), input.passwordTextField.asObservable())
             .map { checkPassword, password in
-                checkPassword == password
+                guard !checkPassword.isEmpty else {
+                    return false
+                }
+                return checkPassword == password
             }
             .asDriver(onErrorJustReturn: false)
         
