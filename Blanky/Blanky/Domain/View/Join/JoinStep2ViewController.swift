@@ -7,9 +7,9 @@
 
 import UIKit
 
-class PasswordStepViewController: BaseViewController {
+class JoinStep2ViewController: BaseViewController {
     
-    private let mainView = PasswordStepView()
+    private let mainView = JoinStep2View()
     
     override func loadView() {
         self.view = mainView
