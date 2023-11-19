@@ -11,98 +11,45 @@ import TextFieldEffects
 
 class LogInView: BaseView {
     
-    let mainLabel = {
-        let view = BLabel(
-            text: "Blanky",
-            fontWeight: .black,
-            fontSize: .XXXL
-        )
-        return view
-    }()
+    let mainLabel = BLabel(
+        text: "Blanky",
+        fontWeight: .black,
+        fontSize: .XXXL
+    )
     
-    let subLabel = {
-        let view = BLabel(
-            text: "ImageView로 수정",
-            fontWeight: .bold,
-            fontSize: .L
-        )
-        return view
-    }()
+    let subLabel = BLabel(
+        text: "ImageView로 수정",
+        fontWeight: .bold,
+        fontSize: .L
+    )
     
-    let emailTitleLabel = {
-        let view = BLabel(
-            text: "이메일 주소",
-            fontWeight: .semiBold,
-            fontSize: .XS
-        )
-        return view
-    }()
+    let emailTextField = BTextField(
+        keyboardType: .emailAddress,
+        returnKeyType: .next,
+        placeholder: "이메일 주소"
+    )
     
-    let emailTextField = {
-        let view = BTextField(
-            keyboardType: .emailAddress, 
-            returnKeyType: .next
-        )
-        return view
-    }()
+    let passwordTextField = BTextField(
+        keyboardType: .default,
+        returnKeyType: .done,
+        placeholder: "비밀번호"
+    )
     
-    let passwordTitleLabel = {
-        let view = BLabel(
-            text: "비밀번호",
-            fontWeight: .semiBold,
-            fontSize: .XS
-        )
-        return view
-    }()
+    let logInButton = BButton(text: "로그인")
     
-    let passwordTextField = {
-        let view = BTextField(
-            keyboardType: .default, 
-            returnKeyType: .done
-        )
-        return view
-    }()
+    let findEmailButton = BTextButton(text: "이메일 찾기")
     
-    let logInButton = {
-        let view = BButton(
-            text: "로그인"
-        )
-        return view
-    }()
+    let findPasswordButton = BTextButton(text: "비밀번호 찾기")
     
-    let findEmailButton = {
-        let view = BTextButton(
-            text: "이메일 찾기"
-        )
-        return view
-    }()
+    let joinButton = BTextButton(text: "회원가입")
     
-    let findPasswordButton = {
-        let view = BTextButton(
-            text: "비밀번호 찾기"
-        )
-        return view
-    }()
+    let stack1Divider = BDivider()
     
-    let joinButton = {
-        let view = BTextButton(
-            text: "회원가입"
-        )
-        return view
-    }()
-    
-    let stack1Divider = {
-        let view = BDivider()
-        return view
-    }()
-    
-    let stack2Divider = {
-        let view = BDivider()
-        return view
-    }()
+    let stack2Divider = BDivider()
     
     override func configureHierarchy() {
-        [mainLabel, subLabel, emailTitleLabel, emailTextField, passwordTitleLabel, passwordTextField, logInButton, findPasswordButton, stack1Divider, stack2Divider, findEmailButton, joinButton].forEach {
+        [mainLabel, subLabel, emailTextField, passwordTextField, logInButton, 
+         findPasswordButton, stack1Divider, stack2Divider, findEmailButton, joinButton].forEach {
             self.addSubview($0)
         }
     }
@@ -120,25 +67,15 @@ class LogInView: BaseView {
             make.centerX.equalToSuperview()
         }
         
-        emailTitleLabel.snp.makeConstraints { make in
+        emailTextField.snp.makeConstraints { make in
             make.top.equalTo(subLabel.snp.bottom).offset(60)
             make.horizontalEdges.equalToSuperview().inset(20)
-        }
-        
-        emailTextField.snp.makeConstraints { make in
-            make.top.equalTo(emailTitleLabel.snp.bottom)
-            make.horizontalEdges.equalTo(emailTitleLabel)
             make.height.equalTo(50)
         }
         
-        passwordTitleLabel.snp.makeConstraints { make in
-            make.top.equalTo(emailTextField.snp.bottom).offset(20)
-            make.horizontalEdges.equalTo(emailTitleLabel)
-        }
-        
         passwordTextField.snp.makeConstraints { make in
-            make.top.equalTo(passwordTitleLabel.snp.bottom)
-            make.horizontalEdges.equalTo(emailTitleLabel)
+            make.top.equalTo(emailTextField.snp.bottom).offset(20)
+            make.horizontalEdges.equalTo(emailTextField)
             make.height.equalTo(emailTextField)
         }
         
