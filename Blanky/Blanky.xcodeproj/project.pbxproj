@@ -12,7 +12,7 @@
 		2BD741B52B06051F006C11B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741B42B06051F006C11B2 /* ViewController.swift */; };
 		2BD741BA2B060521006C11B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BD741B92B060521006C11B2 /* Assets.xcassets */; };
 		2BD741BD2B060521006C11B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BD741BB2B060521006C11B2 /* LaunchScreen.storyboard */; };
-		2BD741CA2B0607FC006C11B2 /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741C92B0607FC006C11B2 /* JoinViewController.swift */; };
+		2BD741CA2B0607FC006C11B2 /* JoinStep1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741C92B0607FC006C11B2 /* JoinStep1ViewController.swift */; };
 		2BD741CC2B061F5C006C11B2 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741CB2B061F5C006C11B2 /* LogInViewController.swift */; };
 		2BD741D62B07905F006C11B2 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741D52B07905F006C11B2 /* BaseView.swift */; };
 		2BD741D82B079084006C11B2 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741D72B079084006C11B2 /* BaseViewController.swift */; };
@@ -29,6 +29,12 @@
 		2BD741F52B07B8D9006C11B2 /* BLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741F42B07B8D9006C11B2 /* BLabel.swift */; };
 		2BD741F72B07C708006C11B2 /* BTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741F62B07C708006C11B2 /* BTextField.swift */; };
 		2BD741F92B07CE01006C11B2 /* BDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741F82B07CE01006C11B2 /* BDivider.swift */; };
+		2BD741FB2B088255006C11B2 /* BButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741FA2B088255006C11B2 /* BButton.swift */; };
+		2BD741FD2B088DBA006C11B2 /* BTextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741FC2B088DBA006C11B2 /* BTextButton.swift */; };
+		2BD741FF2B08A49C006C11B2 /* JoinStep1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741FE2B08A49C006C11B2 /* JoinStep1View.swift */; };
+		2BD742012B08DA3C006C11B2 /* PasswordStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD742002B08DA3C006C11B2 /* PasswordStepViewController.swift */; };
+		2BD742032B08DA4B006C11B2 /* PasswordStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD742022B08DA4B006C11B2 /* PasswordStepView.swift */; };
+		2BD742062B08DCEC006C11B2 /* TextFieldEffects in Frameworks */ = {isa = PBXBuildFile; productRef = 2BD742052B08DCEC006C11B2 /* TextFieldEffects */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,7 +45,7 @@
 		2BD741B92B060521006C11B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2BD741BC2B060521006C11B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2BD741BE2B060521006C11B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2BD741C92B0607FC006C11B2 /* JoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
+		2BD741C92B0607FC006C11B2 /* JoinStep1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinStep1ViewController.swift; sourceTree = "<group>"; };
 		2BD741CB2B061F5C006C11B2 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		2BD741D52B07905F006C11B2 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		2BD741D72B079084006C11B2 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +61,11 @@
 		2BD741F42B07B8D9006C11B2 /* BLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLabel.swift; sourceTree = "<group>"; };
 		2BD741F62B07C708006C11B2 /* BTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTextField.swift; sourceTree = "<group>"; };
 		2BD741F82B07CE01006C11B2 /* BDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BDivider.swift; sourceTree = "<group>"; };
+		2BD741FA2B088255006C11B2 /* BButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BButton.swift; sourceTree = "<group>"; };
+		2BD741FC2B088DBA006C11B2 /* BTextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTextButton.swift; sourceTree = "<group>"; };
+		2BD741FE2B08A49C006C11B2 /* JoinStep1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinStep1View.swift; sourceTree = "<group>"; };
+		2BD742002B08DA3C006C11B2 /* PasswordStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordStepViewController.swift; sourceTree = "<group>"; };
+		2BD742022B08DA4B006C11B2 /* PasswordStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordStepView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +74,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BD741DB2B079341006C11B2 /* SnapKit in Frameworks */,
+				2BD742062B08DCEC006C11B2 /* TextFieldEffects in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,7 +140,10 @@
 		2BD741C72B060792006C11B2 /* Join */ = {
 			isa = PBXGroup;
 			children = (
-				2BD741C92B0607FC006C11B2 /* JoinViewController.swift */,
+				2BD741C92B0607FC006C11B2 /* JoinStep1ViewController.swift */,
+				2BD741FE2B08A49C006C11B2 /* JoinStep1View.swift */,
+				2BD742002B08DA3C006C11B2 /* PasswordStepViewController.swift */,
+				2BD742022B08DA4B006C11B2 /* PasswordStepView.swift */,
 			);
 			path = Join;
 			sourceTree = "<group>";
@@ -214,6 +229,8 @@
 				2BD741F42B07B8D9006C11B2 /* BLabel.swift */,
 				2BD741F62B07C708006C11B2 /* BTextField.swift */,
 				2BD741F82B07CE01006C11B2 /* BDivider.swift */,
+				2BD741FA2B088255006C11B2 /* BButton.swift */,
+				2BD741FC2B088DBA006C11B2 /* BTextButton.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -236,6 +253,7 @@
 			name = Blanky;
 			packageProductDependencies = (
 				2BD741DA2B079341006C11B2 /* SnapKit */,
+				2BD742052B08DCEC006C11B2 /* TextFieldEffects */,
 			);
 			productName = Blanky;
 			productReference = 2BD741AD2B06051F006C11B2 /* Blanky.app */;
@@ -267,6 +285,7 @@
 			mainGroup = 2BD741A42B06051F006C11B2;
 			packageReferences = (
 				2BD741D92B079341006C11B2 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				2BD742042B08DCEC006C11B2 /* XCRemoteSwiftPackageReference "TextFieldEffects" */,
 			);
 			productRefGroup = 2BD741AE2B06051F006C11B2 /* Products */;
 			projectDirPath = "";
@@ -303,14 +322,19 @@
 			files = (
 				2BD741B52B06051F006C11B2 /* ViewController.swift in Sources */,
 				2BD741F52B07B8D9006C11B2 /* BLabel.swift in Sources */,
+				2BD742012B08DA3C006C11B2 /* PasswordStepViewController.swift in Sources */,
 				2BD741B12B06051F006C11B2 /* AppDelegate.swift in Sources */,
-				2BD741CA2B0607FC006C11B2 /* JoinViewController.swift in Sources */,
+				2BD741CA2B0607FC006C11B2 /* JoinStep1ViewController.swift in Sources */,
+				2BD742032B08DA4B006C11B2 /* PasswordStepView.swift in Sources */,
 				2BD741F22B079FF8006C11B2 /* Font+.swift in Sources */,
 				2BD741D62B07905F006C11B2 /* BaseView.swift in Sources */,
 				2BD741F92B07CE01006C11B2 /* BDivider.swift in Sources */,
+				2BD741FF2B08A49C006C11B2 /* JoinStep1View.swift in Sources */,
 				2BD741CC2B061F5C006C11B2 /* LogInViewController.swift in Sources */,
 				2BD741D82B079084006C11B2 /* BaseViewController.swift in Sources */,
+				2BD741FB2B088255006C11B2 /* BButton.swift in Sources */,
 				2BD741DD2B079469006C11B2 /* LogInView.swift in Sources */,
+				2BD741FD2B088DBA006C11B2 /* BTextButton.swift in Sources */,
 				2BD741B32B06051F006C11B2 /* SceneDelegate.swift in Sources */,
 				2BD741F72B07C708006C11B2 /* BTextField.swift in Sources */,
 			);
@@ -543,6 +567,14 @@
 				minimumVersion = 5.6.0;
 			};
 		};
+		2BD742042B08DCEC006C11B2 /* XCRemoteSwiftPackageReference "TextFieldEffects" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/raulriera/TextFieldEffects";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.7.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -550,6 +582,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2BD741D92B079341006C11B2 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		2BD742052B08DCEC006C11B2 /* TextFieldEffects */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2BD742042B08DCEC006C11B2 /* XCRemoteSwiftPackageReference "TextFieldEffects" */;
+			productName = TextFieldEffects;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
