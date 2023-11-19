@@ -22,7 +22,7 @@ final class BPasswordTextField: HoshiTextField {
         self.keyboardType = keyboardType
         self.returnKeyType = returnKeyType
         self.borderActiveColor = .lightGray
-        self.borderInactiveColor = .darkGray
+        self.borderInactiveColor = .gray
         self.placeholderColor = .white
         self.placeholder = placeholder
         setup()
