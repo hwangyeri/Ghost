@@ -10,7 +10,7 @@ import TextFieldEffects
 
 final class BTextField: HoshiTextField {
     
-    init(keyboardType: UIKeyboardType, returnKeyType: UIReturnKeyType) {
+    init(keyboardType: UIKeyboardType, returnKeyType: UIReturnKeyType, placeholder: String) {
         super.init(frame: .zero)
         
         self.font = .customFont(.regular, size: .M)
@@ -25,6 +25,7 @@ final class BTextField: HoshiTextField {
         self.borderActiveColor = .lightGray
         self.borderInactiveColor = .darkGray
         self.placeholderColor = .white
+        self.placeholder = placeholder
     }
     
     required init?(coder aDecoder: NSCoder) {
