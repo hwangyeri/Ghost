@@ -10,6 +10,10 @@
 		2B6D6DE72B09DE8F004A8DA9 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 2B6D6DE62B09DE8F004A8DA9 /* Then */; };
 		2B6D6DE92B09DF31004A8DA9 /* BPasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D6DE82B09DF31004A8DA9 /* BPasswordTextField.swift */; };
 		2B6D6DEB2B09F62A004A8DA9 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D6DEA2B09F62A004A8DA9 /* BaseViewModel.swift */; };
+		2B6D6DEF2B09F805004A8DA9 /* JoinStep1ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D6DEE2B09F805004A8DA9 /* JoinStep1ViewModel.swift */; };
+		2B6D6DF22B09F856004A8DA9 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 2B6D6DF12B09F856004A8DA9 /* RxCocoa */; };
+		2B6D6DF42B09F856004A8DA9 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 2B6D6DF32B09F856004A8DA9 /* RxRelay */; };
+		2B6D6DF62B09F856004A8DA9 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2B6D6DF52B09F856004A8DA9 /* RxSwift */; };
 		2BD741B12B06051F006C11B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741B02B06051F006C11B2 /* AppDelegate.swift */; };
 		2BD741B32B06051F006C11B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741B22B06051F006C11B2 /* SceneDelegate.swift */; };
 		2BD741B52B06051F006C11B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741B42B06051F006C11B2 /* ViewController.swift */; };
@@ -43,6 +47,7 @@
 /* Begin PBXFileReference section */
 		2B6D6DE82B09DF31004A8DA9 /* BPasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPasswordTextField.swift; sourceTree = "<group>"; };
 		2B6D6DEA2B09F62A004A8DA9 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		2B6D6DEE2B09F805004A8DA9 /* JoinStep1ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinStep1ViewModel.swift; sourceTree = "<group>"; };
 		2BD741AD2B06051F006C11B2 /* Blanky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blanky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BD741B02B06051F006C11B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BD741B22B06051F006C11B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,8 +83,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B6D6DF62B09F856004A8DA9 /* RxSwift in Frameworks */,
+				2B6D6DF42B09F856004A8DA9 /* RxRelay in Frameworks */,
 				2BD741DB2B079341006C11B2 /* SnapKit in Frameworks */,
 				2B6D6DE72B09DE8F004A8DA9 /* Then in Frameworks */,
+				2B6D6DF22B09F856004A8DA9 /* RxCocoa in Frameworks */,
 				2BD742062B08DCEC006C11B2 /* TextFieldEffects in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -92,6 +100,7 @@
 			children = (
 				2BD741C92B0607FC006C11B2 /* JoinStep1ViewController.swift */,
 				2BD741FE2B08A49C006C11B2 /* JoinStep1View.swift */,
+				2B6D6DEE2B09F805004A8DA9 /* JoinStep1ViewModel.swift */,
 			);
 			path = JoinStep1;
 			sourceTree = "<group>";
@@ -279,6 +288,9 @@
 				2BD741DA2B079341006C11B2 /* SnapKit */,
 				2BD742052B08DCEC006C11B2 /* TextFieldEffects */,
 				2B6D6DE62B09DE8F004A8DA9 /* Then */,
+				2B6D6DF12B09F856004A8DA9 /* RxCocoa */,
+				2B6D6DF32B09F856004A8DA9 /* RxRelay */,
+				2B6D6DF52B09F856004A8DA9 /* RxSwift */,
 			);
 			productName = Blanky;
 			productReference = 2BD741AD2B06051F006C11B2 /* Blanky.app */;
@@ -312,6 +324,7 @@
 				2BD741D92B079341006C11B2 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				2BD742042B08DCEC006C11B2 /* XCRemoteSwiftPackageReference "TextFieldEffects" */,
 				2B6D6DE52B09DE8F004A8DA9 /* XCRemoteSwiftPackageReference "Then" */,
+				2B6D6DF02B09F856004A8DA9 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = 2BD741AE2B06051F006C11B2 /* Products */;
 			projectDirPath = "";
@@ -354,6 +367,7 @@
 				2BD741CA2B0607FC006C11B2 /* JoinStep1ViewController.swift in Sources */,
 				2BD742032B08DA4B006C11B2 /* JoinStep2View.swift in Sources */,
 				2BD741F22B079FF8006C11B2 /* Font+.swift in Sources */,
+				2B6D6DEF2B09F805004A8DA9 /* JoinStep1ViewModel.swift in Sources */,
 				2BD741D62B07905F006C11B2 /* BaseView.swift in Sources */,
 				2BD741F92B07CE01006C11B2 /* BDivider.swift in Sources */,
 				2BD741FF2B08A49C006C11B2 /* JoinStep1View.swift in Sources */,
@@ -595,6 +609,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		2B6D6DF02B09F856004A8DA9 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.6.0;
+			};
+		};
 		2BD741D92B079341006C11B2 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -618,6 +640,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2B6D6DE52B09DE8F004A8DA9 /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
+		};
+		2B6D6DF12B09F856004A8DA9 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2B6D6DF02B09F856004A8DA9 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		2B6D6DF32B09F856004A8DA9 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2B6D6DF02B09F856004A8DA9 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		2B6D6DF52B09F856004A8DA9 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2B6D6DF02B09F856004A8DA9 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
 		};
 		2BD741DA2B079341006C11B2 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
