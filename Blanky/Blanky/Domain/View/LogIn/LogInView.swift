@@ -7,7 +7,6 @@
 
 import UIKit
 import SnapKit
-import TextFieldEffects
 
 class LogInView: BaseView {
     
@@ -29,7 +28,7 @@ class LogInView: BaseView {
         placeholder: "이메일 주소"
     )
     
-    let passwordTextField = BTextField(
+    let passwordTextField = BPasswordTextField(
         keyboardType: .default,
         returnKeyType: .done,
         placeholder: "비밀번호"
