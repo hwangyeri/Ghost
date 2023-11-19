@@ -19,7 +19,7 @@ final class BTextField: HoshiTextField {
         self.autocorrectionType = .no // 자동 수정
         self.spellCheckingType = .no // 맞춤법 검사
         self.clearButtonMode = .whileEditing
-        self.clearsOnBeginEditing = true // 편집 시 기존 텍스트필드값 제거
+//        self.clearsOnBeginEditing = true // 편집 시 기존 텍스트필드값 제거
         self.keyboardType = keyboardType
         self.returnKeyType = returnKeyType
         self.borderActiveColor = .lightGray
