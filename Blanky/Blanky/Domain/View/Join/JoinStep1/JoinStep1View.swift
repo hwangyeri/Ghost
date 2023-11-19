@@ -23,12 +23,9 @@ class JoinStep1View: BaseView {
         placeholder: "이메일은 영문, 숫자만 사용해야 합니다."
     )
     
-    let checkDuplicationButton = UIButton().then {
-        $0.setTitle("중복 확인", for: .normal)
-        $0.setTitleColor(.black, for: .normal)
+    let checkDuplicationButton = BButton(text: "중복 확인").then {
         $0.layer.cornerRadius = 16
-        $0.titleLabel?.font = .customFont(.semiBold, size: .XXS)
-        $0.backgroundColor = .white
+        $0.titleLabel?.font = .customFont(.regular, size: .XXS)
     }
     
     let passwordLabel = BLabel(
