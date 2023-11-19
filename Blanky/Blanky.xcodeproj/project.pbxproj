@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2B6D6DE72B09DE8F004A8DA9 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 2B6D6DE62B09DE8F004A8DA9 /* Then */; };
 		2B6D6DE92B09DF31004A8DA9 /* BPasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D6DE82B09DF31004A8DA9 /* BPasswordTextField.swift */; };
+		2B6D6DEB2B09F62A004A8DA9 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D6DEA2B09F62A004A8DA9 /* BaseViewModel.swift */; };
 		2BD741B12B06051F006C11B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741B02B06051F006C11B2 /* AppDelegate.swift */; };
 		2BD741B32B06051F006C11B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741B22B06051F006C11B2 /* SceneDelegate.swift */; };
 		2BD741B52B06051F006C11B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741B42B06051F006C11B2 /* ViewController.swift */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		2B6D6DE82B09DF31004A8DA9 /* BPasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPasswordTextField.swift; sourceTree = "<group>"; };
+		2B6D6DEA2B09F62A004A8DA9 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		2BD741AD2B06051F006C11B2 /* Blanky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blanky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BD741B02B06051F006C11B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BD741B22B06051F006C11B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +87,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B6D6DEC2B09F72E004A8DA9 /* JoinStep1 */ = {
+			isa = PBXGroup;
+			children = (
+				2BD741C92B0607FC006C11B2 /* JoinStep1ViewController.swift */,
+				2BD741FE2B08A49C006C11B2 /* JoinStep1View.swift */,
+			);
+			path = JoinStep1;
+			sourceTree = "<group>";
+		};
+		2B6D6DED2B09F743004A8DA9 /* JoinStep2 */ = {
+			isa = PBXGroup;
+			children = (
+				2BD742022B08DA4B006C11B2 /* JoinStep2View.swift */,
+				2BD742002B08DA3C006C11B2 /* JoinStep2ViewController.swift */,
+			);
+			path = JoinStep2;
+			sourceTree = "<group>";
+		};
 		2BD741A42B06051F006C11B2 = {
 			isa = PBXGroup;
 			children = (
@@ -144,10 +164,8 @@
 		2BD741C72B060792006C11B2 /* Join */ = {
 			isa = PBXGroup;
 			children = (
-				2BD741C92B0607FC006C11B2 /* JoinStep1ViewController.swift */,
-				2BD741FE2B08A49C006C11B2 /* JoinStep1View.swift */,
-				2BD742002B08DA3C006C11B2 /* JoinStep2ViewController.swift */,
-				2BD742022B08DA4B006C11B2 /* JoinStep2View.swift */,
+				2B6D6DEC2B09F72E004A8DA9 /* JoinStep1 */,
+				2B6D6DED2B09F743004A8DA9 /* JoinStep2 */,
 			);
 			path = Join;
 			sourceTree = "<group>";
@@ -176,6 +194,7 @@
 			children = (
 				2BD741D52B07905F006C11B2 /* BaseView.swift */,
 				2BD741D72B079084006C11B2 /* BaseViewController.swift */,
+				2B6D6DEA2B09F62A004A8DA9 /* BaseViewModel.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -341,6 +360,7 @@
 				2BD741CC2B061F5C006C11B2 /* LogInViewController.swift in Sources */,
 				2BD741D82B079084006C11B2 /* BaseViewController.swift in Sources */,
 				2BD741FB2B088255006C11B2 /* BButton.swift in Sources */,
+				2B6D6DEB2B09F62A004A8DA9 /* BaseViewModel.swift in Sources */,
 				2BD741DD2B079469006C11B2 /* LogInView.swift in Sources */,
 				2BD741FD2B088DBA006C11B2 /* BTextButton.swift in Sources */,
 				2BD741B32B06051F006C11B2 /* SceneDelegate.swift in Sources */,
