@@ -37,7 +37,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        view.backgroundColor = .white
+//        view.backgroundColor = .white
         
         view.addSubview(emailTextField)
         emailTextField.snp.makeConstraints { make in
