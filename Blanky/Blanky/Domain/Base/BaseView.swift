@@ -13,6 +13,7 @@ class BaseView: UIView {
         super.init(frame: frame)
         configureHierarchy()
         configureLayout()
+        self.backgroundColor = .bColor100
     }
     
     required init?(coder: NSCoder) {
