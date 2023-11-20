@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.enableAutoToolbar = true
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
-        IQKeyboardManager.shared.toolbarTintColor = .point
+        IQKeyboardManager.shared.toolbarTintColor = .white
         IQKeyboardManager.shared.toolbarDoneBarButtonItemText = "확인"
         
         return true
