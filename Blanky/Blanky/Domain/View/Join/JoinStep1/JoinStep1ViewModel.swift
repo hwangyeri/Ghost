@@ -15,7 +15,7 @@ class JoinStep1ViewModel: BaseViewModel {
         let emailTextField: ControlProperty<String>
         let passwordTextField: ControlProperty<String>
         let checkPasswordTextField: ControlProperty<String>
-        let checkDuplicationButton: ControlEvent<Void>
+        let checkDuplicationButton: ControlEvent<Void> // 중복 확인 버튼
         let nextButton: ControlEvent<Void>
     }
     
@@ -31,6 +31,7 @@ class JoinStep1ViewModel: BaseViewModel {
     
     func transform(input: Input) -> Output {
         
+        // 이메일 유효성 검사
         let emailValidation = input.emailTextField
             .map { text in
                 let emailRegex = "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$"
@@ -41,6 +42,7 @@ class JoinStep1ViewModel: BaseViewModel {
             }
             .asDriver(onErrorJustReturn: false)
         
+        // 비밀번호 유효성 검사
         let passwordValidation = input.passwordTextField
             .map { text in
                 let passwordRegex = "^[A-Za-z0-9!_@$%^&+=]{8,20}$"
@@ -51,8 +53,8 @@ class JoinStep1ViewModel: BaseViewModel {
             }
             .asDriver(onErrorJustReturn: false)
         
-        let checkPasswordValidation = Observable
-            .combineLatest(input.checkPasswordTextField.asObservable(), input.passwordTextField.asObservable())
+        // 비밀번호 확인 유효성 검사
+        let checkPasswordValidation = Observable.combineLatest(input.checkPasswordTextField.asObservable(), input.passwordTextField.asObservable())
             .map { checkPassword, password in
                 guard !checkPassword.isEmpty else {
                     return false
@@ -61,6 +63,14 @@ class JoinStep1ViewModel: BaseViewModel {
             }
             .asDriver(onErrorJustReturn: false)
         
+        // 중복 확인 버튼
+        let checkDuplicationButton = input.checkDuplicationButton
+        
+        // 다음 버튼 유효성 검사
+        let finalValidation = Driver.combineLatest(emailValidation, passwordValidation, checkPasswordValidation) {
+            $0 && $1 && $2
+        }
+        
         
         return Output(
             emailValidation: emailValidation,
@@ -68,7 +78,7 @@ class JoinStep1ViewModel: BaseViewModel {
             checkPasswordValidation: checkPasswordValidation,
             // FIXME
             checkDuplication: emailValidation,
-            finalValidation: emailValidation
+            finalValidation: finalValidation
         )
     }
     
