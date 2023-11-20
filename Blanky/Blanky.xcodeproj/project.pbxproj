@@ -15,6 +15,9 @@
 		2B6D6DF42B09F856004A8DA9 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 2B6D6DF32B09F856004A8DA9 /* RxRelay */; };
 		2B6D6DF62B09F856004A8DA9 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2B6D6DF52B09F856004A8DA9 /* RxSwift */; };
 		2B6D6DF92B0A3C4F004A8DA9 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2B6D6DF82B0A3C4F004A8DA9 /* IQKeyboardManagerSwift */; };
+		2B6D6E202B0B440D004A8DA9 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2B6D6E1F2B0B440D004A8DA9 /* .gitignore */; };
+		2B6D6E242B0B5404004A8DA9 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 2B6D6E232B0B5404004A8DA9 /* Moya */; };
+		2B6D6E262B0B5404004A8DA9 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 2B6D6E252B0B5404004A8DA9 /* RxMoya */; };
 		2BD741B12B06051F006C11B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741B02B06051F006C11B2 /* AppDelegate.swift */; };
 		2BD741B32B06051F006C11B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741B22B06051F006C11B2 /* SceneDelegate.swift */; };
 		2BD741B52B06051F006C11B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741B42B06051F006C11B2 /* ViewController.swift */; };
@@ -49,6 +52,7 @@
 		2B6D6DE82B09DF31004A8DA9 /* BPasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPasswordTextField.swift; sourceTree = "<group>"; };
 		2B6D6DEA2B09F62A004A8DA9 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		2B6D6DEE2B09F805004A8DA9 /* JoinStep1ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinStep1ViewModel.swift; sourceTree = "<group>"; };
+		2B6D6E1F2B0B440D004A8DA9 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		2BD741AD2B06051F006C11B2 /* Blanky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blanky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BD741B02B06051F006C11B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BD741B22B06051F006C11B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,9 +90,11 @@
 			files = (
 				2B6D6DF92B0A3C4F004A8DA9 /* IQKeyboardManagerSwift in Frameworks */,
 				2B6D6DF62B09F856004A8DA9 /* RxSwift in Frameworks */,
+				2B6D6E242B0B5404004A8DA9 /* Moya in Frameworks */,
 				2B6D6DF42B09F856004A8DA9 /* RxRelay in Frameworks */,
 				2BD741DB2B079341006C11B2 /* SnapKit in Frameworks */,
 				2B6D6DE72B09DE8F004A8DA9 /* Then in Frameworks */,
+				2B6D6E262B0B5404004A8DA9 /* RxMoya in Frameworks */,
 				2B6D6DF22B09F856004A8DA9 /* RxCocoa in Frameworks */,
 				2BD742062B08DCEC006C11B2 /* TextFieldEffects in Frameworks */,
 			);
@@ -116,6 +122,15 @@
 			path = JoinStep2;
 			sourceTree = "<group>";
 		};
+		2B6D6E212B0B530F004A8DA9 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				2BD741C52B060774006C11B2 /* Domain */,
+				2BD741EE2B079F6E006C11B2 /* Utility */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 		2BD741A42B06051F006C11B2 = {
 			isa = PBXGroup;
 			children = (
@@ -137,9 +152,9 @@
 			children = (
 				2BD741BE2B060521006C11B2 /* Info.plist */,
 				2BD741C42B060757006C11B2 /* Application */,
-				2BD741C52B060774006C11B2 /* Domain */,
-				2BD741EE2B079F6E006C11B2 /* Utility */,
+				2B6D6E212B0B530F004A8DA9 /* Source */,
 				2BD741C82B0607A8006C11B2 /* Resource */,
+				2B6D6E1F2B0B440D004A8DA9 /* .gitignore */,
 			);
 			path = Blanky;
 			sourceTree = "<group>";
@@ -294,6 +309,8 @@
 				2B6D6DF32B09F856004A8DA9 /* RxRelay */,
 				2B6D6DF52B09F856004A8DA9 /* RxSwift */,
 				2B6D6DF82B0A3C4F004A8DA9 /* IQKeyboardManagerSwift */,
+				2B6D6E232B0B5404004A8DA9 /* Moya */,
+				2B6D6E252B0B5404004A8DA9 /* RxMoya */,
 			);
 			productName = Blanky;
 			productReference = 2BD741AD2B06051F006C11B2 /* Blanky.app */;
@@ -329,6 +346,7 @@
 				2B6D6DE52B09DE8F004A8DA9 /* XCRemoteSwiftPackageReference "Then" */,
 				2B6D6DF02B09F856004A8DA9 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				2B6D6DF72B0A3C4F004A8DA9 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				2B6D6E222B0B5404004A8DA9 /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			productRefGroup = 2BD741AE2B06051F006C11B2 /* Products */;
 			projectDirPath = "";
@@ -344,6 +362,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B6D6E202B0B440D004A8DA9 /* .gitignore in Resources */,
 				2BD741E92B079A8C006C11B2 /* Pretendard-Medium.otf in Resources */,
 				2BD741EC2B079A97006C11B2 /* Pretendard-Bold.otf in Resources */,
 				2BD741BD2B060521006C11B2 /* LaunchScreen.storyboard in Resources */,
@@ -629,6 +648,14 @@
 				minimumVersion = 6.5.16;
 			};
 		};
+		2B6D6E222B0B5404004A8DA9 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.3;
+			};
+		};
 		2BD741D92B079341006C11B2 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -672,6 +699,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2B6D6DF72B0A3C4F004A8DA9 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
+		};
+		2B6D6E232B0B5404004A8DA9 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2B6D6E222B0B5404004A8DA9 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		2B6D6E252B0B5404004A8DA9 /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2B6D6E222B0B5404004A8DA9 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = RxMoya;
 		};
 		2BD741DA2B079341006C11B2 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
