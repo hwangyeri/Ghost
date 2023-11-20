@@ -20,7 +20,7 @@ class JoinStep1View: BaseView {
     let emailTextField = BTextField(
         keyboardType: .emailAddress,
         returnKeyType: .next,
-        placeholder: "이메일은 영문, 숫자만 사용해야 합니다."
+        placeholder: "영문, 숫자만 사용해야 합니다."
     )
     
     let checkDuplicationButton = BButton(text: "중복 확인").then {
@@ -37,7 +37,7 @@ class JoinStep1View: BaseView {
     let passwordTextField = BPasswordTextField(
         keyboardType: .default,
         returnKeyType: .next, 
-        placeholder: "비밀번호는 8글자 이상, 영문, 숫자, 특수문수 모두 사용해야 합니다."
+        placeholder: "8글자 이상, 영문, 숫자, 특수문수 모두 사용해야 합니다."
     )
     
     let checkPasswordTextField = BPasswordTextField(
@@ -55,8 +55,6 @@ class JoinStep1View: BaseView {
     }
     
     override func configureLayout() {
-        self.backgroundColor = .black
-        
         emailLabel.snp.makeConstraints { make in
             make.top.equalTo(self.safeAreaLayoutGuide).inset(30)
             make.horizontalEdges.equalToSuperview().inset(20)

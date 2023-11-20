@@ -54,8 +54,6 @@ class LogInView: BaseView {
     }
     
     override func configureLayout() {
-        self.backgroundColor = .black // TextFieldEffects Click issue
-        
         mainLabel.snp.makeConstraints { make in
             make.top.equalTo(self.safeAreaLayoutGuide).inset(30)
             make.centerX.equalToSuperview()
