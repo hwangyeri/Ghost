@@ -24,7 +24,6 @@
 		2B6D6E402B0C7E3B004A8DA9 /* GetAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D6E3F2B0C7E3B004A8DA9 /* GetAPI.swift */; };
 		2B6D6E442B0C8AFE004A8DA9 /* GetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D6E432B0C8AFD004A8DA9 /* GetModel.swift */; };
 		2B6D6E462B0C8E8A004A8DA9 /* FailureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D6E452B0C8E8A004A8DA9 /* FailureModel.swift */; };
-		2B6D6E512B0CC281004A8DA9 /* PostAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D6E502B0CC281004A8DA9 /* PostAPIManager.swift */; };
 		2B6D6E532B0CC362004A8DA9 /* APIErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D6E522B0CC362004A8DA9 /* APIErrors.swift */; };
 		2BD741B12B06051F006C11B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741B02B06051F006C11B2 /* AppDelegate.swift */; };
 		2BD741B32B06051F006C11B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741B22B06051F006C11B2 /* SceneDelegate.swift */; };
@@ -67,7 +66,6 @@
 		2B6D6E3F2B0C7E3B004A8DA9 /* GetAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAPI.swift; sourceTree = "<group>"; };
 		2B6D6E432B0C8AFD004A8DA9 /* GetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetModel.swift; sourceTree = "<group>"; };
 		2B6D6E452B0C8E8A004A8DA9 /* FailureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailureModel.swift; sourceTree = "<group>"; };
-		2B6D6E502B0CC281004A8DA9 /* PostAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAPIManager.swift; sourceTree = "<group>"; };
 		2B6D6E522B0CC362004A8DA9 /* APIErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIErrors.swift; sourceTree = "<group>"; };
 		2BD741AD2B06051F006C11B2 /* Blanky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blanky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BD741B02B06051F006C11B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -169,7 +167,6 @@
 			children = (
 				2B6D6E302B0B6CFD004A8DA9 /* PostModel.swift */,
 				2B6D6E292B0B5480004A8DA9 /* PostAPI.swift */,
-				2B6D6E502B0CC281004A8DA9 /* PostAPIManager.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -458,7 +455,6 @@
 				2BD742032B08DA4B006C11B2 /* JoinStep2View.swift in Sources */,
 				2BD741F22B079FF8006C11B2 /* Font+.swift in Sources */,
 				2B6D6DEF2B09F805004A8DA9 /* JoinStep1ViewModel.swift in Sources */,
-				2B6D6E512B0CC281004A8DA9 /* PostAPIManager.swift in Sources */,
 				2BD741D62B07905F006C11B2 /* BaseView.swift in Sources */,
 				2B6D6E462B0C8E8A004A8DA9 /* FailureModel.swift in Sources */,
 				2BD741F92B07CE01006C11B2 /* BDivider.swift in Sources */,
