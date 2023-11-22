@@ -24,6 +24,19 @@ class JoinStep1ViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        PostAPIManager.shared.validateEmail(email: "test@naver.com")
+            .subscribe { event in
+                    switch event {
+                    case .success(let result):
+                        print("Validation successful: \(result)")
+                        // Handle the validation success
+                    case .failure(let error):
+                        print("Validation failed with error: \(error)")
+                        // Handle the validation failure
+                    }
+                }
+                .disposed(by: disposeBag)
+        
         bind()
     }
     
