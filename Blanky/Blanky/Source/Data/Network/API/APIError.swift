@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum APIErrors: Int, Error {
+enum APIError: Int, Error {
     
     ///공통 응답 코드 (HTTP status code)
     case missingSesacKey = 420
@@ -17,7 +17,7 @@ enum APIErrors: Int, Error {
     
     case invalidRequest = 400 ///잘못된 요청(포스트), 필수값 누락(회원가입, 이메일 중복 확인)
     case alreadyExists = 409 ///이미 가입한 유저(회원가입), 사용 불가한 이메일(이메일 중복 확인), 액세스 토큰 만료 후 재요청(액세스 토큰 갱신)
-    case invalidAccessToken = 401
+    case unusableAccount = 401 ///미가입이나 비밀번호 불일치(로그인), 유효하지 않은 액세스 토큰
     case forbidden = 403
     case refreshTokenExpired = 418
     case accessTokenExpired = 419
@@ -38,8 +38,8 @@ enum APIErrors: Int, Error {
             return "잘못된 요청입니다."
         case .alreadyExists:
             return "이미 존재하는 값입니다."
-        case .invalidAccessToken:
-            return "인증할 수 없는 액세스 토큰입니다."
+        case .unusableAccount:
+            return "사용할 수 없는 계정입니다."
         case .forbidden:
             return "접근 권한이 없습니다."
         case .refreshTokenExpired:
@@ -52,6 +52,4 @@ enum APIErrors: Int, Error {
             return "수정/삭제 권한이 없습니다."
         }
     }
-    
-    
 }
