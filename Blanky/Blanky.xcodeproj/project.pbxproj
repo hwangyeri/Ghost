@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B61ACDE2B107B0E00C3F29E /* Alert+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B61ACDD2B107B0E00C3F29E /* Alert+.swift */; };
+		2B61ACE12B12543C00C3F29E /* RandomNickname.json in Resources */ = {isa = PBXBuildFile; fileRef = 2B61ACE02B12543C00C3F29E /* RandomNickname.json */; };
+		2B61ACE32B1256AC00C3F29E /* NicknameDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B61ACE22B1256AC00C3F29E /* NicknameDataManager.swift */; };
+		2B61ACE62B12573400C3F29E /* NicknameDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B61ACE52B12573400C3F29E /* NicknameDataModel.swift */; };
+		2B61ACE82B12777600C3F29E /* BImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B61ACE72B12777600C3F29E /* BImageButton.swift */; };
 		2B6D6DE72B09DE8F004A8DA9 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 2B6D6DE62B09DE8F004A8DA9 /* Then */; };
 		2B6D6DE92B09DF31004A8DA9 /* BPasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D6DE82B09DF31004A8DA9 /* BPasswordTextField.swift */; };
 		2B6D6DEB2B09F62A004A8DA9 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D6DEA2B09F62A004A8DA9 /* BaseViewModel.swift */; };
@@ -56,6 +61,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B61ACDD2B107B0E00C3F29E /* Alert+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert+.swift"; sourceTree = "<group>"; };
+		2B61ACE02B12543C00C3F29E /* RandomNickname.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RandomNickname.json; sourceTree = "<group>"; };
+		2B61ACE22B1256AC00C3F29E /* NicknameDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameDataManager.swift; sourceTree = "<group>"; };
+		2B61ACE52B12573400C3F29E /* NicknameDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameDataModel.swift; sourceTree = "<group>"; };
+		2B61ACE72B12777600C3F29E /* BImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BImageButton.swift; sourceTree = "<group>"; };
 		2B6D6DE82B09DF31004A8DA9 /* BPasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPasswordTextField.swift; sourceTree = "<group>"; };
 		2B6D6DEA2B09F62A004A8DA9 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		2B6D6DEE2B09F805004A8DA9 /* JoinStep1ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinStep1ViewModel.swift; sourceTree = "<group>"; };
@@ -117,6 +127,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B61ACDF2B12539600C3F29E /* RandomNickname */ = {
+			isa = PBXGroup;
+			children = (
+				2B61ACE02B12543C00C3F29E /* RandomNickname.json */,
+			);
+			path = RandomNickname;
+			sourceTree = "<group>";
+		};
+		2B61ACE42B12571E00C3F29E /* Nickname */ = {
+			isa = PBXGroup;
+			children = (
+				2B61ACE22B1256AC00C3F29E /* NicknameDataManager.swift */,
+				2B61ACE52B12573400C3F29E /* NicknameDataModel.swift */,
+			);
+			path = Nickname;
+			sourceTree = "<group>";
+		};
 		2B6D6DEC2B09F72E004A8DA9 /* JoinStep1 */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,8 +157,8 @@
 		2B6D6DED2B09F743004A8DA9 /* JoinStep2 */ = {
 			isa = PBXGroup;
 			children = (
-				2BD742022B08DA4B006C11B2 /* JoinStep2View.swift */,
 				2BD742002B08DA3C006C11B2 /* JoinStep2ViewController.swift */,
+				2BD742022B08DA4B006C11B2 /* JoinStep2View.swift */,
 			);
 			path = JoinStep2;
 			sourceTree = "<group>";
@@ -157,6 +184,7 @@
 		2B6D6E282B0B545C004A8DA9 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				2B61ACE42B12571E00C3F29E /* Nickname */,
 				2B6D6E542B0CCFFF004A8DA9 /* API */,
 			);
 			path = Network;
@@ -260,6 +288,7 @@
 		2BD741C82B0607A8006C11B2 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				2B61ACDF2B12539600C3F29E /* RandomNickname */,
 				2BD741DE2B079A4A006C11B2 /* Font */,
 				2BD741BB2B060521006C11B2 /* LaunchScreen.storyboard */,
 				2BD741B92B060521006C11B2 /* Assets.xcassets */,
@@ -329,6 +358,7 @@
 			isa = PBXGroup;
 			children = (
 				2BD741F12B079FF8006C11B2 /* Font+.swift */,
+				2B61ACDD2B107B0E00C3F29E /* Alert+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -342,6 +372,7 @@
 				2BD741F82B07CE01006C11B2 /* BDivider.swift */,
 				2BD741FA2B088255006C11B2 /* BButton.swift */,
 				2BD741FC2B088DBA006C11B2 /* BTextButton.swift */,
+				2B61ACE72B12777600C3F29E /* BImageButton.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -424,6 +455,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B6D6E202B0B440D004A8DA9 /* .gitignore in Resources */,
+				2B61ACE12B12543C00C3F29E /* RandomNickname.json in Resources */,
 				2BD741E92B079A8C006C11B2 /* Pretendard-Medium.otf in Resources */,
 				2BD741EC2B079A97006C11B2 /* Pretendard-Bold.otf in Resources */,
 				2BD741BD2B060521006C11B2 /* LaunchScreen.storyboard in Resources */,
@@ -443,9 +475,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B61ACE82B12777600C3F29E /* BImageButton.swift in Sources */,
+				2B61ACE32B1256AC00C3F29E /* NicknameDataManager.swift in Sources */,
 				2BD741B52B06051F006C11B2 /* ViewController.swift in Sources */,
 				2B6D6E532B0CC362004A8DA9 /* APIError.swift in Sources */,
+				2B61ACDE2B107B0E00C3F29E /* Alert+.swift in Sources */,
 				2B6D6E5D2B0DAA5A004A8DA9 /* PostAPIManager.swift in Sources */,
+				2B61ACE62B12573400C3F29E /* NicknameDataModel.swift in Sources */,
 				2B6D6E402B0C7E3B004A8DA9 /* GetAPI.swift in Sources */,
 				2B6D6DE92B09DF31004A8DA9 /* BPasswordTextField.swift in Sources */,
 				2BD741F52B07B8D9006C11B2 /* BLabel.swift in Sources */,
