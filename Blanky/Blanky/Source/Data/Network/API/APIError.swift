@@ -9,6 +9,9 @@ import Foundation
 
 enum APIError: Int, Error {
     
+    case unknownError = 1
+    case decodedError = 2
+    
     ///공통 응답 코드 (HTTP status code)
     case missingSesacKey = 420
     case overcall = 429
@@ -26,6 +29,10 @@ enum APIError: Int, Error {
     
     var errorDescription: String {
         switch self {
+        case .unknownError:
+            return "알 수 없는 에러가 발생했습니다."
+        case .decodedError:
+            return "디코딩에 실패했습니다."
         case .missingSesacKey:
             return "SesacKey가 잘못되었습니다."
         case .overcall:
@@ -37,7 +44,7 @@ enum APIError: Int, Error {
         case .invalidRequest:
             return "잘못된 요청입니다."
         case .alreadyExists:
-            return "이미 존재하는 값입니다."
+            return "이미 존재하는 이메일입니다."
         case .unusableAccount:
             return "사용할 수 없는 계정입니다."
         case .forbidden:
