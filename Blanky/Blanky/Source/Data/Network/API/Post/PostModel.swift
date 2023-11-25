@@ -9,8 +9,8 @@ import Foundation
 
 // MARK: 회원 가입
 struct JoinInput: Encodable {
-    let email: String
-    let password: String
+    var email: String
+    var password: String
     let nick: String
 }
 
