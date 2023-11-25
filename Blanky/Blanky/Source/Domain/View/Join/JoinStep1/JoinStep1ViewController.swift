@@ -23,39 +23,21 @@ class JoinStep1ViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        PostAPIManager.shared.validateEmail(email: "test@naver.com")
-            .subscribe { event in
-                    switch event {
-                    case .success(let result):
-                        print("Validation successful: \(result)")
-                        // Handle the validation success
-                    case .failure(let error):
-                        print("Validation failed with error: \(error)")
-                        // Handle the validation failure
-                    }
-                }
-                .disposed(by: disposeBag)
         
         bind()
     }
     
     override func configureLayout() {
         self.navigationItem.title = "회원가입"
-        mainView.checkDuplicationButton.addTarget(self, action: #selector(checkDuplicationButtonTapped), for: .touchUpInside)
-    }
-    
-    @objc private func checkDuplicationButtonTapped() {
-        print(#function)
     }
     
     private func bind() {
         
         let input = JoinStep1ViewModel.Input(
             emailTextField: mainView.emailTextField.rx.text.orEmpty,
+            checkEmailDuplicationButton: mainView.checkEmailDuplicationButton.rx.tap,
             passwordTextField: mainView.passwordTextField.rx.text.orEmpty,
             checkPasswordTextField: mainView.checkPasswordTextField.rx.text.orEmpty,
-            checkDuplicationButton: mainView.checkDuplicationButton.rx.tap,
             nextButton: mainView.nextButton.rx.tap)
         
         let output = viewModel.transform(input: input)
@@ -63,8 +45,8 @@ class JoinStep1ViewController: BaseViewController {
         output.emailValidation
             .drive(with: self) { owner, isValid in
                 owner.mainView.emailTextField.borderActiveColor = isValid ? .point : .systemPink
-                owner.mainView.checkDuplicationButton.isEnabled = isValid
-                owner.mainView.checkDuplicationButton.backgroundColor = isValid ? .white : .gray
+                owner.mainView.checkEmailDuplicationButton.isEnabled = isValid
+                owner.mainView.checkEmailDuplicationButton.backgroundColor = isValid ? .white : .gray
             }
             .disposed(by: disposeBag)
         
@@ -81,6 +63,32 @@ class JoinStep1ViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
         
+        output.checkEmailDuplicationResult
+            .drive(with: self) { owner, result in
+                //owner.showAlertMessage(title: result.0, message: result.1)
+                owner.mainView.emailInfoLabel.text = result.1
+            }
+            .disposed(by: disposeBag)
+        
+        output.finalValidation
+            .drive(with: self) { owner, isValid in
+                owner.mainView.nextButton.isEnabled = isValid
+                owner.mainView.nextButton.backgroundColor = isValid ? .white : .gray
+            }
+            .disposed(by: disposeBag)
+        
+        output.nextButtonTap
+            .drive(with: self) { owner, result in
+                switch result {
+                case true:
+                    let vc = JoinStep2ViewController()
+                    owner.navigationController?.pushViewController(vc, animated: true)
+                case false:
+                    owner.mainView.emailInfoLabel.text = "✅  사용 가능한 이메일인지 확인해 주세요."
+                    owner.showAlertMessage(title: "", message: "사용 가능한 이메일인지 확인해 주세요.")
+                }
+            }
+            .disposed(by: disposeBag)
     }
 
 }
