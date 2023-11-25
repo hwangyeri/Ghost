@@ -23,7 +23,7 @@ class JoinStep1View: BaseView {
         placeholder: "영문, 숫자만 사용해야 합니다."
     )
     
-    let checkDuplicationButton = BButton(text: "중복 확인").then {
+    let checkEmailDuplicationButton = BButton(text: "중복 확인").then {
         $0.layer.cornerRadius = 16
         $0.titleLabel?.font = .customFont(.regular, size: .XXS)
     }
@@ -49,7 +49,7 @@ class JoinStep1View: BaseView {
     let nextButton = BButton(text: "다음")
     
     override func configureHierarchy() {
-        [emailLabel, emailTextField, checkDuplicationButton, passwordLabel, passwordTextField, checkPasswordTextField, nextButton].forEach {
+        [emailLabel, emailTextField, checkEmailDuplicationButton, passwordLabel, passwordTextField, checkPasswordTextField, nextButton].forEach {
             self.addSubview($0)
         }
     }
@@ -66,7 +66,7 @@ class JoinStep1View: BaseView {
             make.leading.equalTo(emailLabel)
         }
         
-        checkDuplicationButton.snp.makeConstraints { make in
+        checkEmailDuplicationButton.snp.makeConstraints { make in
             make.centerY.equalTo(emailTextField)
             make.leading.equalTo(emailTextField.snp.trailing).offset(10)
             make.trailing.equalToSuperview().inset(5)
