@@ -16,10 +16,12 @@ enum PostAPI {
 
 extension PostAPI: TargetType {
     
+    //서버의 도메인
     var baseURL: URL {
         return URL(string: APIKey.baseURL)!
     }
     
+    //서버의 도메인 뒤에 추가 될 경로 (일반적으로 API)
     var path: String {
         switch self {
         case .join:
@@ -31,6 +33,7 @@ extension PostAPI: TargetType {
         }
     }
     
+    //HTTP method
     var method: Moya.Method {
         switch self {
         case .join, .validationEmail, .login:
@@ -38,6 +41,7 @@ extension PostAPI: TargetType {
         }
     }
     
+    //request에 사용되는 파라미터 설정
     var task: Moya.Task {
         switch self {
         case .join(let model):
@@ -49,12 +53,18 @@ extension PostAPI: TargetType {
         }
     }
     
+    //HTTP header
     var headers: [String : String]? {
         switch self {
         case .join, .validationEmail, .login:
             ["Content-Type": "application/json",
              "SesacKey": APIKey.sesacKey]
         }
+    }
+    
+    //허용할 response의 타입
+    var validationType: ValidationType {
+        return .successCodes
     }
     
 }
