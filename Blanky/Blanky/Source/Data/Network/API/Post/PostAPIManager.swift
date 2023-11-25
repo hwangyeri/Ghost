@@ -8,13 +8,13 @@
 import Foundation
 import Moya
 import RxSwift
-import RxMoya
+//import RxMoya
 
 final class PostAPIManager {
     
     static let shared = PostAPIManager()
     
-    private let provider = MoyaProvider<PostAPI>()
+    private let provider = MoyaProvider<PostAPI>() // Moya의 TargetType을 따르는 enum
     
     private let disposeBag = DisposeBag()
     
@@ -35,33 +35,31 @@ final class PostAPIManager {
 //       }
        
        // MARK: - 이메일 중복 확인
-//       func validateEmail(email: String) -> Single<Result<ValidationEmailInput, Error>> {
-//           let input = ValidationEmailInput(email: email)
-//           
-//           return Single.create { single in
-//               self.provider.rx.request(.validationEmail(model: input)).subscribe { result in
-//                   switch result {
-//                   case .success(let response):
-//                      print(response)
-//                   case .failure(let error):
-//                      print(error)
-//                   }
-//               }
-//           }
-//       }
-    
-    func validateEmail(email: String) -> Single<Result<ValidationEmailInput, APIError>> {
+    func validateEmail(email: String) -> Single<Result<ValidationEmailOutput, APIError>> {
         let input = ValidationEmailInput(email: email)
         
-        return Single.create { single in
-            self.provider.rx.request(.validationEmail(model: input)).subscribe { result in
+        return Single<Result<ValidationEmailOutput, APIError>>.create { single in
+            self.provider.request(.validationEmail(model: input)) { result in
+                
+                print(result)
+                
                 switch result {
                 case .success(let response):
-                   print(response)
+                    do {
+                        let decodedData = try JSONDecoder().decode(ValidationEmailOutput.self, from: response.data)
+                        single(.success(.success(decodedData)))
+                    } catch {
+                        single(.success(.failure(.decodedError)))
+                    }
                 case .failure(let error):
-                   print(error)
+                    guard let customError = APIError(rawValue: error.response?.statusCode ?? 1) else {
+                        single(.success(.failure(.unknownError)))
+                        return
+                    }
+                    single(.success(.failure(customError)))
                 }
             }
+            return Disposables.create()
         }
     }
        
