@@ -30,6 +30,9 @@
 		2B6D6E642B0DE611004A8DA9 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2B6D6E632B0DE611004A8DA9 /* RxSwift */; };
 		2B6D6E672B0DE629004A8DA9 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 2B6D6E662B0DE629004A8DA9 /* Moya */; };
 		2B6D6E692B0DE629004A8DA9 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 2B6D6E682B0DE629004A8DA9 /* RxMoya */; };
+		2B9406282B133246003FCE94 /* NaviBarButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9406272B133246003FCE94 /* NaviBarButton+.swift */; };
+		2B94062A2B134146003FCE94 /* JoinStep2ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9406292B134146003FCE94 /* JoinStep2ViewModel.swift */; };
+		2B94062E2B139809003FCE94 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B94062D2B139809003FCE94 /* KeychainManager.swift */; };
 		2BD741B12B06051F006C11B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741B02B06051F006C11B2 /* AppDelegate.swift */; };
 		2BD741B32B06051F006C11B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741B22B06051F006C11B2 /* SceneDelegate.swift */; };
 		2BD741B52B06051F006C11B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741B42B06051F006C11B2 /* ViewController.swift */; };
@@ -77,6 +80,9 @@
 		2B6D6E432B0C8AFD004A8DA9 /* GetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetModel.swift; sourceTree = "<group>"; };
 		2B6D6E522B0CC362004A8DA9 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		2B6D6E5C2B0DAA5A004A8DA9 /* PostAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAPIManager.swift; sourceTree = "<group>"; };
+		2B9406272B133246003FCE94 /* NaviBarButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NaviBarButton+.swift"; sourceTree = "<group>"; };
+		2B9406292B134146003FCE94 /* JoinStep2ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinStep2ViewModel.swift; sourceTree = "<group>"; };
+		2B94062D2B139809003FCE94 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		2BD741AD2B06051F006C11B2 /* Blanky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blanky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BD741B02B06051F006C11B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BD741B22B06051F006C11B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -135,13 +141,13 @@
 			path = RandomNickname;
 			sourceTree = "<group>";
 		};
-		2B61ACE42B12571E00C3F29E /* Nickname */ = {
+		2B61ACE42B12571E00C3F29E /* RandomNickname */ = {
 			isa = PBXGroup;
 			children = (
 				2B61ACE22B1256AC00C3F29E /* NicknameDataManager.swift */,
 				2B61ACE52B12573400C3F29E /* NicknameDataModel.swift */,
 			);
-			path = Nickname;
+			path = RandomNickname;
 			sourceTree = "<group>";
 		};
 		2B6D6DEC2B09F72E004A8DA9 /* JoinStep1 */ = {
@@ -159,6 +165,7 @@
 			children = (
 				2BD742002B08DA3C006C11B2 /* JoinStep2ViewController.swift */,
 				2BD742022B08DA4B006C11B2 /* JoinStep2View.swift */,
+				2B9406292B134146003FCE94 /* JoinStep2ViewModel.swift */,
 			);
 			path = JoinStep2;
 			sourceTree = "<group>";
@@ -184,7 +191,8 @@
 		2B6D6E282B0B545C004A8DA9 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				2B61ACE42B12571E00C3F29E /* Nickname */,
+				2B94062C2B1397F4003FCE94 /* KeyChain */,
+				2B61ACE42B12571E00C3F29E /* RandomNickname */,
 				2B6D6E542B0CCFFF004A8DA9 /* API */,
 			);
 			path = Network;
@@ -218,6 +226,14 @@
 				2B6D6E482B0C98B5004A8DA9 /* Get */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		2B94062C2B1397F4003FCE94 /* KeyChain */ = {
+			isa = PBXGroup;
+			children = (
+				2B94062D2B139809003FCE94 /* KeychainManager.swift */,
+			);
+			path = KeyChain;
 			sourceTree = "<group>";
 		};
 		2BD741A42B06051F006C11B2 = {
@@ -359,6 +375,7 @@
 			children = (
 				2BD741F12B079FF8006C11B2 /* Font+.swift */,
 				2B61ACDD2B107B0E00C3F29E /* Alert+.swift */,
+				2B9406272B133246003FCE94 /* NaviBarButton+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -491,15 +508,18 @@
 				2B6D6E2D2B0B5491004A8DA9 /* APIKey.swift in Sources */,
 				2BD742032B08DA4B006C11B2 /* JoinStep2View.swift in Sources */,
 				2BD741F22B079FF8006C11B2 /* Font+.swift in Sources */,
+				2B94062A2B134146003FCE94 /* JoinStep2ViewModel.swift in Sources */,
 				2B6D6DEF2B09F805004A8DA9 /* JoinStep1ViewModel.swift in Sources */,
 				2BD741D62B07905F006C11B2 /* BaseView.swift in Sources */,
 				2BD741F92B07CE01006C11B2 /* BDivider.swift in Sources */,
 				2BD741FF2B08A49C006C11B2 /* JoinStep1View.swift in Sources */,
 				2BD741CC2B061F5C006C11B2 /* LogInViewController.swift in Sources */,
 				2B6D6E312B0B6CFD004A8DA9 /* PostModel.swift in Sources */,
+				2B94062E2B139809003FCE94 /* KeychainManager.swift in Sources */,
 				2B6D6E2A2B0B5480004A8DA9 /* PostAPI.swift in Sources */,
 				2BD741D82B079084006C11B2 /* BaseViewController.swift in Sources */,
 				2BD741FB2B088255006C11B2 /* BButton.swift in Sources */,
+				2B9406282B133246003FCE94 /* NaviBarButton+.swift in Sources */,
 				2B6D6DEB2B09F62A004A8DA9 /* BaseViewModel.swift in Sources */,
 				2B6D6E442B0C8AFE004A8DA9 /* GetModel.swift in Sources */,
 				2BD741DD2B079469006C11B2 /* LogInView.swift in Sources */,
@@ -575,7 +595,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -632,7 +652,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -656,7 +676,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -687,7 +707,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
