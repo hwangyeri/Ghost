@@ -15,7 +15,7 @@ struct JoinInput: Encodable {
 }
 
 struct JoinOutput: Decodable {
-    let id: String
+    let _id: String
     let email: String
     let nick: String
 }
