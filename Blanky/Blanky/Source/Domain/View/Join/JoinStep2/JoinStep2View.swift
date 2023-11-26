@@ -33,14 +33,14 @@ class JoinStep2View: BaseView {
     let nicknameTextField = BTextField(
         keyboardType: .default,
         returnKeyType: .done,
-        placeholder: "12글자 이하, 한글, 숫자만 사용해 주세요."
+        placeholder: "2~12글자 이하, 한글, 숫자만 사용해 주세요."
     ).then {
         $0.text = NicknameDataManager.shared.createRandomNickname()
         $0.clearButtonMode = .unlessEditing
     }
     
     let randomButton = BImageButton(
-        imageSize: 16,
+        imageSize: 17,
         imageName: "arrow.triangle.2.circlepath",
         backgroundColor: .bColor300,
         tintColor: .white,
@@ -68,8 +68,8 @@ class JoinStep2View: BaseView {
         }
         
         mainLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(60)
-            make.horizontalEdges.equalToSuperview().inset(30)
+            make.top.equalToSuperview().inset(45)
+            make.horizontalEdges.equalToSuperview().inset(25)
         }
         
         subLabel.snp.makeConstraints { make in
@@ -78,17 +78,17 @@ class JoinStep2View: BaseView {
         }
         
         nicknameTextField.snp.makeConstraints { make in
-            make.top.equalTo(subLabel.snp.bottom).offset(40)
+            make.top.equalTo(subLabel.snp.bottom).offset(35)
             make.height.equalTo(50)
             make.leading.equalTo(mainLabel)
         }
         
         randomButton.snp.makeConstraints { make in
             make.centerY.equalTo(nicknameTextField).offset(5)
-            make.leading.equalTo(nicknameTextField.snp.trailing).offset(20)
+            make.leading.equalTo(nicknameTextField.snp.trailing).offset(15)
             make.trailing.equalToSuperview().inset(25)
-            make.height.equalTo(40)
-            make.width.equalTo(45)
+            make.height.equalTo(44)
+            make.width.equalTo(44)
         }
         
         doneButton.snp.makeConstraints { make in
