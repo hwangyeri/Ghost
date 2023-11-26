@@ -12,7 +12,7 @@ final class BImageButton: UIButton {
     init(imageSize: CGFloat, imageName: String, backgroundColor: UIColor, tintColor: UIColor, cornerRadius: CGFloat) {
         super.init(frame: .zero)
         
-        let imageConfig = UIImage.SymbolConfiguration(pointSize: imageSize, weight: .regular)
+        let imageConfig = UIImage.SymbolConfiguration(pointSize: imageSize, weight: .medium)
         let image = UIImage(systemName: imageName, withConfiguration: imageConfig)
         
         self.setImage(image, for: .normal)
