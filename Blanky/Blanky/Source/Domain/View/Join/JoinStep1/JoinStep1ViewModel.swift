@@ -71,7 +71,7 @@ class JoinStep1ViewModel: BaseViewModel {
             .debounce(.milliseconds(400), scheduler: MainScheduler.instance)
             .distinctUntilChanged()
             .map { text in
-                let passwordRegex = "^[A-Za-z0-9!_@$%^&+=]{8,20}$"
+                let passwordRegex = "^(?=.*[!_@$%^&+=])[A-Za-z0-9!_@$%^&+=]{8,20}$"
                 guard let _ = text.range(of: passwordRegex, options: .regularExpression) else {
                     return false
                 }
