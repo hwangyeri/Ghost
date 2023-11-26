@@ -25,10 +25,10 @@ class JoinStep1ViewModel: BaseViewModel {
         let passwordValidation: Driver<Bool> //비밀번호 유효성 검사
         let checkPasswordValidation: Driver<Bool> //비밀번호 확인
         let finalValidation: Driver<Bool> //모든 유효성 검사 완료했는지 최종 확인
-        let nextButtonTap: Driver<Bool> //다음 버튼 탭
+        let nextButtonTap: Driver<(Bool, JoinInput)> //다음 버튼 탭
     }
     
-    var finalUserInfoList: JoinInput = JoinInput(email: "", password: "", nick: "")
+    var finalUserInfo = BehaviorRelay<JoinInput>(value: JoinInput(email: "", password: "", nick: ""))
     
     let disposeBag = DisposeBag()
     
@@ -54,7 +54,7 @@ class JoinStep1ViewModel: BaseViewModel {
                     .map { result in
                         switch result {
                         case .success(let data):
-                            self.finalUserInfoList.email = email
+                            self.finalUserInfo.accept(JoinInput(email: email, password: self.finalUserInfo.value.password, nick: ""))
                             return (email, data.message, true)
                         case .failure(let error):
                             return (email, error.errorDescription, false)
@@ -77,12 +77,12 @@ class JoinStep1ViewModel: BaseViewModel {
         
         //비밀번호 확인 유효성 검사
         let checkPasswordValidation = Observable.combineLatest(input.checkPasswordTextField.asObservable(), input.passwordTextField.asObservable())
-            .debounce(.seconds(1), scheduler: MainScheduler.instance)
+            .debounce(.milliseconds(400), scheduler: MainScheduler.instance)
             .map { checkPassword, password in
                 guard !checkPassword.isEmpty else {
                     return false
                 }
-                self.finalUserInfoList.password = checkPassword
+                self.finalUserInfo.accept(JoinInput(email: self.finalUserInfo.value.email, password: checkPassword, nick: ""))
                 return checkPassword == password
             }
             .asDriver(onErrorJustReturn: false)
@@ -98,15 +98,15 @@ class JoinStep1ViewModel: BaseViewModel {
         //다음 버튼 탭
         let nextButtonTap = input.nextButton
             .throttle(.seconds(1), scheduler: MainScheduler.instance)
-            .withLatestFrom(Observable.combineLatest(input.emailTextField, input.passwordTextField))
-            .map { email, password in
-                if email == self.finalUserInfoList.email && password == self.finalUserInfoList.password {
-                    return true
+            .withLatestFrom(Observable.combineLatest(input.emailTextField, input.passwordTextField, self.finalUserInfo.asObservable()))
+            .map { email, password, useInfo in
+                if email == self.finalUserInfo.value.email && password == self.finalUserInfo.value.password {
+                    return (true, useInfo)
                 } else {
-                    return false
+                    return (false, useInfo)
                 }
             }
-            .asDriver(onErrorJustReturn: false)
+            .asDriver(onErrorJustReturn: (false, JoinInput(email: "", password: "", nick: "")))
         
         return Output(
             emailValidation: emailValidation,
