@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NicknameDataManager {
+final class NicknameDataManager {
     
     static let shared = NicknameDataManager()
     
