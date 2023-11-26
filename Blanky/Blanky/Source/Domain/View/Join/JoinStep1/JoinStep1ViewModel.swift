@@ -36,6 +36,8 @@ class JoinStep1ViewModel: BaseViewModel {
         
         //이메일 유효성 검사
         let emailValidation = input.emailTextField
+            .debounce(.milliseconds(400), scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
             .map { text in
                 let emailRegex = "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$"
                 guard let _ = text.range(of: emailRegex, options: .regularExpression) else {
@@ -66,6 +68,8 @@ class JoinStep1ViewModel: BaseViewModel {
         
         //비밀번호 유효성 검사
         let passwordValidation = input.passwordTextField
+            .debounce(.milliseconds(400), scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
             .map { text in
                 let passwordRegex = "^[A-Za-z0-9!_@$%^&+=]{8,20}$"
                 guard let _ = text.range(of: passwordRegex, options: .regularExpression) else {
