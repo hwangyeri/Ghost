@@ -11,10 +11,17 @@ import Then
 
 class JoinStep1View: BaseView {
     
+    let backView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.bColor200
+        view.layer.cornerRadius = 40
+        return view
+    }()
+    
     let emailLabel = BLabel(
         text: "이메일을 입력해 주세요.",
         fontWeight: .semiBold,
-        fontSize: .M
+        fontSize: .L
     )
     
     let emailTextField = BTextField(
@@ -37,7 +44,7 @@ class JoinStep1View: BaseView {
     let passwordLabel = BLabel(
         text: "비밀번호를 입력해 주세요.",
         fontWeight: .semiBold,
-        fontSize: .M
+        fontSize: .L
     )
     
     let passwordTextField = BPasswordTextField(
@@ -55,15 +62,23 @@ class JoinStep1View: BaseView {
     let nextButton = BButton(text: "다음")
     
     override func configureHierarchy() {
+        self.addSubview(backView)
+
         [emailLabel, emailTextField, checkEmailDuplicationButton, emailInfoLabel, passwordLabel, passwordTextField, checkPasswordTextField, nextButton].forEach {
-            self.addSubview($0)
+            backView.addSubview($0)
         }
     }
     
     override func configureLayout() {
-        emailLabel.snp.makeConstraints { make in
+        backView.snp.makeConstraints { make in
             make.top.equalTo(self.safeAreaLayoutGuide).inset(50)
-            make.horizontalEdges.equalToSuperview().inset(20)
+            make.horizontalEdges.equalToSuperview()
+            make.bottom.equalToSuperview()
+        }
+        
+        emailLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(45)
+            make.horizontalEdges.equalToSuperview().inset(25)
         }
         
         emailTextField.snp.makeConstraints { make in
@@ -75,7 +90,7 @@ class JoinStep1View: BaseView {
         checkEmailDuplicationButton.snp.makeConstraints { make in
             make.centerY.equalTo(emailTextField)
             make.leading.equalTo(emailTextField.snp.trailing).offset(10)
-            make.trailing.equalToSuperview().inset(5)
+            make.trailing.equalToSuperview().inset(15)
             make.height.equalTo(33)
             make.width.equalTo(65)
         }
@@ -86,7 +101,7 @@ class JoinStep1View: BaseView {
         }
         
         passwordLabel.snp.makeConstraints { make in
-            make.top.equalTo(emailInfoLabel.snp.bottom).offset(50)
+            make.top.equalTo(emailInfoLabel.snp.bottom).offset(60)
             make.horizontalEdges.equalTo(emailLabel)
         }
         
