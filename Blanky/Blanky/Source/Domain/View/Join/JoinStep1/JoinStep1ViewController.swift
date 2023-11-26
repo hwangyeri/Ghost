@@ -29,6 +29,7 @@ class JoinStep1ViewController: BaseViewController {
     
     override func configureLayout() {
         self.navigationItem.title = "회원가입"
+        setCustomBackButton()
     }
     
     private func bind() {
@@ -79,9 +80,10 @@ class JoinStep1ViewController: BaseViewController {
         
         output.nextButtonTap
             .drive(with: self) { owner, result in
-                switch result {
+                switch result.0 {
                 case true:
                     let vc = JoinStep2ViewController()
+                    vc.userInfo = result.1
                     owner.navigationController?.pushViewController(vc, animated: true)
                 case false:
                     owner.mainView.emailInfoLabel.text = "✅  사용 가능한 이메일인지 확인해 주세요."
