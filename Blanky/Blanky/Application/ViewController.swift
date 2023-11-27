@@ -12,7 +12,8 @@ class ViewController: UIViewController {
     
     let mainLabel = {
         let view = GLabel(text: "dddd", fontWeight: .black, fontSize: .XXXL)
-        view.textColor = .red
+        view.textColor = .white
+        view.font = .dangamFont(size: 50)
         return view
     }()
     
@@ -35,14 +36,14 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
-//        view.backgroundColor = .white
+        view.addSubview(mainLabel)
         
         view.addSubview(emailTextField)
-        emailTextField.snp.makeConstraints { make in
+        
+        mainLabel.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.height.equalTo(60)
+            //make.height.equalTo(60)
         }
     }
 
