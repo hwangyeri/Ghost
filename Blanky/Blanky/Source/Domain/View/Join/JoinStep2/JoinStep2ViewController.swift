@@ -67,8 +67,13 @@ class JoinStep2ViewController: BaseViewController {
                 print(result)
                 switch result {
                 case true:
-                    let vc = ViewController() // FIXME
-                    owner.navigationController?.pushViewController(vc, animated: true)
+                    guard let email = self.userInfo?.email else {
+                        print("email Error")
+                        return
+                    }
+                    
+                    owner.navigationController?.popToRootViewController(animated: true)
+                    NotificationCenter.default.post(name: .joinSuccessAlert, object: nil, userInfo: ["email": email])
                 case false:
                     owner.showAlertMessage(title: "", message: "다시 시도해 주세요.")
                 }
