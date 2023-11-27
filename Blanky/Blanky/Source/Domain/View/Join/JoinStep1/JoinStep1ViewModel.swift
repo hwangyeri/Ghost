@@ -28,11 +28,9 @@ class JoinStep1ViewModel: BaseViewModel {
         let nextButtonTap: Driver<(Bool, JoinInput)> //다음 버튼 탭
     }
     
-    var finalUserInfo = BehaviorRelay<JoinInput>(value: JoinInput(email: "", password: "", nick: ""))
-    
-    let disposeBag = DisposeBag()
-    
     func transform(input: Input) -> Output {
+        
+        var finalUserInfo = BehaviorRelay<JoinInput>(value: JoinInput(email: "", password: "", nick: ""))
         
         //이메일 유효성 검사
         let emailValidation = input.emailTextField
@@ -56,7 +54,7 @@ class JoinStep1ViewModel: BaseViewModel {
                     .map { result in
                         switch result {
                         case .success(let data):
-                            self.finalUserInfo.accept(JoinInput(email: email, password: self.finalUserInfo.value.password, nick: ""))
+                            finalUserInfo.accept(JoinInput(email: email, password: finalUserInfo.value.password, nick: ""))
                             return (email, data.message, true)
                         case .failure(let error):
                             return (email, error.errorDescription, false)
@@ -86,7 +84,7 @@ class JoinStep1ViewModel: BaseViewModel {
                 guard !checkPassword.isEmpty else {
                     return false
                 }
-                self.finalUserInfo.accept(JoinInput(email: self.finalUserInfo.value.email, password: checkPassword, nick: ""))
+                finalUserInfo.accept(JoinInput(email: finalUserInfo.value.email, password: checkPassword, nick: ""))
                 return checkPassword == password
             }
             .asDriver(onErrorJustReturn: false)
@@ -102,9 +100,9 @@ class JoinStep1ViewModel: BaseViewModel {
         //다음 버튼 탭
         let nextButtonTap = input.nextButton
             .throttle(.seconds(1), scheduler: MainScheduler.instance)
-            .withLatestFrom(Observable.combineLatest(input.emailTextField, input.passwordTextField, self.finalUserInfo.asObservable()))
+            .withLatestFrom(Observable.combineLatest(input.emailTextField, input.passwordTextField, finalUserInfo.asObservable()))
             .map { email, password, useInfo in
-                if email == self.finalUserInfo.value.email && password == self.finalUserInfo.value.password {
+                if email == finalUserInfo.value.email && password == finalUserInfo.value.password {
                     return (true, useInfo)
                 } else {
                     return (false, useInfo)
