@@ -7,9 +7,9 @@
 
 import UIKit
 
-class LogInViewController: BaseViewController {
+class LoginViewController: BaseViewController {
     
-    private let mainView = LogInView()
+    private let mainView = LoginView()
     
     override func loadView() {
         self.view = mainView

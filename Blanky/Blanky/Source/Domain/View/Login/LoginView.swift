@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class LogInView: BaseView {
+class LoginView: BaseView {
     
     let mainLabel = BLabel(
         text: "Blanky",
@@ -34,7 +34,7 @@ class LogInView: BaseView {
         placeholder: "비밀번호"
     )
     
-    let logInButton = BButton(text: "로그인")
+    let loginButton = BButton(text: "로그인")
     
     let findEmailButton = BTextButton(text: "이메일 찾기")
     
@@ -47,7 +47,7 @@ class LogInView: BaseView {
     let stack2Divider = BDivider()
     
     override func configureHierarchy() {
-        [mainLabel, subLabel, emailTextField, passwordTextField, logInButton, 
+        [mainLabel, subLabel, emailTextField, passwordTextField, loginButton, 
          findPasswordButton, stack1Divider, stack2Divider, findEmailButton, joinButton].forEach {
             self.addSubview($0)
         }
@@ -76,14 +76,14 @@ class LogInView: BaseView {
             make.height.equalTo(emailTextField)
         }
         
-        logInButton.snp.makeConstraints { make in
+        loginButton.snp.makeConstraints { make in
             make.top.equalTo(passwordTextField.snp.bottom).offset(40)
             make.horizontalEdges.equalToSuperview().inset(20)
             make.height.equalTo(50)
         }
         
         findPasswordButton.snp.makeConstraints { make in
-            make.top.equalTo(logInButton.snp.bottom).offset(20)
+            make.top.equalTo(loginButton.snp.bottom).offset(20)
             make.centerX.equalToSuperview()
         }
         
