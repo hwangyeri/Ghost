@@ -7,19 +7,19 @@
 
 import UIKit
 import SnapKit
+import Then
 
 class LoginView: BaseView {
     
-    let mainLabel = GLabel(
-        text: "Blanky",
-        fontWeight: .black,
-        fontSize: .XXXL
-    )
+    let mainLabel = UILabel().then {
+        $0.text = "Ghost"
+        $0.font = .dangamFont(size: 40)
+    }
     
     let subLabel = GLabel(
-        text: "ImageView로 수정",
+        text: "FIXME: 완전한 익명, 자유로운 유령 (슬로건)",
         fontWeight: .bold,
-        fontSize: .L
+        fontSize: .M
     )
     
     let emailTextField = GTextField(
