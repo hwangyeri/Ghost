@@ -56,7 +56,6 @@ class JoinStep2ViewModel: BaseViewModel {
             .throttle(.seconds(1), scheduler: MainScheduler.instance)
             .withLatestFrom(Observable.combineLatest(nicknameValidation.asObservable(), userInfoBehavior))
             .flatMap { isValid, userInfo in
-                print("doneButtonTap", isValid, userInfo)
                 guard isValid else {
                     return Observable.just(false)
                 }
@@ -65,10 +64,10 @@ class JoinStep2ViewModel: BaseViewModel {
                     .map { result in
                         switch result {
                         case .success(let data):
-                            print("joinAPI success", data)
+                            print("회원가입 성공: ", data)
                             return true
                         case .failure(let error):
-                            print(error.errorDescription)
+                            print("회원가입 실패: ", error.errorDescription)
                             return false
                         }
                     }
