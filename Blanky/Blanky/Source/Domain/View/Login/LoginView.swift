@@ -1,5 +1,5 @@
 //
-//  LogInView.swift
+//  LoginView.swift
 //  Blanky
 //
 //  Created by Yeri Hwang on 2023/11/17.

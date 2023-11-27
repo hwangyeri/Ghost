@@ -1,5 +1,5 @@
 //
-//  LogInViewController.swift
+//  LoginViewController.swift
 //  Blanky
 //
 //  Created by Yeri Hwang on 2023/11/16.
