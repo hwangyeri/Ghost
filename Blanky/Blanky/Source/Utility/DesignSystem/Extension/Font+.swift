@@ -34,5 +34,11 @@ extension UIFont {
         let fontName = "Pretendard-\(weight.rawValue)"
         return UIFont(name: fontName, size: size.rawValue)
     }
+    
+    static func dangamFont(size: CGFloat) -> UIFont? {
+        let fontName = "CWDangamAsac-Bold"
+        return UIFont(name: fontName, size: size)
+    }
+    
 }
 
