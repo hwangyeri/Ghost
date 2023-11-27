@@ -1,5 +1,5 @@
 //
-//  BTextField.swift
+//  GTextField.swift
 //  Blanky
 //
 //  Created by Yeri Hwang on 2023/11/18.
@@ -8,7 +8,7 @@
 import UIKit
 import TextFieldEffects
 
-final class BTextField: HoshiTextField {
+final class GTextField: HoshiTextField {
     
     init(keyboardType: UIKeyboardType, returnKeyType: UIReturnKeyType, placeholder: String) {
         super.init(frame: .zero)

@@ -1,5 +1,5 @@
 //
-//  BLabel.swift
+//  GLabel.swift
 //  Blanky
 //
 //  Created by Yeri Hwang on 2023/11/18.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class BLabel: UILabel {
+final class GLabel: UILabel {
     
     init(text: String, fontWeight: UIFont.CustomFontWeight, fontSize: UIFont.CustomFontSize) {
         super.init(frame: .zero)

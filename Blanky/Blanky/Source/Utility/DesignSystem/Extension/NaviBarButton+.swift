@@ -13,7 +13,7 @@ extension UIViewController {
     
     //MARK: Custom NavigationBarItem(Left) - BackButton
     func setCustomBackButton() {
-        let backButton = BImageButton(imageSize: 18, imageName: "chevron.backward", backgroundColor: .bColor200, tintColor: .white, cornerRadius: 15)
+        let backButton = GImageButton(imageSize: 18, imageName: "chevron.backward", backgroundColor: .bColor200, tintColor: .white, cornerRadius: 15)
         
         backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         
@@ -34,7 +34,7 @@ extension UIViewController {
     
     //MARK: Custom NavigationBarItem(Right) - ExitButton 나가기 버튼
     func setCustomExitButton() {
-        let exitButton = BImageButton(imageSize: 16, imageName: "xmark", backgroundColor: .bColor200, tintColor: .white, cornerRadius: 15)
+        let exitButton = GImageButton(imageSize: 16, imageName: "xmark", backgroundColor: .bColor200, tintColor: .white, cornerRadius: 15)
         
         exitButton.addTarget(self, action: #selector(exitButtonTapped), for: .touchUpInside)
         

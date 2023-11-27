@@ -1,5 +1,5 @@
 //
-//  BPasswordTextField.swift
+//  GPasswordTextField.swift
 //  Blanky
 //
 //  Created by Yeri Hwang on 2023/11/19.
@@ -8,7 +8,7 @@
 import UIKit
 import TextFieldEffects
 
-final class BPasswordTextField: HoshiTextField {
+final class GPasswordTextField: HoshiTextField {
     
     init(keyboardType: UIKeyboardType, returnKeyType: UIReturnKeyType, placeholder: String) {
         super.init(frame: .zero)

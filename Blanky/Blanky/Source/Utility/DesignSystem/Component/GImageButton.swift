@@ -1,5 +1,5 @@
 //
-//  BImageButton.swift
+//  GImageButton.swift
 //  Blanky
 //
 //  Created by Yeri Hwang on 2023/11/26.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class BImageButton: UIButton {
+final class GImageButton: UIButton {
     
     init(imageSize: CGFloat, imageName: String, backgroundColor: UIColor, tintColor: UIColor, cornerRadius: CGFloat) {
         super.init(frame: .zero)

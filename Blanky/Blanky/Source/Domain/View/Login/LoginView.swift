@@ -10,41 +10,41 @@ import SnapKit
 
 class LoginView: BaseView {
     
-    let mainLabel = BLabel(
+    let mainLabel = GLabel(
         text: "Blanky",
         fontWeight: .black,
         fontSize: .XXXL
     )
     
-    let subLabel = BLabel(
+    let subLabel = GLabel(
         text: "ImageView로 수정",
         fontWeight: .bold,
         fontSize: .L
     )
     
-    let emailTextField = BTextField(
+    let emailTextField = GTextField(
         keyboardType: .emailAddress,
         returnKeyType: .next,
         placeholder: "이메일 주소"
     )
     
-    let passwordTextField = BPasswordTextField(
+    let passwordTextField = GPasswordTextField(
         keyboardType: .default,
         returnKeyType: .done,
         placeholder: "비밀번호"
     )
     
-    let loginButton = BButton(text: "로그인")
+    let loginButton = GButton(text: "로그인")
     
-    let findEmailButton = BTextButton(text: "이메일 찾기")
+    let findEmailButton = GTextButton(text: "이메일 찾기")
     
-    let findPasswordButton = BTextButton(text: "비밀번호 찾기")
+    let findPasswordButton = GTextButton(text: "비밀번호 찾기")
     
-    let joinButton = BTextButton(text: "회원가입")
+    let joinButton = GTextButton(text: "회원가입")
     
-    let stack1Divider = BDivider()
+    let stack1Divider = GDivider()
     
-    let stack2Divider = BDivider()
+    let stack2Divider = GDivider()
     
     override func configureHierarchy() {
         [mainLabel, subLabel, emailTextField, passwordTextField, loginButton, 

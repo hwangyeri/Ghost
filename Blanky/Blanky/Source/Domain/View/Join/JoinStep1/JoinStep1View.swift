@@ -18,48 +18,48 @@ class JoinStep1View: BaseView {
         return view
     }()
     
-    let emailLabel = BLabel(
+    let emailLabel = GLabel(
         text: "이메일을 입력해 주세요.",
         fontWeight: .semiBold,
         fontSize: .L
     )
     
-    let emailTextField = BTextField(
+    let emailTextField = GTextField(
         keyboardType: .emailAddress,
         returnKeyType: .next,
         placeholder: "영문, 숫자만 사용해 주세요."
     )
     
-    let checkEmailDuplicationButton = BButton(text: "중복 확인").then {
+    let checkEmailDuplicationButton = GButton(text: "중복 확인").then {
         $0.layer.cornerRadius = 16
         $0.titleLabel?.font = .customFont(.regular, size: .XXS)
     }
     
-    let emailInfoLabel = BLabel(
+    let emailInfoLabel = GLabel(
         text: "✅  사용 가능한 이메일인지 확인해 주세요.",
         fontWeight: .regular,
         fontSize: .XXS
     )
     
-    let passwordLabel = BLabel(
+    let passwordLabel = GLabel(
         text: "비밀번호를 입력해 주세요.",
         fontWeight: .semiBold,
         fontSize: .L
     )
     
-    let passwordTextField = BPasswordTextField(
+    let passwordTextField = GPasswordTextField(
         keyboardType: .default,
         returnKeyType: .next, 
         placeholder: "8글자 이상, 영문, 숫자, 특수문수 모두 사용해 주세요."
     )
     
-    let checkPasswordTextField = BPasswordTextField(
+    let checkPasswordTextField = GPasswordTextField(
         keyboardType: .default,
         returnKeyType: .next, 
         placeholder: "비밀번호를 확인해 주세요."
     )
     
-    let nextButton = BButton(text: "다음")
+    let nextButton = GButton(text: "다음")
     
     override func configureHierarchy() {
         self.addSubview(backView)

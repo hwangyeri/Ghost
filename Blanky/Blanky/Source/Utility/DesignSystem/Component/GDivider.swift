@@ -1,5 +1,5 @@
 //
-//  BDivider.swift
+//  GDivider.swift
 //  Blanky
 //
 //  Created by Yeri Hwang on 2023/11/18.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class BDivider: UIView {
+final class GDivider: UIView {
     
     init() {
         super.init(frame: .zero)

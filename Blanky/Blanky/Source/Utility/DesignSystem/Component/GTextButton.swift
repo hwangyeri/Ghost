@@ -1,5 +1,5 @@
 //
-//  BTextButton.swift
+//  GTextButton.swift
 //  Blanky
 //
 //  Created by Yeri Hwang on 2023/11/18.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class BTextButton: UIButton {
+final class GTextButton: UIButton {
     
     init(text: String) {
         super.init(frame: .zero)

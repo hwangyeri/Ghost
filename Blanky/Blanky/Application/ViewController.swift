@@ -11,7 +11,7 @@ import SnapKit
 class ViewController: UIViewController {
     
     let mainLabel = {
-        let view = BLabel(text: "dddd", fontWeight: .black, fontSize: .XXXL)
+        let view = GLabel(text: "dddd", fontWeight: .black, fontSize: .XXXL)
         view.textColor = .red
         return view
     }()

@@ -18,19 +18,19 @@ class JoinStep2View: BaseView {
         return view
     }()
     
-    let mainLabel = BLabel(
+    let mainLabel = GLabel(
         text: "닉네임을 정해주세요.",
         fontWeight: .semiBold,
         fontSize: .XL
     )
     
-    let subLabel = BLabel(
+    let subLabel = GLabel(
         text: "버튼을 누르면 새로운 닉네임을 추천해 드려요!",
         fontWeight: .regular,
         fontSize: .S
     )
     
-    let nicknameTextField = BTextField(
+    let nicknameTextField = GTextField(
         keyboardType: .default,
         returnKeyType: .done,
         placeholder: "2~12글자 이하, 한글, 숫자만 사용해 주세요."
@@ -39,7 +39,7 @@ class JoinStep2View: BaseView {
         $0.clearButtonMode = .unlessEditing
     }
     
-    let randomButton = BImageButton(
+    let randomButton = GImageButton(
         imageSize: 17,
         imageName: "arrow.triangle.2.circlepath",
         backgroundColor: .bColor300,
@@ -47,7 +47,7 @@ class JoinStep2View: BaseView {
         cornerRadius: 15
     )
     
-    let doneButton = BButton(text: "가입 완료").then {
+    let doneButton = GButton(text: "가입 완료").then {
         $0.isEnabled = true
         $0.backgroundColor = .white
     }
