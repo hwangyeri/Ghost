@@ -75,6 +75,11 @@ class LoginViewModel: BaseViewModel {
                         switch result {
                         case .success(let data):
                             print("로그인 성공: ", data)
+                            //키체인에 토큰 저장
+                            KeychainManager.shared.token = data.token
+                            KeychainManager.shared.refreshToken = data.refreshToken
+                            print("KeychainManager token: ", KeychainManager.shared.token)
+                            print("KeychainManager refreshToken: ", KeychainManager.shared.refreshToken)
                             return (true, "")
                         case .failure(let error):
                             print("로그인 실패: ", error)
