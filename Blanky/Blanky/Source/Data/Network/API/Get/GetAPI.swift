@@ -43,11 +43,11 @@ extension GetAPI: TargetType {
     var headers: [String : String]? {
         switch self {
         case .refresh:
-            ["Authorization": "", // FIXME
+            ["Authorization": "\(KeychainManager.shared.token ?? "token error")",
              "SesacKey": APIKey.sesacKey,
-             "Refresh": "refreshToken"]
+             "Refresh": "\(KeychainManager.shared.refreshToken ?? "refreshToken error")"]
         case .withdraw:
-            ["Authorization": "", // FIXME
+            ["Authorization": "\(KeychainManager.shared.token ?? "token error")",
              "SesacKey": APIKey.sesacKey]
         }
     }
