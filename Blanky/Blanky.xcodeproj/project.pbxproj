@@ -36,6 +36,10 @@
 		2B94063D2B14749E003FCE94 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B94063C2B14749E003FCE94 /* LoginViewModel.swift */; };
 		2B94063F2B1498B0003FCE94 /* Notification+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B94063E2B1498B0003FCE94 /* Notification+.swift */; };
 		2B9406412B14DB44003FCE94 /* 창원단감아삭체.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2B9406402B14DB44003FCE94 /* 창원단감아삭체.otf */; };
+		2B9406472B15D35C003FCE94 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 2B9406462B15D35C003FCE94 /* SwiftKeychainWrapper */; };
+		2B9406492B15F698003FCE94 /* GetAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9406482B15F698003FCE94 /* GetAPIManager.swift */; };
+		2B94064C2B1602EC003FCE94 /* PostPathModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B94064B2B1602EC003FCE94 /* PostPathModel.swift */; };
+		2B94064E2B1602F5003FCE94 /* PostPathAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B94064D2B1602F5003FCE94 /* PostPathAPI.swift */; };
 		2BD741B12B06051F006C11B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741B02B06051F006C11B2 /* AppDelegate.swift */; };
 		2BD741B32B06051F006C11B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741B22B06051F006C11B2 /* SceneDelegate.swift */; };
 		2BD741B52B06051F006C11B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741B42B06051F006C11B2 /* ViewController.swift */; };
@@ -89,6 +93,9 @@
 		2B94063C2B14749E003FCE94 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		2B94063E2B1498B0003FCE94 /* Notification+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+.swift"; sourceTree = "<group>"; };
 		2B9406402B14DB44003FCE94 /* 창원단감아삭체.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "창원단감아삭체.otf"; sourceTree = "<group>"; };
+		2B9406482B15F698003FCE94 /* GetAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAPIManager.swift; sourceTree = "<group>"; };
+		2B94064B2B1602EC003FCE94 /* PostPathModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPathModel.swift; sourceTree = "<group>"; };
+		2B94064D2B1602F5003FCE94 /* PostPathAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPathAPI.swift; sourceTree = "<group>"; };
 		2BD741AD2B06051F006C11B2 /* Blanky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blanky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BD741B02B06051F006C11B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BD741B22B06051F006C11B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +133,7 @@
 			files = (
 				2B6D6E642B0DE611004A8DA9 /* RxSwift in Frameworks */,
 				2B6D6DF92B0A3C4F004A8DA9 /* IQKeyboardManagerSwift in Frameworks */,
+				2B9406472B15D35C003FCE94 /* SwiftKeychainWrapper in Frameworks */,
 				2B6D6E672B0DE629004A8DA9 /* Moya in Frameworks */,
 				2BD741DB2B079341006C11B2 /* SnapKit in Frameworks */,
 				2B6D6E602B0DE611004A8DA9 /* RxCocoa in Frameworks */,
@@ -219,6 +227,7 @@
 			children = (
 				2B6D6E432B0C8AFD004A8DA9 /* GetModel.swift */,
 				2B6D6E3F2B0C7E3B004A8DA9 /* GetAPI.swift */,
+				2B9406482B15F698003FCE94 /* GetAPIManager.swift */,
 			);
 			path = Get;
 			sourceTree = "<group>";
@@ -230,6 +239,7 @@
 				2B6D6E2C2B0B5491004A8DA9 /* APIKey.swift */,
 				2B6D6E472B0C987C004A8DA9 /* Post */,
 				2B6D6E482B0C98B5004A8DA9 /* Get */,
+				2B94064A2B1602D8003FCE94 /* PostPath */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -248,6 +258,15 @@
 				2B9406402B14DB44003FCE94 /* 창원단감아삭체.otf */,
 			);
 			path = DangamAsac;
+			sourceTree = "<group>";
+		};
+		2B94064A2B1602D8003FCE94 /* PostPath */ = {
+			isa = PBXGroup;
+			children = (
+				2B94064B2B1602EC003FCE94 /* PostPathModel.swift */,
+				2B94064D2B1602F5003FCE94 /* PostPathAPI.swift */,
+			);
+			path = PostPath;
 			sourceTree = "<group>";
 		};
 		2BD741A42B06051F006C11B2 = {
@@ -437,6 +456,7 @@
 				2B6D6E632B0DE611004A8DA9 /* RxSwift */,
 				2B6D6E662B0DE629004A8DA9 /* Moya */,
 				2B6D6E682B0DE629004A8DA9 /* RxMoya */,
+				2B9406462B15D35C003FCE94 /* SwiftKeychainWrapper */,
 			);
 			productName = Blanky;
 			productReference = 2BD741AD2B06051F006C11B2 /* Blanky.app */;
@@ -473,6 +493,7 @@
 				2B6D6DF72B0A3C4F004A8DA9 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				2B6D6E5E2B0DE611004A8DA9 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				2B6D6E652B0DE629004A8DA9 /* XCRemoteSwiftPackageReference "Moya" */,
+				2B9406452B15D35C003FCE94 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
 			);
 			productRefGroup = 2BD741AE2B06051F006C11B2 /* Products */;
 			projectDirPath = "";
@@ -529,7 +550,10 @@
 				2B94062A2B134146003FCE94 /* JoinStep2ViewModel.swift in Sources */,
 				2B6D6DEF2B09F805004A8DA9 /* JoinStep1ViewModel.swift in Sources */,
 				2BD741D62B07905F006C11B2 /* BaseView.swift in Sources */,
+				2B94064E2B1602F5003FCE94 /* PostPathAPI.swift in Sources */,
 				2BD741F92B07CE01006C11B2 /* GDivider.swift in Sources */,
+				2B94064C2B1602EC003FCE94 /* PostPathModel.swift in Sources */,
+				2B9406492B15F698003FCE94 /* GetAPIManager.swift in Sources */,
 				2B94063F2B1498B0003FCE94 /* Notification+.swift in Sources */,
 				2BD741FF2B08A49C006C11B2 /* JoinStep1View.swift in Sources */,
 				2B94063D2B14749E003FCE94 /* LoginViewModel.swift in Sources */,
@@ -800,6 +824,14 @@
 				minimumVersion = 15.0.3;
 			};
 		};
+		2B9406452B15D35C003FCE94 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jrendel/SwiftKeychainWrapper.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.1;
+			};
+		};
 		2BD741D92B079341006C11B2 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -853,6 +885,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2B6D6E652B0DE629004A8DA9 /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = RxMoya;
+		};
+		2B9406462B15D35C003FCE94 /* SwiftKeychainWrapper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2B9406452B15D35C003FCE94 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */;
+			productName = SwiftKeychainWrapper;
 		};
 		2BD741DA2B079341006C11B2 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
