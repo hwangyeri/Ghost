@@ -78,7 +78,7 @@ class LoginViewController: BaseViewController {
             .disposed(by: disposeBag)
         
         NotificationCenter.default.rx.notification(.joinSuccessAlert)
-            .observeOn(MainScheduler.instance)
+            .observe(on: MainScheduler.instance)
             .subscribe(with: self) { owner, notification in
                 if let email = notification.userInfo?["email"] as? String {
                     owner.showAlertMessage(title: email, message: "성공적으로 가입되었습니다.\n가입한 이메일로 로그인해주세요.")
