@@ -18,26 +18,31 @@ final class GetAPIManager {
     private let disposeBag = DisposeBag()
     
     private init() { }
-   
+    
     func request<T: Decodable, U: TargetType>(target: U, model: T.Type) -> Single<Result<T, APIError>> {
         return Single<Result<T, APIError>>.create { single in
-            self.provider.request(target as! GetAPI) { result in
-                switch result {
-                case .success(let response):
-                    do {
-                        let decodedData = try JSONDecoder().decode(T.self, from: response.data)
-                        single(.success(.success(decodedData)))
-                    } catch {
-                        single(.success(.failure(.decodedError)))
+            if let target = target as? GetAPI {
+                self.provider.request(target) { result in
+                    switch result {
+                    case .success(let response):
+                        do {
+                            let decodedData = try JSONDecoder().decode(T.self, from: response.data)
+                            single(.success(.success(decodedData)))
+                        } catch {
+                            single(.success(.failure(.decodedError)))
+                        }
+                    case .failure(let error):
+                        guard let customError = APIError(rawValue: error.response?.statusCode ?? 1) else {
+                            single(.success(.failure(.unknownError)))
+                            return
+                        }
+                        single(.success(.failure(customError)))
                     }
-                case .failure(let error):
-                    guard let customError = APIError(rawValue: error.response?.statusCode ?? 1) else {
-                        single(.success(.failure(.unknownError)))
-                        return
-                    }
-                    single(.success(.failure(customError)))
                 }
+            } else {
+                single(.success(.failure(.unknownError)))
             }
+            
             return Disposables.create()
         }
     }
