@@ -8,7 +8,7 @@
 import Foundation
 import Moya
 
-enum PostPathAPI {
+enum GhostAPI {
     case postCreate(model: PostInput) //게시글 작성
     case postRead(model: PostInput) //게시글 조회
     case postUpdate(model: PostInput, id: String) //게시글 수정
@@ -19,7 +19,7 @@ enum PostPathAPI {
     case like(id: String) //좋아요
 }
 
-extension PostPathAPI: TargetType {
+extension GhostAPI: TargetType {
     
     var baseURL: URL {
         return URL(string: APIKey.baseURL)!
