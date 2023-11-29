@@ -16,7 +16,7 @@ struct PostInput: Encodable {
     let content1, content2: String?
 }
 
-// MARK: 게시글 조회
+// MARK: 게시글 조회, 내가 좋아요 한 포스트 일괄 조회
 struct PostOutput: Decodable {
     let data: [PostData]
     let nextCursor: String
@@ -26,12 +26,11 @@ struct PostOutput: Decodable {
 struct PostData: Decodable {
     let likes, image: [String]
     let hashTags, comments: [String]
-    let id: String
+    let id, productID: String
     let creator: Creator
-    let time: Date // Date? String?
-    let title: String
-    let content, content1, content2: String?
-    let productID: String
+    let time: String
+    let title, content: String
+    let content1, content2: String?
 }
 
 struct Creator: Decodable {
@@ -39,7 +38,7 @@ struct Creator: Decodable {
 }
 
 // MARK: 게시글 삭제
-struct PostDeleteOutput: Decodable {
+struct PostDelete: Decodable {
     let _id: String
 }
 
@@ -49,16 +48,17 @@ struct CommentInput: Encodable {
 }
 
 struct CommentOutput: Decodable {
-    let id, content, time: String
+    let id, content: String
+    let time: String
     let creator: Creator
 }
 
 // MARK: 댓글 삭제
-struct CommentDeleteOutput: Decodable {
+struct CommentDelete: Decodable {
     let postID, commentID: String
 }
 
 // MARK: 좋아요
-struct LikeOutput: Decodable {
+struct Like: Decodable {
     let like_status: Bool
 }
