@@ -9,17 +9,17 @@ import Foundation
 import Moya
 import RxSwift
 
-final class GhostAPIManager {
+final class PostAPIManager {
     
-    static let shared = GhostAPIManager()
+    static let shared = PostAPIManager()
     
-    private let provider = MoyaProvider<GhostAPI>()
+    private let provider = MoyaProvider<PostAPI>()
     
     private let disposeBag = DisposeBag()
     
     private init() { }
     
-    func request<T: Decodable>(target: GhostAPI, model: T.Type) -> Single<Result<T, APIError>> {
+    func request<T: Decodable>(target: PostAPI, model: T.Type) -> Single<Result<T, APIError>> {
         return Single<Result<T, APIError>>.create { single in
             self.provider.request(target) { result in
                 switch result {
@@ -45,12 +45,12 @@ final class GhostAPIManager {
     // MARK: 게시글 작성
     func postCreate(title: String, content: String, file: Data?, product_id: String, content1: String?, content2: String?) -> Single<Result<PostOutput, APIError>> {
         let input = PostInput(title: title, content: content, file: file, product_id: product_id, content1: content1, content2: content2)
-        return request(target: GhostAPI.postCreate(model: input), model: PostOutput.self)
+        return request(target: .postCreate(model: input), model: PostOutput.self)
     }
     
     // MARK: 게시글 조회
     func postRead(next: String, limit: String, product_id: String) -> Single<Result<PostOutput, APIError>> {
-        return request(target: GhostAPI.postRead(next: next, limit: limit, product_id: product_id), model: PostOutput.self)
+        return request(target: .postRead(next: next, limit: limit, product_id: product_id), model: PostOutput.self)
     }
     
     // MARK: 게시글 수정
