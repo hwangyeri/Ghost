@@ -12,6 +12,8 @@ enum PostAPI {
     case join(model: JoinInput) // 회원가입
     case validationEmail(model: ValidationEmailInput) // 이메일 중복 확인
     case login(model: LoginInput) // 로그인
+    case refresh // AcessToken 갱신
+    case withdraw // 탈퇴
 }
 
 extension PostAPI: TargetType {
@@ -30,6 +32,10 @@ extension PostAPI: TargetType {
             return "validation/email"
         case .login:
             return "login"
+        case .refresh:
+            return "refresh"
+        case .withdraw:
+            return "refresh"
         }
     }
     
@@ -38,6 +44,8 @@ extension PostAPI: TargetType {
         switch self {
         case .join, .validationEmail, .login:
             return .post
+        case .refresh, .withdraw:
+            return .get
         }
     }
     
@@ -50,6 +58,8 @@ extension PostAPI: TargetType {
             return .requestJSONEncodable(model)
         case .login(let model):
             return .requestJSONEncodable(model)
+        case .refresh, .withdraw:
+            return .requestPlain
         }
     }
     
@@ -58,6 +68,13 @@ extension PostAPI: TargetType {
         switch self {
         case .join, .validationEmail, .login:
             ["Content-Type": "application/json",
+             "SesacKey": APIKey.sesacKey]
+        case .refresh:
+            ["Authorization": "\(KeychainManager.shared.token ?? "token error")",
+             "SesacKey": APIKey.sesacKey,
+             "Refresh": "\(KeychainManager.shared.refreshToken ?? "refreshToken error")"]
+        case .withdraw:
+            ["Authorization": "\(KeychainManager.shared.token ?? "token error")",
              "SesacKey": APIKey.sesacKey]
         }
     }
