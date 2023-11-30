@@ -1,5 +1,5 @@
 //
-//  PostModel.swift
+//  JoinModel.swift
 //  Blanky
 //
 //  Created by Yeri Hwang on 2023/11/20.

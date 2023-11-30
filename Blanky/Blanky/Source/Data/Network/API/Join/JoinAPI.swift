@@ -1,5 +1,5 @@
 //
-//  PostAPI.swift
+//  JoinAPI.swift
 //  Blanky
 //
 //  Created by Yeri Hwang on 2023/11/20.
@@ -8,7 +8,7 @@
 import Foundation
 import Moya
 
-enum PostAPI {
+enum JoinAPI {
     case join(model: JoinInput) // 회원가입
     case validationEmail(model: ValidationEmailInput) // 이메일 중복 확인
     case login(model: LoginInput) // 로그인
@@ -16,7 +16,7 @@ enum PostAPI {
     case withdraw // 탈퇴
 }
 
-extension PostAPI: TargetType {
+extension JoinAPI: TargetType {
     
     //서버의 도메인
     var baseURL: URL {

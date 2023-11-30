@@ -1,5 +1,5 @@
 //
-//  PostAPIManager.swift
+//  JoinAPIManager.swift
 //  Blanky
 //
 //  Created by Yeri Hwang on 2023/11/22.
@@ -9,17 +9,17 @@ import Foundation
 import Moya
 import RxSwift
 
-final class PostAPIManager {
+final class JoinAPIManager {
     
-    static let shared = PostAPIManager()
+    static let shared = JoinAPIManager()
     
-    private let provider = MoyaProvider<PostAPI>() // Moya의 TargetType을 따르는 enum
+    private let provider = MoyaProvider<JoinAPI>() // Moya의 TargetType을 따르는 enum
     
     private let disposeBag = DisposeBag()
     
     private init() { }
     
-    func request<T: Decodable>(target: PostAPI, model: T.Type) -> Single<Result<T, APIError>> {
+    func request<T: Decodable>(target: JoinAPI, model: T.Type) -> Single<Result<T, APIError>> {
         return Single<Result<T, APIError>>.create { single in
             self.provider.request(target) { result in
                 switch result {
