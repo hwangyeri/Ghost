@@ -50,7 +50,7 @@ class JoinStep1ViewModel: BaseViewModel {
             .throttle(.seconds(1), scheduler: MainScheduler.instance)
             .withLatestFrom(input.emailTextField)
             .flatMap { email in
-                PostAPIManager.shared.validateEmail(email: email)
+                JoinAPIManager.shared.validateEmail(email: email)
                     .map { result in
                         switch result {
                         case .success(let data):

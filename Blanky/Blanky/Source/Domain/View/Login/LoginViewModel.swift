@@ -70,7 +70,7 @@ class LoginViewModel: BaseViewModel {
             .throttle(.seconds(1), scheduler: MainScheduler.instance)
             .withLatestFrom(Observable.combineLatest(input.emailTextField, input.passwordTextField))
             .flatMap { email, password in
-                PostAPIManager.shared.login(email: email, password: password)
+                JoinAPIManager.shared.login(email: email, password: password)
                     .map { result in
                         switch result {
                         case .success(let data):

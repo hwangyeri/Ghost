@@ -60,7 +60,7 @@ class JoinStep2ViewModel: BaseViewModel {
                     return Observable.just(false)
                 }
                 
-                return PostAPIManager.shared.join(email: userInfo.email, password: userInfo.password, nick: userInfo.nick)
+                return JoinAPIManager.shared.join(email: userInfo.email, password: userInfo.password, nick: userInfo.nick)
                     .map { result in
                         switch result {
                         case .success(let data):
