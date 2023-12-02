@@ -44,7 +44,7 @@ final class PostAPIManager {
     
     // MARK: 게시글 작성
     func postCreate(title: String, content: String, file: Data?, product_id: String, content1: String?, content2: String?) -> Single<Result<PostOutput, APIError>> {
-        let input = PostInput(title: title, content: content, file: file, product_id: product_id, content1: content1, content2: content2)
+        let input = PostInput(title: title, content: content, file: file, product_id: product_id)
         return request(target: .postCreate(model: input), model: PostOutput.self)
     }
     
@@ -55,7 +55,7 @@ final class PostAPIManager {
     
     // MARK: 게시글 수정
     func postUpdate(id: String, title: String, content: String, file: Data?, product_id: String, content1: String?, content2: String?) -> Single<Result<PostOutput, APIError>> {
-        let input = PostInput(title: title, content: content, file: file, product_id: product_id, content1: content1, content2: content2)
+        let input = PostInput(title: title, content: content, file: file, product_id: product_id)
         return request(target: .postUpdate(model: input, id: id), model: PostOutput.self)
     }
     
