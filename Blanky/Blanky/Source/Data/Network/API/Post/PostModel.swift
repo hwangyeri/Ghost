@@ -13,7 +13,7 @@ struct PostInput: Encodable {
     let content: String
     let file: Data?
     let product_id: String
-    let content1, content2: String?
+    //let content1, content2: String?
 }
 
 // MARK: 게시글 조회, 내가 좋아요 한 포스트 일괄 조회
@@ -30,7 +30,7 @@ struct PostData: Decodable {
     let creator: Creator
     let time: String
     let title, content: String
-    let content1, content2: String?
+    //let content1, content2: String?
 }
 
 struct Creator: Decodable {
