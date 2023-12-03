@@ -16,8 +16,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-        let vc = LoginViewController()
-        window?.rootViewController = UINavigationController(rootViewController: vc)
+       
+        let tabBar = UITabBarController()
+
+        let firstVC = UINavigationController(rootViewController: LoginViewController())
+        firstVC.tabBarItem = UITabBarItem(title: .none, image: UIImage(systemName: "star"), selectedImage: UIImage(systemName: "star"))
+
+        let secondVC = UINavigationController(rootViewController: HomeViewController())
+        secondVC.tabBarItem = UITabBarItem(title: .none, image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house"))
+
+        tabBar.viewControllers = [firstVC, secondVC]
+        tabBar.tabBar.backgroundColor = UIColor.systemBackground
+        tabBar.tabBar.tintColor = UIColor.label
+        tabBar.selectedIndex = 1
+
+        window?.rootViewController = tabBar
         window?.makeKeyAndVisible()
     }
 
