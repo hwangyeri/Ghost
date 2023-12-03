@@ -13,6 +13,7 @@ class BaseTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configureHierarchy()
         configureLayout()
+        self.backgroundColor = .bColor200
     }
     
     required init?(coder: NSCoder) {
