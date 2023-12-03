@@ -13,7 +13,6 @@ class BaseCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         configureHierarchy()
         configureLayout()
-//        self.backgroundColor = UIColor.systemBackground
     }
     
     required init?(coder: NSCoder) {
