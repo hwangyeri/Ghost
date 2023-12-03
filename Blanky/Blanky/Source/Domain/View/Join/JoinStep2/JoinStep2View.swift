@@ -11,12 +11,10 @@ import Then
 
 class JoinStep2View: BaseView {
     
-    let backView = {
-        let view = UIView()
-        view.backgroundColor = UIColor.bColor200
-        view.layer.cornerRadius = 40
-        return view
-    }()
+    let backView = UIView().then {
+        $0.backgroundColor = UIColor.bColor200
+        $0.layer.cornerRadius = 40
+    }
     
     let mainLabel = GLabel(
         text: "닉네임을 정해주세요.",
