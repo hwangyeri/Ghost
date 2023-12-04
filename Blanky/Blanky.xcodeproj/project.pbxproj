@@ -38,6 +38,19 @@
 		2B94064C2B1602EC003FCE94 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B94064B2B1602EC003FCE94 /* PostModel.swift */; };
 		2B94064E2B1602F5003FCE94 /* PostAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B94064D2B1602F5003FCE94 /* PostAPI.swift */; };
 		2B9406692B17244C003FCE94 /* PostAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9406682B17244C003FCE94 /* PostAPIManager.swift */; };
+		2BC60D1B2B18ACF50016584E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC60D1A2B18ACF50016584E /* HomeViewController.swift */; };
+		2BC60D1D2B18ACFD0016584E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC60D1C2B18ACFD0016584E /* HomeView.swift */; };
+		2BC60D1F2B18AD060016584E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC60D1E2B18AD060016584E /* HomeViewModel.swift */; };
+		2BC60D412B19C3060016584E /* BaseCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC60D402B19C3060016584E /* BaseCollectionReusableView.swift */; };
+		2BC60D452B19C7580016584E /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC60D442B19C7580016584E /* BaseCollectionViewCell.swift */; };
+		2BC60D4C2B1C4CD10016584E /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC60D4B2B1C4CD10016584E /* BaseTableViewCell.swift */; };
+		2BC60D542B1C55550016584E /* ReusableViewProtocol+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC60D532B1C55550016584E /* ReusableViewProtocol+.swift */; };
+		2BC60D562B1C56590016584E /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC60D552B1C56590016584E /* HomeTableViewCell.swift */; };
+		2BC60D5B2B1C5EE00016584E /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC60D5A2B1C5EE00016584E /* HomeCollectionViewCell.swift */; };
+		2BC60D5E2B1C97290016584E /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC60D5D2B1C97290016584E /* PostViewController.swift */; };
+		2BC60D602B1C97810016584E /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC60D5F2B1C97810016584E /* PostView.swift */; };
+		2BC60D652B1CC3230016584E /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC60D642B1CC3230016584E /* PostCollectionViewCell.swift */; };
+		2BC60D672B1CD23B0016584E /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC60D662B1CD23B0016584E /* PostViewModel.swift */; };
 		2BD741B12B06051F006C11B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741B02B06051F006C11B2 /* AppDelegate.swift */; };
 		2BD741B32B06051F006C11B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741B22B06051F006C11B2 /* SceneDelegate.swift */; };
 		2BD741B52B06051F006C11B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741B42B06051F006C11B2 /* ViewController.swift */; };
@@ -92,6 +105,19 @@
 		2B94064B2B1602EC003FCE94 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		2B94064D2B1602F5003FCE94 /* PostAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAPI.swift; sourceTree = "<group>"; };
 		2B9406682B17244C003FCE94 /* PostAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAPIManager.swift; sourceTree = "<group>"; };
+		2BC60D1A2B18ACF50016584E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		2BC60D1C2B18ACFD0016584E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		2BC60D1E2B18AD060016584E /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		2BC60D402B19C3060016584E /* BaseCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionReusableView.swift; sourceTree = "<group>"; };
+		2BC60D442B19C7580016584E /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		2BC60D4B2B1C4CD10016584E /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		2BC60D532B1C55550016584E /* ReusableViewProtocol+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReusableViewProtocol+.swift"; sourceTree = "<group>"; };
+		2BC60D552B1C56590016584E /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		2BC60D5A2B1C5EE00016584E /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		2BC60D5D2B1C97290016584E /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		2BC60D5F2B1C97810016584E /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
+		2BC60D642B1CC3230016584E /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
+		2BC60D662B1CD23B0016584E /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 		2BD741AD2B06051F006C11B2 /* Blanky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blanky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BD741B02B06051F006C11B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BD741B22B06051F006C11B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -255,6 +281,29 @@
 			path = Post;
 			sourceTree = "<group>";
 		};
+		2BC60D192B18ACC70016584E /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				2BC60D1A2B18ACF50016584E /* HomeViewController.swift */,
+				2BC60D1C2B18ACFD0016584E /* HomeView.swift */,
+				2BC60D552B1C56590016584E /* HomeTableViewCell.swift */,
+				2BC60D5A2B1C5EE00016584E /* HomeCollectionViewCell.swift */,
+				2BC60D1E2B18AD060016584E /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		2BC60D5C2B1C97080016584E /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				2BC60D5D2B1C97290016584E /* PostViewController.swift */,
+				2BC60D5F2B1C97810016584E /* PostView.swift */,
+				2BC60D642B1CC3230016584E /* PostCollectionViewCell.swift */,
+				2BC60D662B1CD23B0016584E /* PostViewModel.swift */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
 		2BD741A42B06051F006C11B2 = {
 			isa = PBXGroup;
 			children = (
@@ -305,6 +354,8 @@
 		2BD741C62B06078D006C11B2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2BC60D5C2B1C97080016584E /* Post */,
+				2BC60D192B18ACC70016584E /* Home */,
 				2BD741D32B078FF0006C11B2 /* Login */,
 				2BD741C72B060792006C11B2 /* Join */,
 			);
@@ -347,6 +398,9 @@
 				2BD741D52B07905F006C11B2 /* BaseView.swift */,
 				2BD741D72B079084006C11B2 /* BaseViewController.swift */,
 				2B6D6DEA2B09F62A004A8DA9 /* BaseViewModel.swift */,
+				2BC60D442B19C7580016584E /* BaseCollectionViewCell.swift */,
+				2BC60D402B19C3060016584E /* BaseCollectionReusableView.swift */,
+				2BC60D4B2B1C4CD10016584E /* BaseTableViewCell.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -398,6 +452,7 @@
 				2B61ACDD2B107B0E00C3F29E /* Alert+.swift */,
 				2B9406272B133246003FCE94 /* NaviBarButton+.swift */,
 				2B94063E2B1498B0003FCE94 /* Notification+.swift */,
+				2BC60D532B1C55550016584E /* ReusableViewProtocol+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -517,27 +572,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BC60D672B1CD23B0016584E /* PostViewModel.swift in Sources */,
 				2B61ACE82B12777600C3F29E /* GImageButton.swift in Sources */,
 				2B61ACE32B1256AC00C3F29E /* NicknameDataManager.swift in Sources */,
 				2BD741B52B06051F006C11B2 /* ViewController.swift in Sources */,
+				2BC60D1F2B18AD060016584E /* HomeViewModel.swift in Sources */,
 				2B6D6E532B0CC362004A8DA9 /* APIError.swift in Sources */,
+				2BC60D652B1CC3230016584E /* PostCollectionViewCell.swift in Sources */,
 				2B61ACDE2B107B0E00C3F29E /* Alert+.swift in Sources */,
 				2B6D6E5D2B0DAA5A004A8DA9 /* JoinAPIManager.swift in Sources */,
+				2BC60D542B1C55550016584E /* ReusableViewProtocol+.swift in Sources */,
+				2BC60D5E2B1C97290016584E /* PostViewController.swift in Sources */,
 				2B61ACE62B12573400C3F29E /* NicknameDataModel.swift in Sources */,
+				2BC60D602B1C97810016584E /* PostView.swift in Sources */,
 				2B6D6DE92B09DF31004A8DA9 /* GPasswordTextField.swift in Sources */,
 				2BD741F52B07B8D9006C11B2 /* GLabel.swift in Sources */,
 				2B9406692B17244C003FCE94 /* PostAPIManager.swift in Sources */,
 				2BD742012B08DA3C006C11B2 /* JoinStep2ViewController.swift in Sources */,
+				2BC60D4C2B1C4CD10016584E /* BaseTableViewCell.swift in Sources */,
 				2BD741B12B06051F006C11B2 /* AppDelegate.swift in Sources */,
 				2BD741CA2B0607FC006C11B2 /* JoinStep1ViewController.swift in Sources */,
+				2BC60D5B2B1C5EE00016584E /* HomeCollectionViewCell.swift in Sources */,
 				2B6D6E2D2B0B5491004A8DA9 /* APIKey.swift in Sources */,
 				2BD742032B08DA4B006C11B2 /* JoinStep2View.swift in Sources */,
+				2BC60D1D2B18ACFD0016584E /* HomeView.swift in Sources */,
 				2BD741F22B079FF8006C11B2 /* Font+.swift in Sources */,
+				2BC60D412B19C3060016584E /* BaseCollectionReusableView.swift in Sources */,
 				2B94062A2B134146003FCE94 /* JoinStep2ViewModel.swift in Sources */,
 				2B6D6DEF2B09F805004A8DA9 /* JoinStep1ViewModel.swift in Sources */,
 				2BD741D62B07905F006C11B2 /* BaseView.swift in Sources */,
 				2B94064E2B1602F5003FCE94 /* PostAPI.swift in Sources */,
 				2BD741F92B07CE01006C11B2 /* GDivider.swift in Sources */,
+				2BC60D1B2B18ACF50016584E /* HomeViewController.swift in Sources */,
 				2B94064C2B1602EC003FCE94 /* PostModel.swift in Sources */,
 				2B94063F2B1498B0003FCE94 /* Notification+.swift in Sources */,
 				2BD741FF2B08A49C006C11B2 /* JoinStep1View.swift in Sources */,
@@ -546,7 +612,9 @@
 				2B6D6E312B0B6CFD004A8DA9 /* JoinModel.swift in Sources */,
 				2B94062E2B139809003FCE94 /* KeychainManager.swift in Sources */,
 				2B6D6E2A2B0B5480004A8DA9 /* JoinAPI.swift in Sources */,
+				2BC60D452B19C7580016584E /* BaseCollectionViewCell.swift in Sources */,
 				2BD741D82B079084006C11B2 /* BaseViewController.swift in Sources */,
+				2BC60D562B1C56590016584E /* HomeTableViewCell.swift in Sources */,
 				2BD741FB2B088255006C11B2 /* GButton.swift in Sources */,
 				2B9406282B133246003FCE94 /* NaviBarButton+.swift in Sources */,
 				2B6D6DEB2B09F62A004A8DA9 /* BaseViewModel.swift in Sources */,
