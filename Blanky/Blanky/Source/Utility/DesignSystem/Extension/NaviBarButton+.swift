@@ -18,7 +18,7 @@ extension UIViewController {
         backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         
         backButton.snp.makeConstraints { make in
-            make.size.equalTo(44)
+            make.size.equalTo(42)
         }
         
         
@@ -39,7 +39,7 @@ extension UIViewController {
         exitButton.addTarget(self, action: #selector(exitButtonTapped), for: .touchUpInside)
         
         exitButton.snp.makeConstraints { make in
-            make.size.equalTo(44)
+            make.size.equalTo(42)
         }
         
         let customExitButton = UIBarButtonItem(customView: exitButton)
@@ -60,7 +60,7 @@ extension UIViewController {
         xButton.addTarget(self, action: #selector(xButtonTapped), for: .touchUpInside)
         
         xButton.snp.makeConstraints { make in
-            make.size.equalTo(44)
+            make.size.equalTo(42)
         }
         
         
