@@ -60,7 +60,7 @@ class JoinStep2View: BaseView {
     
     override func configureLayout() {
         backView.snp.makeConstraints { make in
-            make.top.equalTo(self.safeAreaLayoutGuide).inset(50)
+            make.top.equalTo(self.safeAreaLayoutGuide).inset(30)
             make.horizontalEdges.equalToSuperview()
             make.bottom.equalToSuperview()
         }
