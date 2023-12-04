@@ -30,7 +30,7 @@ class JoinStep1ViewModel: BaseViewModel {
     
     func transform(input: Input) -> Output {
         
-        var finalUserInfo = BehaviorRelay<JoinInput>(value: JoinInput(email: "", password: "", nick: ""))
+        let finalUserInfo = BehaviorRelay<JoinInput>(value: JoinInput(email: "", password: "", nick: ""))
         
         //이메일 유효성 검사
         let emailValidation = input.emailTextField
