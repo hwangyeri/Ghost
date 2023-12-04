@@ -19,7 +19,7 @@ class JoinStep1View: BaseView {
     let emailLabel = GLabel(
         text: "이메일을 입력해 주세요.",
         fontWeight: .semiBold,
-        fontSize: .L
+        fontSize: .XL
     )
     
     let emailTextField = GTextField(
@@ -42,7 +42,7 @@ class JoinStep1View: BaseView {
     let passwordLabel = GLabel(
         text: "비밀번호를 입력해 주세요.",
         fontWeight: .semiBold,
-        fontSize: .L
+        fontSize: .XL
     )
     
     let passwordTextField = GPasswordTextField(
@@ -69,13 +69,13 @@ class JoinStep1View: BaseView {
     
     override func configureLayout() {
         backView.snp.makeConstraints { make in
-            make.top.equalTo(self.safeAreaLayoutGuide).inset(50)
+            make.top.equalTo(self.safeAreaLayoutGuide).inset(30)
             make.horizontalEdges.equalToSuperview()
             make.bottom.equalToSuperview()
         }
         
         emailLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(45)
+            make.top.equalToSuperview().inset(50)
             make.horizontalEdges.equalToSuperview().inset(25)
         }
         
@@ -99,7 +99,7 @@ class JoinStep1View: BaseView {
         }
         
         passwordLabel.snp.makeConstraints { make in
-            make.top.equalTo(emailInfoLabel.snp.bottom).offset(60)
+            make.top.equalTo(emailInfoLabel.snp.bottom).offset(65)
             make.horizontalEdges.equalTo(emailLabel)
         }
         
