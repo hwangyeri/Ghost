@@ -11,20 +11,15 @@ import Then
 
 class PostView: BaseView {
     
-    //FIXME: 임시저장 버튼 추가하기
-    
     let postButton = GButton(text: "등록").then {
         $0.layer.cornerRadius = 16
         $0.titleLabel?.font = .customFont(.medium, size: .XS)
     }
     
-    let titleTextField = UITextField().then {
-        $0.font = .customFont(.medium, size: .M)
-        $0.tintColor = .point
-        $0.autocapitalizationType = .none
-        $0.autocorrectionType = .no
-        $0.keyboardType = .default
-        $0.returnKeyType = .next
+    let titleTextField = GTextField(
+        weight: .medium, size: .M,
+        returnKeyType: .next
+    ).then {
         $0.placeholder = "제목을 입력해 주세요."
     }
     
@@ -36,9 +31,24 @@ class PostView: BaseView {
         $0.tintColor = .point
         $0.autocapitalizationType = .none
         $0.autocorrectionType = .no
-        $0.keyboardType = .default
-        $0.returnKeyType = .done
+        $0.spellCheckingType = .no
+//        $0.keyboardType = .default
+//        $0.returnKeyType = .default
     }
+    
+    let contentTextViewToolbar: UIToolbar = {
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 44))
+        
+        let cameraButton = UIBarButtonItem(barButtonSystemItem: .camera, target: nil, action: nil)
+        let albumButton = UIBarButtonItem(image: UIImage(systemName: "photo"), style: .plain, target: nil, action: nil)
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let dismissButton = UIBarButtonItem(image: UIImage(systemName: "keyboard.chevron.compact.down"), style: .plain, target: nil, action: nil)
+        
+        toolbar.items = [cameraButton, albumButton, flexibleSpace, dismissButton]
+        toolbar.tintColor = .white
+        
+        return toolbar
+    }()
     
     let addImageButton = GImageButton(
         imageSize: 18,
@@ -58,11 +68,12 @@ class PostView: BaseView {
     
     private func collectionViewLayout() -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = 8
-        layout.minimumInteritemSpacing = 8
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
-        let size = UIScreen.main.bounds.width
-        layout.itemSize = CGSize(width: size / 3, height: size / 3)
+        layout.minimumLineSpacing = 10
+        layout.minimumInteritemSpacing = 10
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        layout.scrollDirection = .horizontal
+        //let size = UIScreen.main.bounds.width
+        layout.itemSize = CGSize(width: 90, height: 90)
         return layout
     }
     
@@ -70,6 +81,8 @@ class PostView: BaseView {
         [postButton, titleTextField, divider, addImageButton, contentTextView, collectionView].forEach {
             self.addSubview($0)
         }
+        
+//        contentTextView.inputAccessoryView = contentTextViewToolbar
     }
     
     override func configureLayout() {
@@ -81,7 +94,7 @@ class PostView: BaseView {
         }
         
         titleTextField.snp.makeConstraints { make in
-            make.top.equalTo(postButton.snp.bottom).offset(30)
+            make.top.equalTo(postButton.snp.bottom).offset(25)
             make.horizontalEdges.equalToSuperview().inset(20)
             make.height.equalTo(50)
         }
@@ -93,15 +106,15 @@ class PostView: BaseView {
         }
         
         contentTextView.snp.makeConstraints { make in
-            make.top.equalTo(divider.snp.bottom).offset(10)
+            make.top.equalTo(divider.snp.bottom).offset(20)
             make.horizontalEdges.equalTo(titleTextField)
-            make.bottom.equalTo(addImageButton.snp.top)
         }
         
         addImageButton.snp.makeConstraints { make in
-            make.leading.equalToSuperview().inset(10)
-            make.bottom.equalTo(self.safeAreaLayoutGuide).inset(10)
-            make.size.equalTo(75)
+            make.top.equalTo(contentTextView.snp.bottom).offset(25)
+            make.leading.equalToSuperview().inset(20)
+            make.bottom.equalTo(self.safeAreaLayoutGuide).inset(30)
+            make.size.equalTo(90)
         }
         
         collectionView.snp.makeConstraints { make in
