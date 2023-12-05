@@ -22,7 +22,7 @@ class JoinStep1View: BaseView {
         fontSize: .XL
     )
     
-    let emailTextField = GTextField(
+    let emailTextField = GHoshiTextField(
         keyboardType: .emailAddress,
         returnKeyType: .next,
         placeholder: "영문, 숫자만 사용해 주세요."

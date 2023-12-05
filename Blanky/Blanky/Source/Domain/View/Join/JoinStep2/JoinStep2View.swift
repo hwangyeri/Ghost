@@ -28,7 +28,7 @@ class JoinStep2View: BaseView {
         fontSize: .S
     )
     
-    let nicknameTextField = GTextField(
+    let nicknameTextField = GHoshiTextField(
         keyboardType: .default,
         returnKeyType: .done,
         placeholder: "2~12글자 이하, 한글, 숫자만 사용해 주세요."

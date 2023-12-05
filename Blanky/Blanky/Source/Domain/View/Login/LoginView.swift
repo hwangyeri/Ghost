@@ -22,7 +22,7 @@ class LoginView: BaseView {
         fontSize: .M
     )
     
-    let emailTextField = GTextField(
+    let emailTextField = GHoshiTextField(
         keyboardType: .emailAddress,
         returnKeyType: .next,
         placeholder: "이메일 주소"
