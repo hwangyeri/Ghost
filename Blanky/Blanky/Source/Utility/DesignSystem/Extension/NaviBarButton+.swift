@@ -11,7 +11,7 @@ import Then
 
 extension UIViewController {
     
-    //MARK: 왼쪽 네비바 버튼, Back Button < 돌아오세요
+    //MARK: 왼쪽 네비바 버튼, Back Button <
     func setCustomBackButton() {
         let backButton = GImageButton(imageSize: 18, imageName: "chevron.backward", backgroundColor: .bColor200, tintColor: .white, cornerRadius: 15)
         
