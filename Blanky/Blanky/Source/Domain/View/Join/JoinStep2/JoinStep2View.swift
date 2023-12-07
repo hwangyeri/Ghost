@@ -45,7 +45,11 @@ class JoinStep2View: BaseView {
         cornerRadius: 15
     )
     
-    let doneButton = GButton(text: "가입 완료").then {
+    let doneButton = GButton(
+        text: "가입 완료",
+        cornerRadius: 25,
+        weight: .semiBold, size: .M
+    ).then {
         $0.isEnabled = true
         $0.backgroundColor = .white
     }

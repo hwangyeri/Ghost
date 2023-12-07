@@ -34,7 +34,10 @@ class LoginView: BaseView {
         placeholder: "비밀번호"
     )
     
-    let loginButton = GButton(text: "로그인")
+    let loginButton = GButton(
+        text: "로그인",
+        cornerRadius: 25,
+        weight: .semiBold, size: .M)
     
     let findEmailButton = GTextButton(text: "이메일 찾기")
     

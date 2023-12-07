@@ -28,10 +28,11 @@ class JoinStep1View: BaseView {
         placeholder: "영문, 숫자만 사용해 주세요."
     )
     
-    let checkEmailDuplicationButton = GButton(text: "중복 확인").then {
-        $0.layer.cornerRadius = 16
-        $0.titleLabel?.font = .customFont(.regular, size: .XXS)
-    }
+    let checkEmailDuplicationButton = GButton(
+        text: "중복 확인",
+        cornerRadius: 16,
+        weight: .regular, size: .XXS
+    )
     
     let emailInfoLabel = GLabel(
         text: "✅  사용 가능한 이메일인지 확인해 주세요.",
@@ -57,7 +58,10 @@ class JoinStep1View: BaseView {
         placeholder: "비밀번호를 확인해 주세요."
     )
     
-    let nextButton = GButton(text: "다음")
+    let nextButton = GButton(
+        text: "다음",
+        cornerRadius: 25,
+        weight: .semiBold, size: .M)
     
     override func configureHierarchy() {
         self.addSubview(backView)
