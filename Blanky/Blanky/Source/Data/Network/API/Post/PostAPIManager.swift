@@ -43,9 +43,9 @@ final class PostAPIManager {
     }
     
     // MARK: 게시글 작성
-    func postCreate(title: String, content: String, file: Data?, product_id: String, content1: String?, content2: String?) -> Single<Result<PostOutput, APIError>> {
-        let input = PostInput(title: title, content: content, file: file, product_id: product_id)
-        return request(target: .postCreate(model: input), model: PostOutput.self)
+    func postCreate(title: String, content: String, file: [Data]) -> Single<Result<PostCreate, APIError>> {
+        let input = PostCreate(title: title, content: content, file: file, product_id: "ghost00")
+        return request(target: .postCreate(model: input), model: PostCreate.self)
     }
     
     // MARK: 게시글 조회
@@ -54,10 +54,10 @@ final class PostAPIManager {
     }
     
     // MARK: 게시글 수정
-    func postUpdate(id: String, title: String, content: String, file: Data?, product_id: String, content1: String?, content2: String?) -> Single<Result<PostOutput, APIError>> {
-        let input = PostInput(title: title, content: content, file: file, product_id: product_id)
-        return request(target: .postUpdate(model: input, id: id), model: PostOutput.self)
-    }
+//    func postUpdate(id: String, title: String, content: String, file: Data, product_id: String, content1: String?, content2: String?) -> Single<Result<PostOutput, APIError>> {
+//        let input = PostInput(title: title, content: content, file: file)
+//        return request(target: .postUpdate(model: input, id: id), model: PostOutput.self)
+//    }
     
     // MARK: 게시글 삭제
     func postDelete(id: String) -> Single<Result<PostDelete, APIError>> {
