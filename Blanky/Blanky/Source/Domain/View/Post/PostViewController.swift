@@ -16,9 +16,10 @@ import PhotosUI
  2. 키보드 높이에 맞춰서 이미지 추가 버튼, 컬렉션 뷰의 높이 유동적으로 바꿔주기
  3. 임시 저장 버튼 추가하기
  4. 텍스트뷰 글자수, 줄바꿈 제한 안먹힘
+ 5. 커스텀 버튼 -> 네비바 버튼으로 변경하기
  */
 
-class PostViewController: BaseViewController {
+final class PostViewController: BaseViewController {
     
     private let mainView = PostView()
     
@@ -32,6 +33,8 @@ class PostViewController: BaseViewController {
             updateSnapshot()
         }
     }
+    
+    var imageSubject = PublishSubject<[Data]>()
     
     private var collectionViewDataSource: UICollectionViewDiffableDataSource<Int, UIImage>!
     
@@ -47,7 +50,7 @@ class PostViewController: BaseViewController {
     }
     
     override func configureLayout() {
-        setCustomXButton()
+        self.navigationItem.hidesBackButton = true
         mainView.collectionView.delegate = self
         mainView.contentTextView.delegate = self
         mainView.addImageButton.addTarget(self, action: #selector(addImageButtonTap), for: .touchUpInside)
@@ -56,9 +59,12 @@ class PostViewController: BaseViewController {
     private func bind() {
         
         let input = PostViewModel.Input(
+            xButton: mainView.xButton.rx.tap,
             postButton: mainView.postButton.rx.tap,
             titleTextField: mainView.titleTextField.rx.text.orEmpty,
-            contentTextView: mainView.contentTextView.rx.text.orEmpty)
+            contentTextView: mainView.contentTextView.rx.text.orEmpty,
+            imageSubject: imageSubject
+        )
         
         let output = viewModel.transform(input: input)
         
@@ -66,9 +72,37 @@ class PostViewController: BaseViewController {
             .drive(with: self) { owner, isValid in
                 owner.mainView.postButton.backgroundColor = isValid ? .white : .gray
                 owner.mainView.postButton.isEnabled = isValid
+                print(owner.mainView.postButton.isEnabled)
             }
             .disposed(by: disposeBag)
         
+        output.xButtonTap
+            .drive(with: self) { owner, _ in
+                owner.navigationController?.popViewController(animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        output.postButtonTap
+            .drive(with: self) { owner, result in
+                
+                print(result)
+                
+                switch result {
+                case true:
+                    owner.navigationController?.popViewController(animated: true)
+                case false:
+                    owner.showAlertMessage(title: "", message: "게시글 작성에 실패했습니다. 다시 시도해 주세요.")
+                }
+            }
+            .disposed(by: disposeBag)
+        
+    }
+    
+    /// Image -> Data
+    private func convertImagesToData(_ images: [UIImage]) -> [Data] {
+        return images.map { image in
+            return image.jpegData(compressionQuality: 0.2) ?? Data()
+        }
     }
     
     /// ActionSheet
@@ -153,7 +187,7 @@ extension PostViewController: UIImagePickerControllerDelegate, UINavigationContr
     
 }
 
-//MARK: PHPicker 라이브러리
+//MARK: PHPicker 앨범에서 이미지 가져오기
 extension PostViewController: PHPickerViewControllerDelegate {
     
     //사진을 선택하고 난 후에 실행되는 메서드
@@ -169,6 +203,9 @@ extension PostViewController: PHPickerViewControllerDelegate {
                     DispatchQueue.main.async {
                         if let selectedImage = image as? UIImage {
                             self?.selectedImages.append(selectedImage)
+                            
+                            let imageDataArray = self?.convertImagesToData(self?.selectedImages ?? []) ?? []
+                            self?.imageSubject.onNext(imageDataArray)
                         }
                     }
                 }
