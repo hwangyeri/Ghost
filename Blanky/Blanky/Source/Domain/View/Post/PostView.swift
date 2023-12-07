@@ -9,12 +9,21 @@ import UIKit
 import SnapKit
 import Then
 
-class PostView: BaseView {
+final class PostView: BaseView {
     
-    let postButton = GButton(text: "등록").then {
-        $0.layer.cornerRadius = 16
-        $0.titleLabel?.font = .customFont(.medium, size: .XS)
-    }
+    let xButton = GImageButton(
+        imageSize: 16,
+        imageName: "xmark",
+        backgroundColor: .bColor200,
+        tintColor: .white,
+        cornerRadius: 15
+    )
+    
+    let postButton = GButton(
+        text: "등록",
+        cornerRadius: 16,
+        weight: .medium, size: .XS
+    )
     
     let titleTextField = GTextField(
         weight: .medium, size: .M,
@@ -32,8 +41,6 @@ class PostView: BaseView {
         $0.autocapitalizationType = .none
         $0.autocorrectionType = .no
         $0.spellCheckingType = .no
-//        $0.keyboardType = .default
-//        $0.returnKeyType = .default
     }
     
     let contentTextViewToolbar: UIToolbar = {
@@ -78,7 +85,7 @@ class PostView: BaseView {
     }
     
     override func configureHierarchy() {
-        [postButton, titleTextField, divider, addImageButton, contentTextView, collectionView].forEach {
+        [xButton, postButton, titleTextField, divider, addImageButton, contentTextView, collectionView].forEach {
             self.addSubview($0)
         }
         
@@ -86,8 +93,14 @@ class PostView: BaseView {
     }
     
     override func configureLayout() {
+        xButton.snp.makeConstraints { make in
+            make.top.equalTo(self.safeAreaLayoutGuide).offset(-10)
+            make.leading.equalToSuperview().inset(20)
+            make.size.equalTo(42)
+        }
+        
         postButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(55)
+            make.top.equalTo(xButton)
             make.trailing.equalToSuperview().inset(20)
             make.height.equalTo(32)
             make.width.equalTo(60)
