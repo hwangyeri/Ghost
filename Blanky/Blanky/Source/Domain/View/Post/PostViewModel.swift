@@ -16,7 +16,7 @@ final class PostViewModel: BaseViewModel {
         let postButton: ControlEvent<Void> //게시글 등록 버튼
         let titleTextField: ControlProperty<String> //제목 텍스트필드
         let contentTextView: ControlProperty<String> //내용 텍스트필드
-        let imageRelay: Observable<[Data]> //추가한 이미지 배열
+        let imageRelay: PublishRelay<[Data]> //추가한 이미지 배열
     }
     
     struct Output {
