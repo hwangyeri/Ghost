@@ -62,7 +62,7 @@ class LoginViewController: BaseViewController {
             .drive(with: self) { owner, result in
                 switch result.0 {
                 case true:
-                    let vc = ViewController()
+                    let vc = HomeViewController()
                     owner.navigationController?.pushViewController(vc, animated: true)
                 case false:
                     owner.showAlertMessage(title: "", message: result.1)
