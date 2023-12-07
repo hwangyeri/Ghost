@@ -87,6 +87,7 @@ extension PostAPI: TargetType {
             multipartData.append(contentData)
             multipartData.append(productIdData)
             
+            print("PostAPI print: ", multipartData)
             return .uploadMultipart(multipartData)
         case .postRead(let next, let limit, let product_id), .postUser(_, let next, let limit, let product_id):
             let parameters: [String: String] = ["next": next, "limit": limit, "product_id": product_id]
