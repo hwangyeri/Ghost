@@ -7,13 +7,19 @@
 
 import Foundation
 
+/// 게시글 작성
+struct PostCreate: Codable {
+    let title, content: String
+    let file: [Data]?
+    let product_id: String
+}
+
 // MARK: 게시글 작성/수정
 struct PostInput: Encodable {
     let title: String
     let content: String
     let file: Data?
     let product_id: String
-    //let content1, content2: String?
 }
 
 // MARK: 게시글 조회, 내가 좋아요 한 포스트 일괄 조회
@@ -22,19 +28,23 @@ struct PostOutput: Decodable {
     let nextCursor: String
 }
 
-// MARK: 게시글 작성/수정
+// MARK: 게시글 수정
 struct PostData: Decodable {
-    let likes, image: [String]
-    let hashTags, comments: [String]
-    let id, productID: String
+//    let likes, image, hashTags: [String]
+//    let comments: Comments
+    let id: String
+    //let productID: String
     let creator: Creator
     let time: String
     let title, content: String
-    //let content1, content2: String?
 }
 
 struct Creator: Decodable {
-    let id, nick, profile: String
+    let id, nick: String
+}
+
+struct Comments: Decodable {
+    let id, content, time: String
 }
 
 // MARK: 게시글 삭제
