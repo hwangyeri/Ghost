@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B21049E2B1F0AEA005CA1F0 /* GTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B21049D2B1F0AEA005CA1F0 /* GTextField.swift */; };
 		2B61ACDE2B107B0E00C3F29E /* Alert+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B61ACDD2B107B0E00C3F29E /* Alert+.swift */; };
 		2B61ACE12B12543C00C3F29E /* RandomNickname.json in Resources */ = {isa = PBXBuildFile; fileRef = 2B61ACE02B12543C00C3F29E /* RandomNickname.json */; };
 		2B61ACE32B1256AC00C3F29E /* NicknameDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B61ACE22B1256AC00C3F29E /* NicknameDataManager.swift */; };
@@ -71,7 +72,7 @@
 		2BD741ED2B079A97006C11B2 /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2BD741EB2B079A97006C11B2 /* Pretendard-Black.otf */; };
 		2BD741F22B079FF8006C11B2 /* Font+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741F12B079FF8006C11B2 /* Font+.swift */; };
 		2BD741F52B07B8D9006C11B2 /* GLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741F42B07B8D9006C11B2 /* GLabel.swift */; };
-		2BD741F72B07C708006C11B2 /* GTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741F62B07C708006C11B2 /* GTextField.swift */; };
+		2BD741F72B07C708006C11B2 /* GHoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741F62B07C708006C11B2 /* GHoshiTextField.swift */; };
 		2BD741F92B07CE01006C11B2 /* GDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741F82B07CE01006C11B2 /* GDivider.swift */; };
 		2BD741FB2B088255006C11B2 /* GButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741FA2B088255006C11B2 /* GButton.swift */; };
 		2BD741FD2B088DBA006C11B2 /* GTextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741FC2B088DBA006C11B2 /* GTextButton.swift */; };
@@ -82,6 +83,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B21049D2B1F0AEA005CA1F0 /* GTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GTextField.swift; sourceTree = "<group>"; };
 		2B61ACDD2B107B0E00C3F29E /* Alert+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert+.swift"; sourceTree = "<group>"; };
 		2B61ACE02B12543C00C3F29E /* RandomNickname.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RandomNickname.json; sourceTree = "<group>"; };
 		2B61ACE22B1256AC00C3F29E /* NicknameDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameDataManager.swift; sourceTree = "<group>"; };
@@ -139,7 +141,7 @@
 		2BD741EB2B079A97006C11B2 /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
 		2BD741F12B079FF8006C11B2 /* Font+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+.swift"; sourceTree = "<group>"; };
 		2BD741F42B07B8D9006C11B2 /* GLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLabel.swift; sourceTree = "<group>"; };
-		2BD741F62B07C708006C11B2 /* GTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GTextField.swift; sourceTree = "<group>"; };
+		2BD741F62B07C708006C11B2 /* GHoshiTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHoshiTextField.swift; sourceTree = "<group>"; };
 		2BD741F82B07CE01006C11B2 /* GDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GDivider.swift; sourceTree = "<group>"; };
 		2BD741FA2B088255006C11B2 /* GButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GButton.swift; sourceTree = "<group>"; };
 		2BD741FC2B088DBA006C11B2 /* GTextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GTextButton.swift; sourceTree = "<group>"; };
@@ -461,7 +463,8 @@
 			isa = PBXGroup;
 			children = (
 				2BD741F42B07B8D9006C11B2 /* GLabel.swift */,
-				2BD741F62B07C708006C11B2 /* GTextField.swift */,
+				2B21049D2B1F0AEA005CA1F0 /* GTextField.swift */,
+				2BD741F62B07C708006C11B2 /* GHoshiTextField.swift */,
 				2B6D6DE82B09DF31004A8DA9 /* GPasswordTextField.swift */,
 				2BD741F82B07CE01006C11B2 /* GDivider.swift */,
 				2BD741FA2B088255006C11B2 /* GButton.swift */,
@@ -596,6 +599,7 @@
 				2B6D6E2D2B0B5491004A8DA9 /* APIKey.swift in Sources */,
 				2BD742032B08DA4B006C11B2 /* JoinStep2View.swift in Sources */,
 				2BC60D1D2B18ACFD0016584E /* HomeView.swift in Sources */,
+				2B21049E2B1F0AEA005CA1F0 /* GTextField.swift in Sources */,
 				2BD741F22B079FF8006C11B2 /* Font+.swift in Sources */,
 				2BC60D412B19C3060016584E /* BaseCollectionReusableView.swift in Sources */,
 				2B94062A2B134146003FCE94 /* JoinStep2ViewModel.swift in Sources */,
@@ -621,7 +625,7 @@
 				2BD741DD2B079469006C11B2 /* LoginView.swift in Sources */,
 				2BD741FD2B088DBA006C11B2 /* GTextButton.swift in Sources */,
 				2BD741B32B06051F006C11B2 /* SceneDelegate.swift in Sources */,
-				2BD741F72B07C708006C11B2 /* GTextField.swift in Sources */,
+				2BD741F72B07C708006C11B2 /* GHoshiTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -772,7 +776,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -803,7 +807,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
