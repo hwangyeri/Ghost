@@ -23,6 +23,9 @@ class HomeViewModel: BaseViewModel {
         
         //게시글 작성 버튼 탭
         let plusButtonTap = input.plusButton
+            .do(onNext: { _ in
+                print("plusButtonTap")
+            })
             .throttle(.seconds(1), scheduler: MainScheduler.instance)
             .asDriver(onErrorJustReturn: ())
         
