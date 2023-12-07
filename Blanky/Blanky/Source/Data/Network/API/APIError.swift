@@ -12,15 +12,15 @@ enum APIError: Int, Error {
     case unknownError = 1
     case decodedError = 2
     
-    ///공통 응답 코드 (HTTP status code)
+    /// 공통 응답 코드 (HTTP status code)
     case missingSesacKey = 420
     case overcall = 429
     case invalidURL = 444
     case undefined = 500
     
-    case invalidRequest = 400 ///잘못된 요청(포스트), 필수값 누락(회원가입, 이메일 중복 확인)
-    case alreadyExists = 409 ///이미 가입한 유저(회원가입), 사용 불가한 이메일(이메일 중복 확인), 액세스 토큰 만료 후 재요청(액세스 토큰 갱신)
-    case unusableAccount = 401 ///미가입이나 비밀번호 불일치(로그인), 유효하지 않은 액세스 토큰
+    case invalidRequest = 400 /// 잘못된 요청(포스트), 필수값 누락(회원가입, 이메일 중복 확인)
+    case alreadyExists = 409 /// 이미 가입한 유저(회원가입), 사용 불가한 이메일(이메일 중복 확인), 액세스 토큰 만료 후 재요청(액세스 토큰 갱신)
+    case unusableAccount = 401 /// 미가입이나 비밀번호 불일치(로그인), 유효하지 않은 액세스 토큰
     case forbidden = 403
     case refreshTokenExpired = 418
     case accessTokenExpired = 419
@@ -46,7 +46,7 @@ enum APIError: Int, Error {
         case .alreadyExists:
             return "이미 존재하는 이메일입니다."
         case .unusableAccount:
-            return "사용할 수 없는 계정입니다."
+            return "계정을 확인해 주세요."
         case .forbidden:
             return "접근 권한이 없습니다."
         case .refreshTokenExpired:
