@@ -9,9 +9,9 @@ import Foundation
 import Moya
 
 enum PostAPI {
-    case postCreate(model: PostInput) //게시글 작성
+    case postCreate(model: PostCreate) //게시글 작성
     case postRead(next: String, limit: String, product_id: String) //게시글 조회
-    case postUpdate(model: PostInput, id: String) //게시글 수정
+//    case postUpdate(model: PostInput, id: String) //게시글 수정
     case postDelete(id: String) //게시글 삭제
     case postUser(id: String, next: String, limit: String, product_id: String) //유저별 작성한 게시글 조회
     case commentCreate(model: CommentInput, id: String) //댓글 작성
@@ -32,7 +32,7 @@ extension PostAPI: TargetType {
         case .postCreate, .postRead:
             return "post"
             // 게시글 수정/삭제 - id
-        case .postUpdate(_, let id), .postDelete(let id):
+        case .postDelete(let id):
             return "post/:\(id)"
         case .postUser(let id, _, _, _):
             return "post/user/:\(id)"
@@ -59,7 +59,7 @@ extension PostAPI: TargetType {
         case .postRead, .postUser, .likeMe:
             return .get
         //PUT: 게시글/댓글 수정
-        case .postUpdate, .commentUpdate:
+        case .commentUpdate:
             return .put
         //DEL: 게시글/댓글 삭제
         case .postDelete, .commentDelete:
@@ -70,12 +70,27 @@ extension PostAPI: TargetType {
     var task: Moya.Task { //request-query, request-body
         switch self {
         case .postCreate(let model):
-            return .requestJSONEncodable(model)
+            var multipartData: [MultipartFormData] = []
+            
+            if let file = model.file {
+                file.forEach { item in
+                    let imageData = MultipartFormData(provider: .data(item), name: "file", fileName: "image_\(UUID().uuidString).jpeg", mimeType: "image/jpeg")
+                    multipartData.append(imageData)
+                }
+            }
+            
+            let titleData = MultipartFormData(provider: .data(model.title.data(using: .utf8)!), name: "title")
+            let contentData = MultipartFormData(provider: .data(model.content.data(using: .utf8)!), name: "content")
+            let productIdData = MultipartFormData(provider: .data(model.product_id.data(using: .utf8)!), name: "product_id")
+            
+            multipartData.append(titleData)
+            multipartData.append(contentData)
+            multipartData.append(productIdData)
+            
+            return .uploadMultipart(multipartData)
         case .postRead(let next, let limit, let product_id), .postUser(_, let next, let limit, let product_id):
             let parameters: [String: String] = ["next": next, "limit": limit, "product_id": product_id]
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
-        case .postUpdate(let model, _):
-            return .requestJSONEncodable(model)
         case .commentCreate(let model, _):
             return .requestJSONEncodable(model)
         case .commentUpdate(let model, _, _):
@@ -90,7 +105,7 @@ extension PostAPI: TargetType {
     
     var headers: [String : String]? {
         switch self {
-        case .postCreate, .postUpdate:
+        case .postCreate:
             ["Authorization": "\(KeychainManager.shared.token ?? "token error")",
              "Content-Type": "multipart/form-data",
              "SesacKey": APIKey.sesacKey]
