@@ -9,13 +9,13 @@ import UIKit
 
 final class GButton: UIButton {
     
-    init(text: String) {
+    init(text: String, cornerRadius: CGFloat, weight: UIFont.CustomFontWeight, size: UIFont.CustomFontSize) {
         super.init(frame: .zero)
         
         self.setTitle(text, for: .normal)
         self.setTitleColor(.black, for: .normal)
-        self.layer.cornerRadius = 25 //10
-        self.titleLabel?.font = .customFont(.semiBold, size: .M)
+        self.layer.cornerRadius = cornerRadius
+        self.titleLabel?.font = .customFont(weight, size: size)
         self.backgroundColor = .gray
         
         // Disable 상태로 버튼 UI 초기화
