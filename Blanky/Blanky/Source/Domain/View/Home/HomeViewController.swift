@@ -17,11 +17,11 @@ class HomeViewController: BaseViewController {
     
     let disposeBag = DisposeBag()
     
-    private let dummy: [PostData] = [
-        PostData(likes: [], image: [], hashTags: [], comments: [], id: "", productID: "", creator: Creator(id: "", nick: "nick1", profile: "ghost"), time: "", title: "title1", content: "content1"),
-        PostData(likes: [], image: [], hashTags: [], comments: [], id: "", productID: "", creator: Creator(id: "", nick: "nick2", profile: "ghost"), time: "", title: "title2", content: "content2"),
-        PostData(likes: [], image: [], hashTags: [], comments: [], id: "", productID: "", creator: Creator(id: "", nick: "nick3", profile: "ghost"), time: "", title: "title3", content: "content3")
-    ]
+//    private let dummy: [PostData] = [
+//        PostData(likes: [], image: [], hashTags: [], comments: [], id: "", creator: Creator(id: "", nick: "nick1", profile: "ghost"), time: "", title: "title1", content: "content1"),
+//        PostData(likes: [], image: [], hashTags: [], comments: [], id: "", creator: Creator(id: "", nick: "nick2", profile: "ghost"), time: "", title: "title2", content: "content2"),
+//        PostData(likes: [], image: [], hashTags: [], comments: [], id: "", creator: Creator(id: "", nick: "nick3", profile: "ghost"), time: "", title: "title3", content: "content3")
+//    ]
     
     override func loadView() {
         self.view = mainView
@@ -34,6 +34,7 @@ class HomeViewController: BaseViewController {
     }
     
     override func configureLayout() {
+        self.navigationItem.hidesBackButton = true
         mainView.tableView.delegate = self
         mainView.tableView.dataSource = self
     }
