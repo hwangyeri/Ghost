@@ -14,24 +14,20 @@ final class PostViewModel: BaseViewModel {
     struct Input {
         let xButton: ControlEvent<Void> //작성 종료 버튼
         let postButton: ControlEvent<Void> //게시글 등록 버튼
-        let titleTextField: ControlProperty<String>
-        let contentTextView: ControlProperty<String>
-        let imageSubject: Observable<[Data]> //추가한 이미지 배열
+        let titleTextField: ControlProperty<String> //제목 텍스트필드
+        let contentTextView: ControlProperty<String> //내용 텍스트필드
+        let imageRelay: Observable<[Data]> //추가한 이미지 배열
     }
     
     struct Output {
         let xButtonTap: Driver<Void>
-        let postButtonTap: Driver<Bool>
-        let textFieldValidation: Driver<Bool> //제목, 내용 텍스트필드 둘다 빈값이 아닌지 확인
+        let postButtonTap: Driver<Bool> //게시글 등록하기 버튼
+        let textFieldValidation: Driver<Bool> // 제목, 내용 텍스트필드 둘다 빈값이 아닌지 확인
     }
     
     func transform(input: Input) -> Output {
         
-        let temp = input.imageSubject
-            .do { data in
-                print(data)
-            }
-        
+        //작성 종료 버튼 탭
         let xButtonTap = input.xButton
             .throttle(.seconds(1), scheduler: MainScheduler.instance)
             .asDriver(onErrorJustReturn: ())
@@ -49,11 +45,8 @@ final class PostViewModel: BaseViewModel {
         
         //게시글 등록 버튼 탭
         let postButtonTap = input.postButton
-            .do(onNext: { _ in
-                print("postButtonTap")
-            })
             .throttle(.seconds(1), scheduler: MainScheduler.instance)
-            .withLatestFrom(Observable.combineLatest(input.titleTextField, input.contentTextView, input.imageSubject))
+            .withLatestFrom(Observable.combineLatest(input.titleTextField, input.contentTextView, input.imageRelay))
             .flatMap { title, content, image in
                 print("---", title, content, image)
                 return PostAPIManager.shared.postCreate(title: title, content: content, file: image)
