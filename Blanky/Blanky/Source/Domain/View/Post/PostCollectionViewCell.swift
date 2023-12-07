@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Then
 
-class PostCollectionViewCell: BaseCollectionViewCell {
+final class PostCollectionViewCell: BaseCollectionViewCell {
     
     let deleteButton = GImageButton(
         imageSize: 12,
