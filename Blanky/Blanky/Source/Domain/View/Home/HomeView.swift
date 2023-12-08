@@ -22,33 +22,41 @@ final class HomeView: BaseView {
         $0.font = .dangamFont(size: 20)
     }
 
-    let profileButton = GImageButton(
-        imageSize: 17,
-        imageName: "star",
-        backgroundColor: .bColor300,
-        tintColor: .white,
-        cornerRadius: 15
-    ).then {
-        $0.setImage(UIImage(named: "ghost"), for: .normal)
+    let profileButton = UIButton().then {
+        $0.backgroundColor = .bColor200
+        $0.layer.cornerRadius = 20
+    }
+    
+    let profileImageView1 = UIImageView().then {
+        $0.image = UIImage(named: "ghost")
+        $0.layer.cornerRadius = 18
+        $0.contentMode = .scaleAspectFit
+        $0.layer.masksToBounds = true
+    }
+    
+    let profileImageView2 = UIImageView().then {
+        $0.image = UIImage(systemName: "chevron.forward")
+        $0.contentMode = .scaleAspectFit
+        $0.tintColor = .white
     }
     
     let searchButton = GImageButton(
         imageSize: 18,
         imageName: "magnifyingglass",
-        backgroundColor: .bColor300,
+        backgroundColor: .bColor200,
         tintColor: .white,
         cornerRadius: 15
     )
     
     let backView = UIView().then {
         $0.backgroundColor = UIColor.bColor200
-        $0.layer.cornerRadius = 40
+        $0.layer.cornerRadius = 35
     }
     
     lazy var tableView = UITableView().then {
         $0.rowHeight = UITableView.automaticDimension
         $0.register(HomeTableViewCell.self, forCellReuseIdentifier: HomeTableViewCell.identifier)
-        $0.estimatedRowHeight = UITableView.automaticDimension
+        $0.estimatedRowHeight = 100
         $0.backgroundColor = .bColor200
     }
     
@@ -69,20 +77,37 @@ final class HomeView: BaseView {
         }
         
         backView.addSubview(tableView)
+        
+        [profileImageView1, profileImageView2].forEach {
+            profileButton.addSubview($0)
+        }
     }
     
     override func configureLayout() {
         
         searchButton.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(55)
-            make.trailing.equalToSuperview().inset(17)
+            make.trailing.equalToSuperview().inset(20)
             make.size.equalTo(40)
         }
         
         profileButton.snp.makeConstraints { make in
             make.top.equalTo(searchButton)
-            make.trailing.equalTo(searchButton.snp.leading).offset(-15)
-            make.size.equalTo(40)
+            make.trailing.equalTo(searchButton.snp.leading).offset(-13)
+            make.width.equalTo(60)
+            make.height.equalTo(40)
+        }
+        
+        profileImageView1.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.leading.equalToSuperview().inset(3)
+            make.size.equalTo(35)
+        }
+        
+        profileImageView2.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.trailing.equalToSuperview().inset(5)
+            make.size.equalTo(16)
         }
         
         mainLabel.snp.makeConstraints { make in
