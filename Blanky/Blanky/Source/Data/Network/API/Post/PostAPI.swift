@@ -11,7 +11,6 @@ import Moya
 enum PostAPI {
     case postCreate(model: PostCreate) //게시글 작성
     case postRead(next: String, limit: String, product_id: String) //게시글 조회
-//    case postUpdate(model: PostInput, id: String) //게시글 수정
     case postDelete(id: String) //게시글 삭제
     case postUser(id: String, next: String, limit: String, product_id: String) //유저별 작성한 게시글 조회
     case commentCreate(model: CommentInput, id: String) //댓글 작성
@@ -45,7 +44,7 @@ extension PostAPI: TargetType {
             // 좋아요 - id
         case .like(let id):
             return "post/like/:\(id)"
-        case .likeMe(_, _):
+        case .likeMe:
             return "post/like/me"
         }
     }
