@@ -42,7 +42,6 @@
 		2BC60D1B2B18ACF50016584E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC60D1A2B18ACF50016584E /* HomeViewController.swift */; };
 		2BC60D1D2B18ACFD0016584E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC60D1C2B18ACFD0016584E /* HomeView.swift */; };
 		2BC60D1F2B18AD060016584E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC60D1E2B18AD060016584E /* HomeViewModel.swift */; };
-		2BC60D412B19C3060016584E /* BaseCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC60D402B19C3060016584E /* BaseCollectionReusableView.swift */; };
 		2BC60D452B19C7580016584E /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC60D442B19C7580016584E /* BaseCollectionViewCell.swift */; };
 		2BC60D4C2B1C4CD10016584E /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC60D4B2B1C4CD10016584E /* BaseTableViewCell.swift */; };
 		2BC60D542B1C55550016584E /* ReusableViewProtocol+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC60D532B1C55550016584E /* ReusableViewProtocol+.swift */; };
@@ -110,7 +109,6 @@
 		2BC60D1A2B18ACF50016584E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2BC60D1C2B18ACFD0016584E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2BC60D1E2B18AD060016584E /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		2BC60D402B19C3060016584E /* BaseCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionReusableView.swift; sourceTree = "<group>"; };
 		2BC60D442B19C7580016584E /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		2BC60D4B2B1C4CD10016584E /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		2BC60D532B1C55550016584E /* ReusableViewProtocol+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReusableViewProtocol+.swift"; sourceTree = "<group>"; };
@@ -401,7 +399,6 @@
 				2BD741D72B079084006C11B2 /* BaseViewController.swift */,
 				2B6D6DEA2B09F62A004A8DA9 /* BaseViewModel.swift */,
 				2BC60D442B19C7580016584E /* BaseCollectionViewCell.swift */,
-				2BC60D402B19C3060016584E /* BaseCollectionReusableView.swift */,
 				2BC60D4B2B1C4CD10016584E /* BaseTableViewCell.swift */,
 			);
 			path = Base;
@@ -601,7 +598,6 @@
 				2BC60D1D2B18ACFD0016584E /* HomeView.swift in Sources */,
 				2B21049E2B1F0AEA005CA1F0 /* GTextField.swift in Sources */,
 				2BD741F22B079FF8006C11B2 /* Font+.swift in Sources */,
-				2BC60D412B19C3060016584E /* BaseCollectionReusableView.swift in Sources */,
 				2B94062A2B134146003FCE94 /* JoinStep2ViewModel.swift in Sources */,
 				2B6D6DEF2B09F805004A8DA9 /* JoinStep1ViewModel.swift in Sources */,
 				2BD741D62B07905F006C11B2 /* BaseView.swift in Sources */,
