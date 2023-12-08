@@ -13,15 +13,16 @@ final class JoinAPIManager {
     
     static let shared = JoinAPIManager()
     
-    private let provider = MoyaProvider<JoinAPI>() // Moya의 TargetType을 따르는 enum
+    private let provider = MoyaProvider<JoinAPI>(plugins: [NetworkLoggerPlugin(configuration: .init(logOptions: .verbose))])
     
     private let disposeBag = DisposeBag()
     
     private init() { }
     
     func request<T: Decodable>(target: JoinAPI, model: T.Type) -> Single<Result<T, APIError>> {
-        return Single<Result<T, APIError>>.create { single in
-            self.provider.request(target) { result in
+        return Single<Result<T, APIError>>.create { [weak self] single in
+            
+            self?.provider.request(target) { result in
                 switch result {
                 case .success(let response):
                     do {
