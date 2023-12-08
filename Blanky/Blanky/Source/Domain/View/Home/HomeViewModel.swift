@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class HomeViewModel: BaseViewModel {
+final class HomeViewModel: BaseViewModel {
     
     struct Input {
         let plusButton: ControlEvent<Void>

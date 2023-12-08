@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class HomeCollectionViewCell: BaseCollectionViewCell {
+final class HomeCollectionViewCell: BaseCollectionViewCell {
     
     override func configureHierarchy() {
         

@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Then
 
-class HomeView: BaseView {
+final class HomeView: BaseView {
     
     let mainLabel = UILabel().then {
         $0.text = "NEW"

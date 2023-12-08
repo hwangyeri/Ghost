@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Then
 
-class HomeTableViewCell: BaseTableViewCell {
+final class HomeTableViewCell: BaseTableViewCell {
 
     let profileImageView = UIImageView().then {
         $0.image = UIImage(named: "ghost")
