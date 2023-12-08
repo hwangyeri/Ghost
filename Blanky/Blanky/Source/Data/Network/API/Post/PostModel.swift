@@ -7,45 +7,37 @@
 
 import Foundation
 
-/// 게시글 작성
+//MARK: - 게시글 작성
 struct PostCreate: Codable {
     let title, content: String
     let file: [Data]?
     let product_id: String
 }
 
-// MARK: 게시글 작성/수정
-struct PostInput: Encodable {
-    let title: String
-    let content: String
-    let file: Data?
-    let product_id: String
-}
-
-// MARK: 게시글 조회, 내가 좋아요 한 포스트 일괄 조회
-struct PostOutput: Decodable {
+//MARK: - 게시글 조회
+struct PostRead: Decodable {
     let data: [PostData]
-    let nextCursor: String
+    let next_cursor: String
 }
 
-// MARK: 게시글 수정
 struct PostData: Decodable {
-//    let likes, image, hashTags: [String]
-//    let comments: Comments
-    let id: String
-    //let productID: String
+    let likes, image: [String]
+    let comments: [Comment]
+    let _id, time: String
     let creator: Creator
-    let time: String
-    let title, content: String
+    let title, content, product_id: String
+}
+
+struct Comment: Decodable {
+    let _id, content, time: String
+    let creator: Creator
 }
 
 struct Creator: Decodable {
-    let id, nick: String
+    let _id, nick: String
 }
 
-struct Comments: Decodable {
-    let id, content, time: String
-}
+// ---- check
 
 // MARK: 게시글 삭제
 struct PostDelete: Decodable {
