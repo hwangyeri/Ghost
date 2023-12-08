@@ -13,7 +13,7 @@ class JoinStep2View: BaseView {
     
     let backView = UIView().then {
         $0.backgroundColor = UIColor.bColor200
-        $0.layer.cornerRadius = 40
+        $0.layer.cornerRadius = 35
     }
     
     let mainLabel = GLabel(
