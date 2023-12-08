@@ -13,15 +13,17 @@ final class PostAPIManager {
     
     static let shared = PostAPIManager()
     
-    private let provider = MoyaProvider<PostAPI>()
+    //네트워크 로그 출력
+    private let provider = MoyaProvider<PostAPI>(plugins: [NetworkLoggerPlugin(configuration: .init(logOptions: .verbose))])
     
     private let disposeBag = DisposeBag()
     
     private init() { }
     
     func request<T: Decodable>(target: PostAPI, model: T.Type) -> Single<Result<T, APIError>> {
-        return Single<Result<T, APIError>>.create { single in
-            self.provider.request(target) { result in
+        return Single<Result<T, APIError>>.create { [weak self] single in
+            
+            self?.provider.request(target) { result in
                 switch result {
                 case .success(let response):
                     do {
@@ -44,20 +46,14 @@ final class PostAPIManager {
     
     // MARK: 게시글 작성
     func postCreate(title: String, content: String, file: [Data]) -> Single<Result<PostCreate, APIError>> {
-        let input = PostCreate(title: title, content: content, file: file, product_id: "ghost00")
+        let input = PostCreate(title: title, content: content, file: file, product_id: APIKey.productId)
         return request(target: .postCreate(model: input), model: PostCreate.self)
     }
     
     // MARK: 게시글 조회
-    func postRead(next: String, limit: String, product_id: String) -> Single<Result<PostOutput, APIError>> {
-        return request(target: .postRead(next: next, limit: limit, product_id: product_id), model: PostOutput.self)
+    func postRead(next: String, limit: String) -> Single<Result<PostRead, APIError>> {
+        return request(target: .postRead(next: next, limit: limit, product_id: APIKey.productId), model: PostRead.self)
     }
-    
-    // MARK: 게시글 수정
-//    func postUpdate(id: String, title: String, content: String, file: Data, product_id: String, content1: String?, content2: String?) -> Single<Result<PostOutput, APIError>> {
-//        let input = PostInput(title: title, content: content, file: file)
-//        return request(target: .postUpdate(model: input, id: id), model: PostOutput.self)
-//    }
     
     // MARK: 게시글 삭제
     func postDelete(id: String) -> Single<Result<PostDelete, APIError>> {
@@ -65,8 +61,8 @@ final class PostAPIManager {
     }
     
     // MARK: 유저별 작성한 게시글 조회
-    func postUser(id: String, next: String, limit: String, product_id: String) -> Single<Result<PostDelete, APIError>> {
-        return request(target: .postUser(id: id, next: next, limit: limit, product_id: product_id), model: PostDelete.self)
+    func postUser(id: String, next: String, limit: String) -> Single<Result<PostDelete, APIError>> {
+        return request(target: .postUser(id: id, next: next, limit: limit, product_id: APIKey.productId), model: PostDelete.self)
     }
     
     // MARK: 댓글 작성
@@ -92,8 +88,8 @@ final class PostAPIManager {
     }
     
     // MARK: 좋아요한 게시글 조회
-    func likeMe(next: String, limit: String) -> Single<Result<PostOutput, APIError>> {
-        return request(target: .likeMe(next: next, limit: limit), model: PostOutput.self)
+    func likeMe(next: String, limit: String) -> Single<Result<PostRead, APIError>> {
+        return request(target: .likeMe(next: next, limit: limit), model: PostRead.self)
     }
     
 }
