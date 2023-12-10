@@ -11,14 +11,10 @@ import Then
 
 final class HomeTableViewCell: BaseTableViewCell {
 
-    let profileImageView = UIImageView().then {
-        $0.image = UIImage(named: "ghost")
-        $0.layer.cornerRadius = 13
-        $0.layer.borderWidth = 0.5
-        $0.layer.borderColor = UIColor.bColor300.cgColor
-        $0.contentMode = .scaleAspectFit
-        $0.layer.masksToBounds = true
-    }
+    let profileImageView = GBorderImageView(
+        borderWidth: 0.5,
+        cornerRadius: 13
+    )
     
     let nicknameLabel = GLabel(
         text: "익명의유령",
@@ -50,28 +46,10 @@ final class HomeTableViewCell: BaseTableViewCell {
         layout.minimumLineSpacing = 5
         layout.minimumInteritemSpacing = 5
         layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-        let size = UIScreen.main.bounds.width / 3.0
-        layout.itemSize = CGSize(width: size - 30, height: 100)
+        let size = UIScreen.main.bounds.width - 20
+        layout.itemSize = CGSize(width: size, height: 100)
         return layout
     }
-    
-//    private func collectionViewLayout() -> UICollectionViewLayout {
-//        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
-//        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-//        
-//        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
-//        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, repeatingSubitem: item, count: 1)
-//        group.interItemSpacing = .fixed(10)
-//        
-//        let section = NSCollectionLayoutSection(group: group)
-//        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
-//        section.interGroupSpacing = 10
-//        section.orthogonalScrollingBehavior = .continuous
-//        
-//        let layout = UICollectionViewCompositionalLayout(section: section)
-//        
-//        return layout
-//    }
     
     let hitsImage = UIImageView().then {
         $0.image = UIImage(systemName: "eyes")
