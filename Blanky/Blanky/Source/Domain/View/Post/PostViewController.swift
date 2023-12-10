@@ -74,7 +74,6 @@ final class PostViewController: BaseViewController {
             .drive(with: self) { owner, isValid in
                 owner.mainView.postButton.backgroundColor = isValid ? .white : .gray
                 owner.mainView.postButton.isEnabled = isValid
-                //print(owner.mainView.postButton.isEnabled)
             }
             .disposed(by: disposeBag)
         
@@ -86,9 +85,6 @@ final class PostViewController: BaseViewController {
         
         output.postButtonTap
             .drive(with: self) { owner, result in
-                
-                print(result)
-                
                 switch result {
                 case true:
                     owner.navigationController?.popViewController(animated: true)
@@ -99,7 +95,7 @@ final class PostViewController: BaseViewController {
             .disposed(by: disposeBag)
     }
     
-    /// Image -> Data 메서드
+    ///Image -> Data 메서드
     private func convertImagesToData(_ images: [UIImage]) -> [Data] {
         return images.map { image in
             return image.jpegData(compressionQuality: 0.2) ?? Data()
