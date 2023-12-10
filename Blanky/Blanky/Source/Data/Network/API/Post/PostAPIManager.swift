@@ -14,7 +14,10 @@ final class PostAPIManager {
     static let shared = PostAPIManager()
     
     //네트워크 로그 출력
-    private let provider = MoyaProvider<PostAPI>(plugins: [NetworkLoggerPlugin(configuration: .init(logOptions: .verbose))])
+    private let provider = MoyaProvider<PostAPI>(
+//        session: Moya.Session(interceptor: AuthInterceptor.shared),
+        plugins: [NetworkLoggerPlugin(configuration: .init(logOptions: .verbose))]
+    )
     
     private let disposeBag = DisposeBag()
     
