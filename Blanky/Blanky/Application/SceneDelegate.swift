@@ -22,13 +22,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let firstVC = UINavigationController(rootViewController: LoginViewController())
         firstVC.tabBarItem = UITabBarItem(title: .none, image: UIImage(systemName: "star"), selectedImage: UIImage(systemName: "star"))
 
-        let secondVC = UINavigationController(rootViewController: HomeViewController())
+        let secondVC = UINavigationController(rootViewController: ViewController())
         secondVC.tabBarItem = UITabBarItem(title: .none, image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house"))
 
         tabBar.viewControllers = [firstVC, secondVC]
         tabBar.tabBar.backgroundColor = UIColor.systemBackground
         tabBar.tabBar.tintColor = UIColor.label
-        tabBar.selectedIndex = 1
+        tabBar.selectedIndex = 0
 
         window?.rootViewController = tabBar
         window?.makeKeyAndVisible()
