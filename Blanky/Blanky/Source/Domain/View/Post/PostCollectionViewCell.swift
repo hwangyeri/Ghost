@@ -19,14 +19,12 @@ final class PostCollectionViewCell: BaseCollectionViewCell {
         cornerRadius: 15
     )
     
-    let imageView = UIImageView().then {
-        $0.contentMode = .scaleAspectFit
-        $0.layer.masksToBounds = true
+    let imageView = GBorderImageView(
+        borderWidth: 1,
+        cornerRadius: 25
+    ).then {
         $0.image = UIImage(systemName: "exclamationmark.icloud")
         $0.backgroundColor = .bColor100
-        $0.layer.cornerRadius = 25
-        $0.layer.borderWidth = 1
-        $0.layer.borderColor = UIColor.bColor300.cgColor
     }
     
     override func configureHierarchy() {
