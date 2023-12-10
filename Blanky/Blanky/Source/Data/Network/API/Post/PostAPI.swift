@@ -106,14 +106,14 @@ extension PostAPI: TargetType {
     var headers: [String : String]? {
         switch self {
         case .postCreate:
-            ["Authorization": "\(KeychainManager.shared.token ?? "token error")",
+            ["Authorization": KeychainManager.shared.token ?? "token error",
              "Content-Type": "multipart/form-data",
              "SesacKey": APIKey.sesacKey]
         case .postRead, .postDelete, .postUser, .commentDelete, .like, .likeMe:
-            ["Authorization": "\(KeychainManager.shared.token ?? "token error")",
+            ["Authorization": KeychainManager.shared.token ?? "token error",
              "SesacKey": APIKey.sesacKey]
         case .commentCreate, .commentUpdate:
-            ["Authorization": "\(KeychainManager.shared.token ?? "token error")",
+            ["Authorization": KeychainManager.shared.token ?? "token error",
              "Content-Type": "application/json",
              "SesacKey": APIKey.sesacKey]
         }
