@@ -70,18 +70,18 @@ extension JoinAPI: TargetType {
             ["Content-Type": "application/json",
              "SesacKey": APIKey.sesacKey]
         case .refresh:
-            ["Authorization": "\(KeychainManager.shared.token ?? "token error")",
+            ["Authorization": KeychainManager.shared.token ?? "token error",
              "SesacKey": APIKey.sesacKey,
-             "Refresh": "\(KeychainManager.shared.refreshToken ?? "refreshToken error")"]
+             "Refresh": KeychainManager.shared.refreshToken ?? "refreshToken error"]
         case .withdraw:
-            ["Authorization": "\(KeychainManager.shared.token ?? "token error")",
+            ["Authorization": KeychainManager.shared.token ?? "token error",
              "SesacKey": APIKey.sesacKey]
         }
     }
     
     //허용할 response의 타입
     var validationType: ValidationType {
-        return .successCodes
+        return .successCodes // 200번대의 statusCode만이 validate한 통신이었다는 것으로 인식하여 그 외 statusCode를 받게 되면 retry 함수 호출
     }
     
 }
