@@ -48,7 +48,7 @@ final class PostViewModel: BaseViewModel {
             .throttle(.seconds(1), scheduler: MainScheduler.instance)
             .withLatestFrom(Observable.combineLatest(input.titleTextField, input.contentTextView, input.imageRelay))
             .flatMap { title, content, image in
-                print("---", title, content, image)
+                //print("---", title, content, image)
                 return PostAPIManager.shared.postCreate(title: title, content: content, file: image)
                     .map { result in
                         switch result {

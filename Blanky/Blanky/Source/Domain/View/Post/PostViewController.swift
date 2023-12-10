@@ -74,7 +74,7 @@ final class PostViewController: BaseViewController {
             .drive(with: self) { owner, isValid in
                 owner.mainView.postButton.backgroundColor = isValid ? .white : .gray
                 owner.mainView.postButton.isEnabled = isValid
-                print(owner.mainView.postButton.isEnabled)
+                //print(owner.mainView.postButton.isEnabled)
             }
             .disposed(by: disposeBag)
         
@@ -106,7 +106,7 @@ final class PostViewController: BaseViewController {
         }
     }
     
-    /// ActionSheet
+    ///ActionSheet
     @objc private func addImageButtonTap() {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
@@ -142,7 +142,7 @@ final class PostViewController: BaseViewController {
         self.present(actionSheet, animated: true)
     }
     
-    /// CollectionView DataSource
+    ///CollectionView DataSource
     private func configureDataSource() {
         let cellRegistration = UICollectionView.CellRegistration<PostCollectionViewCell, UIImage> {
             cell, indexPath, itemIdentifier in
@@ -157,7 +157,7 @@ final class PostViewController: BaseViewController {
         updateSnapshot()
     }
     
-    /// Snapshot
+    ///Snapshot
     private func updateSnapshot() {
         var snapshot = NSDiffableDataSourceSnapshot<Int, UIImage>()
         snapshot.appendSections([0])
