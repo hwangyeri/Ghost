@@ -33,7 +33,7 @@ class JoinStep2ViewModel: BaseViewModel {
             .debounce(.milliseconds(400), scheduler: MainScheduler.instance)
             .distinctUntilChanged()
             .map { text in
-                let nicknameRegex = "^[0-9가-힣]{2,12}$"
+                let nicknameRegex = "^[0-9가-힣]{2,10}$"
                 guard let _ = text.range(of: nicknameRegex, options: .regularExpression) else {
                     return false
                 }
