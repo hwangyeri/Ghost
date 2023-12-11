@@ -11,10 +11,7 @@ import Then
 
 class JoinStep2View: BaseView {
     
-    let backView = UIView().then {
-        $0.backgroundColor = UIColor.bColor200
-        $0.layer.cornerRadius = 35
-    }
+    let backView = GBackView()
     
     let mainLabel = GLabel(
         text: "닉네임을 정해주세요.",
@@ -31,7 +28,7 @@ class JoinStep2View: BaseView {
     let nicknameTextField = GHoshiTextField(
         keyboardType: .default,
         returnKeyType: .done,
-        placeholder: "2~12글자 이하, 한글, 숫자만 사용해 주세요."
+        placeholder: "2~10글자 이하, 한글, 숫자만 사용해 주세요."
     ).then {
         $0.text = NicknameDataManager.shared.createRandomNickname()
         $0.clearButtonMode = .unlessEditing
