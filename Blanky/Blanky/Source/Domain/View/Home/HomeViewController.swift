@@ -26,12 +26,12 @@ final class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
-        postRead()
+//        postRead()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        postRead()
+        postRead()
     }
     
     override func configureLayout() {
@@ -42,7 +42,7 @@ final class HomeViewController: BaseViewController {
     
     private func postRead() {
         // 게시글 조회 API
-        PostAPIManager.shared.postRead(next: "", limit: "20")
+        PostAPIManager.shared.postRead(next: "", limit: "5")
             .subscribe(with: self) { [weak self] _, result in
                 print("네트워크 통신 결과: ", result)
                 switch result {
@@ -86,16 +86,34 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewCell.identifier, for: indexPath) as? HomeTableViewCell else { return UITableViewCell()}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewCell.identifier, for: indexPath) as? HomeTableViewCell else { return UITableViewCell() }
         let row = postDataList.data[indexPath.row]
         
-        cell.nicknameLabel.text = "익명의유령\(indexPath.row)"
+        cell.nicknameLabel.text = row.creator.nick //"익명의유령\(indexPath.row)"
         cell.dateLabel.text = row.time
         cell.titleLabel.text = row.title
         cell.contentLabel.text = row.content
         cell.messageLabel.text = "\(row.comments.count)"
         cell.likeLabel.text = "\(row.likes.count)"
+        
+        cell.collectionView.delegate = self
+        cell.collectionView.dataSource = self
        
+        return cell
+    }
+    
+}
+
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeCollectionViewCell.identifier, for: indexPath) as? HomeCollectionViewCell else { return UICollectionViewCell() }
+        let row = postDataList.data[indexPath.row]
+        
         return cell
     }
     
