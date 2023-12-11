@@ -13,7 +13,10 @@ final class JoinAPIManager {
     
     static let shared = JoinAPIManager()
     
-    private let provider = MoyaProvider<JoinAPI>(plugins: [NetworkLoggerPlugin(configuration: .init(logOptions: .verbose))])
+    private let provider = MoyaProvider<JoinAPI>(
+        session: Moya.Session(interceptor: AuthInterceptor.shared),
+        plugins: [NetworkLoggerPlugin(configuration: .init(logOptions: .verbose))]
+    )
     
     private let disposeBag = DisposeBag()
     
@@ -62,9 +65,28 @@ final class JoinAPIManager {
     }
     
     // MARK: AcessToken 갱신
-    func refresh() -> Single<Result<RefreshOutput, APIError>> {
-        return request(target: .refresh, model: RefreshOutput.self)
+    func refresh() {
+        self.provider.request(JoinAPI.refresh) { result in
+            switch result {
+            case .success(let response):
+                do {
+                    let data = try JSONDecoder().decode(RefreshOutput.self, from: response.data)
+                    // 액세스 토큰 교체
+                    KeychainManager.shared.token = data.token
+                    print("액세스 토큰 교체 성공!")
+                } catch {
+                    print("Failed to decode refresh response. :", APIError.decodedError)
+                }
+            case .failure(let error):
+                print("액세스 토큰 교체 실패: ", error.errorDescription ?? "")
+            }
+        }
     }
+
+//    func refresh() -> Single<Result<RefreshOutput, APIError>> {
+//        return request(target: .refresh, model: RefreshOutput.self)
+//    }
+
     
     // MARK: 회원 탈퇴
     func withdraw() -> Single<Result<WithdrawOutput, APIError>> {
