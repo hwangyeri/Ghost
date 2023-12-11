@@ -48,10 +48,7 @@ final class HomeView: BaseView {
         cornerRadius: 15
     )
     
-    let backView = UIView().then {
-        $0.backgroundColor = UIColor.bColor200
-        $0.layer.cornerRadius = 35
-    }
+    let backView = GBackView()
     
     lazy var tableView = UITableView().then {
         $0.rowHeight = UITableView.automaticDimension
@@ -84,7 +81,6 @@ final class HomeView: BaseView {
     }
     
     override func configureLayout() {
-        
         searchButton.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(55)
             make.trailing.equalToSuperview().inset(20)
