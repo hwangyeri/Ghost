@@ -46,8 +46,9 @@ final class HomeTableViewCell: BaseTableViewCell {
         layout.minimumLineSpacing = 5
         layout.minimumInteritemSpacing = 5
         layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-        let size = UIScreen.main.bounds.width - 40
-        layout.itemSize = CGSize(width: size, height: size)
+        let width = UIScreen.main.bounds.width - 40
+        let height = UIScreen.main.bounds.height / 2
+        layout.itemSize = CGSize(width: width, height: width)
         return layout
     }
     
@@ -136,6 +137,7 @@ final class HomeTableViewCell: BaseTableViewCell {
             make.top.equalTo(contentLabel.snp.bottom).offset(10)
             make.horizontalEdges.equalTo(titleLabel)
             make.height.equalTo(UIScreen.main.bounds.width - 40)
+//            make.height.equalTo(UIScreen.main.bounds.height / 2)
         }
         
         hitsImage.snp.makeConstraints { make in
