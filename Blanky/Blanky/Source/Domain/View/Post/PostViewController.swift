@@ -120,7 +120,7 @@ final class PostViewController: BaseViewController {
             guard let self = self else { return }
             
             var configuration = PHPickerConfiguration()
-            configuration.selectionLimit = 4
+            configuration.selectionLimit = 5
             configuration.filter = .images
             
             let phPicker = PHPickerViewController(configuration: configuration)
