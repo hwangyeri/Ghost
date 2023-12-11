@@ -13,7 +13,7 @@ final class HomeTableViewCell: BaseTableViewCell {
 
     let profileImageView = GBorderImageView(
         borderWidth: 0.5,
-        cornerRadius: 13
+        cornerRadius: 15
     )
     
     let nicknameLabel = GLabel(
@@ -46,8 +46,8 @@ final class HomeTableViewCell: BaseTableViewCell {
         layout.minimumLineSpacing = 5
         layout.minimumInteritemSpacing = 5
         layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-        let size = UIScreen.main.bounds.width - 20
-        layout.itemSize = CGSize(width: size, height: 100)
+        let size = UIScreen.main.bounds.width - 40
+        layout.itemSize = CGSize(width: size, height: size)
         return layout
     }
     
@@ -106,7 +106,7 @@ final class HomeTableViewCell: BaseTableViewCell {
     override func configureLayout() {
         profileImageView.snp.makeConstraints { make in
             make.top.leading.equalToSuperview().inset(10)
-            make.size.equalTo(25)
+            make.size.equalTo(30)
         }
         
         nicknameLabel.snp.makeConstraints { make in
@@ -135,7 +135,7 @@ final class HomeTableViewCell: BaseTableViewCell {
         collectionView.snp.makeConstraints { make in
             make.top.equalTo(contentLabel.snp.bottom).offset(10)
             make.horizontalEdges.equalTo(titleLabel)
-            make.height.equalTo(200)
+            make.height.equalTo(UIScreen.main.bounds.width - 40)
         }
         
         hitsImage.snp.makeConstraints { make in
