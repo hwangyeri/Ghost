@@ -60,8 +60,7 @@ final class NicknameDataManager {
         let data = nicknameList[0]
         let determiner = data.determiners.randomElement() ?? "똑쟁이"
         let color = data.colors.randomElement() ?? "까만색"
-        let animal = data.animals.randomElement() ?? "물개"
-        return "\(determiner)\(color)\(animal)"
+        return "\(determiner)\(color)유령"
     }
     
 }
