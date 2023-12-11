@@ -15,7 +15,7 @@ final class PostAPIManager {
     
     //네트워크 로그 출력
     private let provider = MoyaProvider<PostAPI>(
-//        session: Moya.Session(interceptor: AuthInterceptor.shared),
+        session: Moya.Session(interceptor: AuthInterceptor.shared),
         plugins: [NetworkLoggerPlugin(configuration: .init(logOptions: .verbose))]
     )
     
