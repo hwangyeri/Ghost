@@ -11,10 +11,7 @@ import Then
 
 class JoinStep1View: BaseView {
     
-    let backView = UIView().then {
-        $0.backgroundColor = UIColor.bColor200
-        $0.layer.cornerRadius = 35
-    }
+    let backView = GBackView()
     
     let emailLabel = GLabel(
         text: "이메일을 입력해 주세요.",
