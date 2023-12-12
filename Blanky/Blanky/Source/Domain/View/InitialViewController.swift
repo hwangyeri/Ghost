@@ -6,11 +6,12 @@
 //
 
 import UIKit
-import SnapKit
 
-final class SplashViewController: UIViewController {
+final class InitialViewController: UIViewController {
     
-    // TODO: 네트워크 오류 알럿, 런치스크린 로티
+    // TODO: 네트워크 오류 알럿, 런치스크린 로티, 자동 로그인
+    
+    private let LoginStatus = UserLoginManager.shared.isLogin
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,30 +23,33 @@ final class SplashViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         print(#function, "스플래쉬 화면 진입")
         
-        let LoginStatus = UserLoginManager.shared.isLogin
         print("로그인 여부: ", LoginStatus)
         
         if LoginStatus == false {
-            // 첫화면 == 로그인 화면
+            // 루트뷰 == 로그인 화면
             switchToLoginVC()
         } else {
-            // 첫화면 == 피드 화면
+            // 루트뷰 == 피드 화면
             switchToFeedVC()
         }
+        
     }
     
     private func switchToLoginVC() {
         let loginVC = LoginViewController()
-        navigationController?.pushViewController(loginVC, animated: true)
+        let vc = UINavigationController(rootViewController: loginVC)
+        RootVCManager.shared.changeRootVC(vc)
     }
     
     private func switchToFeedVC() {
         let tabBar = UITabBarController()
         
-        let firstVC = HomeViewController()
+        let homeVC = HomeViewController()
+        let firstVC = UINavigationController(rootViewController: homeVC)
         firstVC.tabBarItem = UITabBarItem(title: .none, image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house"))
         
-        let secondVC = PostViewController()
+        let tempVC = PostViewController()
+        let secondVC = UINavigationController(rootViewController: tempVC)
         secondVC.tabBarItem = UITabBarItem(title: .none, image: UIImage(systemName: "star"), selectedImage: UIImage(systemName: "star"))
         
         tabBar.viewControllers = [firstVC, secondVC]
@@ -53,7 +57,7 @@ final class SplashViewController: UIViewController {
         tabBar.tabBar.tintColor = UIColor.label
         tabBar.selectedIndex = 0
         
-        navigationController?.pushViewController(tabBar, animated: true)
+        RootVCManager.shared.changeRootVC(tabBar)
     }
     
     
