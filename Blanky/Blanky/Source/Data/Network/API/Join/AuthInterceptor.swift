@@ -33,7 +33,7 @@ final class AuthInterceptor: RequestInterceptor { // == RequestAdapter, RequestR
     func adapt(_ urlRequest: URLRequest, for session: Session, completion: @escaping (Result<URLRequest, Error>) -> Void) {
         print(#function, "adapt 진입")
         
-        // 요청의 URL이 기대한 URL 문자열을 가지고 있고 액세스 토큰과 리프레시 토큰이 있는지 확인
+        // 요청의 URL이 기대한 URL 문자열 및 액세스 토큰과 리프레시 토큰이 있는지 확인
         guard urlRequest.url?.absoluteString.hasPrefix(APIKey.baseURL) == true,
               let accessToken = KeychainManager.shared.token, let refreshToken = KeychainManager.shared.refreshToken else {
             
@@ -66,16 +66,44 @@ final class AuthInterceptor: RequestInterceptor { // == RequestAdapter, RequestR
             return
         }
         
+        //과호출 이슈 - 이전 코드
+//        JoinAPIManager.shared.refresh()
+//        print("AcessToken 갱신 함수 실행")
+//        completion(.retry)
+        
         // AcessToken 갱신 API 호출
-        JoinAPIManager.shared.refresh()
-        print("AcessToken 갱신 함수 실행")
-        completion(.retry)
+        JoinAPIManager.shared.refresh { isSuccess in
+            if isSuccess {
+                if request.retryCount < self.retryLimit {
+                    print("AcessToken 갱신 성공: 토큰 재발급 성공")
+                    completion(.retryWithDelay(TimeInterval(self.retryLimit)))
+                }
+            } else {
+                print("AcessToken 갱신 실패: 로그인 화면으로 전환")
+                UserLoginManager.shared.isLogin = false
+                NotificationCenter.default.post(name: .accessTokenRefreshFailed, object: nil)
+                completion(.doNotRetryWithError(error))
+            }
+        }
+        print("AccessToken 갱신 API: refresh 함수 호출")
     }
     
 }
 
 
-//MARK: - 무한루프 adapt-retry -> 과호출... 이유를 모르겠음 Single 타입?
+//MARK: - 무한루프 adapt-retry...과호출
+
+// refresh 메서드가 Single<Result<RefreshOutput, APIError>>
+// 계속 성공으로 리턴되는 Single 타입이라서?
+
+//  JoinAPIManager.swift
+
+//    func refresh() -> Single<Result<RefreshOutput, APIError>> {
+//        return request(target: .refresh, model: RefreshOutput.self)
+//    }
+
+
+//  AuthInterceptor.swift
 
 //JoinAPIManager.shared.refresh()
 //    .observe(on: MainScheduler.instance)
