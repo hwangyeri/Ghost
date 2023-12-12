@@ -29,7 +29,6 @@ final class PostViewController: BaseViewController {
     
     private var selectedImages: [UIImage] = [] {
         didSet {
-            print(selectedImages)
             updateSnapshot()
         }
     }
@@ -169,7 +168,6 @@ final class PostViewController: BaseViewController {
         
         let imageDataArray = convertImagesToData(selectedImages)
         imageRelay.accept(imageDataArray)
-        print("+++ image to data: ", imageDataArray)
     }
     
 }
