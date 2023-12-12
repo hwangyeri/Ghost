@@ -65,7 +65,7 @@ final class JoinAPIManager {
     }
     
     // MARK: AcessToken 갱신
-    func refresh() {
+    func refresh(completion: @escaping (Bool) -> Void) {
         self.provider.request(JoinAPI.refresh) { result in
             switch result {
             case .success(let response):
@@ -74,19 +74,17 @@ final class JoinAPIManager {
                     // 액세스 토큰 교체
                     KeychainManager.shared.token = data.token
                     print("액세스 토큰 교체 성공!")
+                    completion(true)
                 } catch {
                     print("Failed to decode refresh response. :", APIError.decodedError)
+                    completion(false)
                 }
             case .failure(let error):
                 print("액세스 토큰 교체 실패: ", error.errorDescription ?? "")
+                completion(false)
             }
         }
     }
-
-//    func refresh() -> Single<Result<RefreshOutput, APIError>> {
-//        return request(target: .refresh, model: RefreshOutput.self)
-//    }
-
     
     // MARK: 회원 탈퇴
     func withdraw() -> Single<Result<WithdrawOutput, APIError>> {
