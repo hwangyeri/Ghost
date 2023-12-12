@@ -29,7 +29,6 @@ final class PostViewController: BaseViewController {
     
     private var selectedImages: [UIImage] = [] {
         didSet {
-            print(selectedImages)
             updateSnapshot()
         }
     }
@@ -91,13 +90,6 @@ final class PostViewController: BaseViewController {
                 case false:
                     owner.showAlertMessage(title: "", message: "게시글 작성에 실패했습니다. 다시 시도해 주세요.")
                 }
-            }
-            .disposed(by: disposeBag)
-        
-        NotificationCenter.default.rx.notification(.accessTokenRefreshFailed)
-            .observe(on: MainScheduler.instance)
-            .subscribe(with: self) { owner, notification in
-                owner.navigationController?.popToRootViewController(animated: true)
             }
             .disposed(by: disposeBag)
     }
@@ -169,7 +161,6 @@ final class PostViewController: BaseViewController {
         
         let imageDataArray = convertImagesToData(selectedImages)
         imageRelay.accept(imageDataArray)
-        print("+++ image to data: ", imageDataArray)
     }
     
 }

@@ -27,10 +27,6 @@ class LoginViewController: BaseViewController {
         bind()
     }
     
-    override func configureLayout() {
-        self.navigationItem.hidesBackButton = true
-    }
-    
     private func bind() {
         
         let input = LoginViewModel.Input(
@@ -66,7 +62,9 @@ class LoginViewController: BaseViewController {
             .drive(with: self) { owner, result in
                 switch result.0 {
                 case true:
-                    owner.navigationController?.popToRootViewController(animated: true)
+                    // 로그인 성공 시 InitialView로 화면전환
+                    let vc = InitialViewController()
+                    RootVCManager.shared.changeRootVC(vc)
                 case false:
                     owner.showAlertMessage(title: "", message: result.1)
                 }
@@ -88,6 +86,13 @@ class LoginViewController: BaseViewController {
                 }
             }
             .disposed(by: disposeBag)
+        
+//        NotificationCenter.default.rx.notification(.tokenRefreshFailedAlert)
+//            .observe(on: MainScheduler.instance)
+//            .subscribe(with: self) { owner, notification in
+//                owner.showAlertMessage(title: "", message: "장기간 움직임이 없어 로그아웃 되었습니다.\n다시 로그인해 주세요.")
+//            }
+//            .disposed(by: disposeBag)
     }
     
 }

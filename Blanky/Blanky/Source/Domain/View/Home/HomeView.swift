@@ -125,7 +125,7 @@ final class HomeView: BaseView {
         tableView.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(15)
             make.horizontalEdges.equalToSuperview().inset(10)
-            make.bottom.equalToSuperview()
+            make.bottom.equalTo(self.safeAreaLayoutGuide)
         }
         
         plusButton.snp.makeConstraints { make in

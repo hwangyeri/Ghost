@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Kingfisher
 
 final class HomeViewController: BaseViewController {
     
@@ -35,10 +36,6 @@ final class HomeViewController: BaseViewController {
     }
     
     override func configureLayout() {
-        print(self.navigationItem)
-        self.navigationItem.hidesBackButton = true
-//        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: .none, style: .plain, target: nil, action: nil)
-//        self.navigationController?.navigationBar.isHidden = true
         mainView.tableView.delegate = self
         mainView.tableView.dataSource = self
     }
@@ -110,14 +107,35 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return 4
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeCollectionViewCell.identifier, for: indexPath) as? HomeCollectionViewCell else { return UICollectionViewCell() }
-        let row = postDataList.data[indexPath.row]
+
+        let modifier = AnyModifier { request in
+            var headers = request
+            
+            // 헤더 설정
+            headers.setValue(KeychainManager.shared.token, forHTTPHeaderField: Constant.authorization)
+            headers.setValue(APIKey.sesacKey, forHTTPHeaderField: Constant.sesacKey)
+            
+            return headers
+        }
+        
+        for index in 0..<postDataList.data.count {
+            let imageURL = postDataList.data[index].image[indexPath.row]
+            print("++++++++++++ imageURL: ", imageURL)
+            
+            cell.imageView.kf.setImage(
+                with: URL(string: APIKey.baseURL + imageURL),
+                placeholder: UIImage(named: "ghost"),
+                options: [.requestModifier(modifier)]
+            )
+        }
         
         return cell
     }
+    
     
 }

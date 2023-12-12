@@ -46,8 +46,9 @@ final class HomeTableViewCell: BaseTableViewCell {
         layout.minimumLineSpacing = 5
         layout.minimumInteritemSpacing = 5
         layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        layout.scrollDirection = .horizontal
         let width = UIScreen.main.bounds.width - 40
-        let height = UIScreen.main.bounds.height / 2
+//        let height = UIScreen.main.bounds.height / 2
         layout.itemSize = CGSize(width: width, height: width)
         return layout
     }
