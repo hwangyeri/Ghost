@@ -25,8 +25,8 @@ final class HomeViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        bind()
 //        postRead()
+        bind()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,7 +35,10 @@ final class HomeViewController: BaseViewController {
     }
     
     override func configureLayout() {
+        print(self.navigationItem)
         self.navigationItem.hidesBackButton = true
+//        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: .none, style: .plain, target: nil, action: nil)
+//        self.navigationController?.navigationBar.isHidden = true
         mainView.tableView.delegate = self
         mainView.tableView.dataSource = self
     }
