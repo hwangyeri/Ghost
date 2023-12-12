@@ -144,7 +144,7 @@ final class HomeTableViewCell: BaseTableViewCell {
             make.top.equalTo(collectionView.snp.bottom).offset(10)
             make.leading.equalTo(collectionView).inset(5)
             make.size.equalTo(16)
-            make.bottom.equalToSuperview().inset(10)
+            make.bottom.equalToSuperview().inset(15)
         }
         
         hitsLabel.snp.makeConstraints { make in
