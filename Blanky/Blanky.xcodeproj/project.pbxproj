@@ -43,6 +43,8 @@
 		2B94064C2B1602EC003FCE94 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B94064B2B1602EC003FCE94 /* PostModel.swift */; };
 		2B94064E2B1602F5003FCE94 /* PostAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B94064D2B1602F5003FCE94 /* PostAPI.swift */; };
 		2B9406692B17244C003FCE94 /* PostAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9406682B17244C003FCE94 /* PostAPIManager.swift */; };
+		2BBBBDB72B2865130035179C /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 2BBBBDB62B2865130035179C /* Kingfisher */; };
+		2BBBBDBA2B2888C70035179C /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBBBDB92B2888C70035179C /* Constant.swift */; };
 		2BC60D1B2B18ACF50016584E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC60D1A2B18ACF50016584E /* HomeViewController.swift */; };
 		2BC60D1D2B18ACFD0016584E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC60D1C2B18ACFD0016584E /* HomeView.swift */; };
 		2BC60D1F2B18AD060016584E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC60D1E2B18AD060016584E /* HomeViewModel.swift */; };
@@ -57,7 +59,7 @@
 		2BC60D672B1CD23B0016584E /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC60D662B1CD23B0016584E /* PostViewModel.swift */; };
 		2BD741B12B06051F006C11B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741B02B06051F006C11B2 /* AppDelegate.swift */; };
 		2BD741B32B06051F006C11B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741B22B06051F006C11B2 /* SceneDelegate.swift */; };
-		2BD741B52B06051F006C11B2 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741B42B06051F006C11B2 /* SplashViewController.swift */; };
+		2BD741B52B06051F006C11B2 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741B42B06051F006C11B2 /* InitialViewController.swift */; };
 		2BD741BA2B060521006C11B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BD741B92B060521006C11B2 /* Assets.xcassets */; };
 		2BD741BD2B060521006C11B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BD741BB2B060521006C11B2 /* LaunchScreen.storyboard */; };
 		2BD741CA2B0607FC006C11B2 /* JoinStep1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741C92B0607FC006C11B2 /* JoinStep1ViewController.swift */; };
@@ -83,6 +85,7 @@
 		2BD742012B08DA3C006C11B2 /* JoinStep2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD742002B08DA3C006C11B2 /* JoinStep2ViewController.swift */; };
 		2BD742032B08DA4B006C11B2 /* JoinStep2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD742022B08DA4B006C11B2 /* JoinStep2View.swift */; };
 		2BD742062B08DCEC006C11B2 /* TextFieldEffects in Frameworks */ = {isa = PBXBuildFile; productRef = 2BD742052B08DCEC006C11B2 /* TextFieldEffects */; };
+		2BE01DE62B28538900AB6B0F /* RootVCManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE01DE52B28538900AB6B0F /* RootVCManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +117,7 @@
 		2B94064B2B1602EC003FCE94 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		2B94064D2B1602F5003FCE94 /* PostAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAPI.swift; sourceTree = "<group>"; };
 		2B9406682B17244C003FCE94 /* PostAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAPIManager.swift; sourceTree = "<group>"; };
+		2BBBBDB92B2888C70035179C /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		2BC60D1A2B18ACF50016584E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2BC60D1C2B18ACFD0016584E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2BC60D1E2B18AD060016584E /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -129,7 +133,7 @@
 		2BD741AD2B06051F006C11B2 /* Blanky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blanky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BD741B02B06051F006C11B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BD741B22B06051F006C11B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2BD741B42B06051F006C11B2 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		2BD741B42B06051F006C11B2 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		2BD741B92B060521006C11B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2BD741BC2B060521006C11B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2BD741BE2B060521006C11B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -154,6 +158,7 @@
 		2BD741FE2B08A49C006C11B2 /* JoinStep1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinStep1View.swift; sourceTree = "<group>"; };
 		2BD742002B08DA3C006C11B2 /* JoinStep2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinStep2ViewController.swift; sourceTree = "<group>"; };
 		2BD742022B08DA4B006C11B2 /* JoinStep2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinStep2View.swift; sourceTree = "<group>"; };
+		2BE01DE52B28538900AB6B0F /* RootVCManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootVCManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +174,7 @@
 				2B6D6E602B0DE611004A8DA9 /* RxCocoa in Frameworks */,
 				2B6D6DE72B09DE8F004A8DA9 /* Then in Frameworks */,
 				2B6D6E692B0DE629004A8DA9 /* RxMoya in Frameworks */,
+				2BBBBDB72B2865130035179C /* Kingfisher in Frameworks */,
 				2B6D6E622B0DE611004A8DA9 /* RxRelay in Frameworks */,
 				2BD742062B08DCEC006C11B2 /* TextFieldEffects in Frameworks */,
 			);
@@ -227,6 +233,7 @@
 		2B6D6E272B0B5451004A8DA9 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				2BE01DE42B28536C00AB6B0F /* RootVCManager */,
 				2B76B8F32B27541000F19F7C /* UserLogin */,
 				2B94062C2B1397F4003FCE94 /* KeyChain */,
 				2B61ACE42B12571E00C3F29E /* RandomNickname */,
@@ -299,6 +306,14 @@
 			path = Post;
 			sourceTree = "<group>";
 		};
+		2BBBBDB82B2888B80035179C /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				2BBBBDB92B2888C70035179C /* Constant.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
 		2BC60D192B18ACC70016584E /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,7 +370,6 @@
 			children = (
 				2BD741B02B06051F006C11B2 /* AppDelegate.swift */,
 				2BD741B22B06051F006C11B2 /* SceneDelegate.swift */,
-				2BD741B42B06051F006C11B2 /* SplashViewController.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -372,6 +386,7 @@
 		2BD741C62B06078D006C11B2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2BD741B42B06051F006C11B2 /* InitialViewController.swift */,
 				2BC60D5C2B1C97080016584E /* Post */,
 				2BC60D192B18ACC70016584E /* Home */,
 				2BD741D32B078FF0006C11B2 /* Login */,
@@ -456,6 +471,7 @@
 		2BD741EF2B079F92006C11B2 /* DesignSystem */ = {
 			isa = PBXGroup;
 			children = (
+				2BBBBDB82B2888B80035179C /* Constant */,
 				2BD741F32B07B8C7006C11B2 /* Component */,
 				2BD741F02B079FAF006C11B2 /* Extension */,
 			);
@@ -491,6 +507,14 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		2BE01DE42B28536C00AB6B0F /* RootVCManager */ = {
+			isa = PBXGroup;
+			children = (
+				2BE01DE52B28538900AB6B0F /* RootVCManager.swift */,
+			);
+			path = RootVCManager;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -518,6 +542,7 @@
 				2B6D6E662B0DE629004A8DA9 /* Moya */,
 				2B6D6E682B0DE629004A8DA9 /* RxMoya */,
 				2B9406462B15D35C003FCE94 /* SwiftKeychainWrapper */,
+				2BBBBDB62B2865130035179C /* Kingfisher */,
 			);
 			productName = Blanky;
 			productReference = 2BD741AD2B06051F006C11B2 /* Blanky.app */;
@@ -555,6 +580,7 @@
 				2B6D6E5E2B0DE611004A8DA9 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				2B6D6E652B0DE629004A8DA9 /* XCRemoteSwiftPackageReference "Moya" */,
 				2B9406452B15D35C003FCE94 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
+				2BBBBDB52B2865130035179C /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 2BD741AE2B06051F006C11B2 /* Products */;
 			projectDirPath = "";
@@ -597,7 +623,7 @@
 				2B61ACE82B12777600C3F29E /* GImageButton.swift in Sources */,
 				2B61ACE32B1256AC00C3F29E /* NicknameDataManager.swift in Sources */,
 				2B76B8E42B25D79E00F19F7C /* GBorderImageView.swift in Sources */,
-				2BD741B52B06051F006C11B2 /* SplashViewController.swift in Sources */,
+				2BD741B52B06051F006C11B2 /* InitialViewController.swift in Sources */,
 				2BC60D1F2B18AD060016584E /* HomeViewModel.swift in Sources */,
 				2B6D6E532B0CC362004A8DA9 /* APIError.swift in Sources */,
 				2BC60D652B1CC3230016584E /* PostCollectionViewCell.swift in Sources */,
@@ -627,6 +653,7 @@
 				2B94064E2B1602F5003FCE94 /* PostAPI.swift in Sources */,
 				2BD741F92B07CE01006C11B2 /* GDivider.swift in Sources */,
 				2BC60D1B2B18ACF50016584E /* HomeViewController.swift in Sources */,
+				2BBBBDBA2B2888C70035179C /* Constant.swift in Sources */,
 				2B94064C2B1602EC003FCE94 /* PostModel.swift in Sources */,
 				2B94063F2B1498B0003FCE94 /* Notification+.swift in Sources */,
 				2BD741FF2B08A49C006C11B2 /* JoinStep1View.swift in Sources */,
@@ -638,6 +665,7 @@
 				2BC60D452B19C7580016584E /* BaseCollectionViewCell.swift in Sources */,
 				2B76B8F52B27543200F19F7C /* UserLoginManager.swift in Sources */,
 				2BD741D82B079084006C11B2 /* BaseViewController.swift in Sources */,
+				2BE01DE62B28538900AB6B0F /* RootVCManager.swift in Sources */,
 				2BC60D562B1C56590016584E /* HomeTableViewCell.swift in Sources */,
 				2BD741FB2B088255006C11B2 /* GButton.swift in Sources */,
 				2B9406282B133246003FCE94 /* NaviBarButton+.swift in Sources */,
@@ -908,6 +936,14 @@
 				minimumVersion = 4.0.1;
 			};
 		};
+		2BBBBDB52B2865130035179C /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.10.1;
+			};
+		};
 		2BD741D92B079341006C11B2 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -966,6 +1002,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2B9406452B15D35C003FCE94 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */;
 			productName = SwiftKeychainWrapper;
+		};
+		2BBBBDB62B2865130035179C /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2BBBBDB52B2865130035179C /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		2BD741DA2B079341006C11B2 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
