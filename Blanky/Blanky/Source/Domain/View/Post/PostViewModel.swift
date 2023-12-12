@@ -49,6 +49,7 @@ final class PostViewModel: BaseViewModel {
             .withLatestFrom(Observable.combineLatest(input.titleTextField, input.contentTextView, input.imageRelay))
             .flatMap { title, content, image in
                 //print("---", title, content, image)
+                print("+++ 게시글 등록 버튼 탭")
                 return PostAPIManager.shared.postCreate(title: title, content: content, file: image)
                     .map { result in
                         switch result {
