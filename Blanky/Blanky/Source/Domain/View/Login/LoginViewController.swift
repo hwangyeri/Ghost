@@ -27,6 +27,10 @@ class LoginViewController: BaseViewController {
         bind()
     }
     
+    override func configureLayout() {
+        self.navigationItem.hidesBackButton = true
+    }
+    
     private func bind() {
         
         let input = LoginViewModel.Input(
@@ -62,8 +66,7 @@ class LoginViewController: BaseViewController {
             .drive(with: self) { owner, result in
                 switch result.0 {
                 case true:
-                    let vc = HomeViewController()
-                    owner.navigationController?.pushViewController(vc, animated: true)
+                    owner.navigationController?.popToRootViewController(animated: true)
                 case false:
                     owner.showAlertMessage(title: "", message: result.1)
                 }
