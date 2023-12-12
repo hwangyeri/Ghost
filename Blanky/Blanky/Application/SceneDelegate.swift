@@ -17,11 +17,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
         
-        let splashVC = SplashViewController()
-        let vc = UINavigationController(rootViewController: splashVC)
+        let initialVC = InitialViewController()
+        let vc = UINavigationController(rootViewController: initialVC)
         
         window?.rootViewController = vc
         window?.makeKeyAndVisible()
+    }
+    
+    // 루트뷰 바꿔주는 메서드
+    func changeRootVC(_ vc: UIViewController, animated: Bool) {
+        guard let window = self.window else { return }
+        window.rootViewController = vc // 루트뷰 전환
+        
+        UIView.transition(
+            with: window, duration: 0.2,
+            options: [.transitionCrossDissolve], animations: nil, completion: nil
+        )
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
