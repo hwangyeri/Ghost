@@ -66,11 +66,6 @@ final class AuthInterceptor: RequestInterceptor { // == RequestAdapter, RequestR
             return
         }
         
-        //과호출 이슈 - 이전 코드
-//        JoinAPIManager.shared.refresh()
-//        print("AcessToken 갱신 함수 실행")
-//        completion(.retry)
-        
         // AcessToken 갱신 API 호출
         JoinAPIManager.shared.refresh { isSuccess in
             if isSuccess {
@@ -81,7 +76,8 @@ final class AuthInterceptor: RequestInterceptor { // == RequestAdapter, RequestR
             } else {
                 print("AcessToken 갱신 실패: 로그인 화면으로 전환")
                 UserLoginManager.shared.isLogin = false
-                NotificationCenter.default.post(name: .accessTokenRefreshFailed, object: nil)
+                let vc = InitialViewController()
+                RootVCManager.shared.changeRootVC(vc)
                 completion(.doNotRetryWithError(error))
             }
         }
