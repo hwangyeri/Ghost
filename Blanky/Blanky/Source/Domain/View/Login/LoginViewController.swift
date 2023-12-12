@@ -28,7 +28,7 @@ class LoginViewController: BaseViewController {
     }
     
     override func configureLayout() {
-        self.navigationItem.hidesBackButton = true
+//        self.navigationItem.hidesBackButton = true
     }
     
     private func bind() {
@@ -66,7 +66,9 @@ class LoginViewController: BaseViewController {
             .drive(with: self) { owner, result in
                 switch result.0 {
                 case true:
-                    owner.navigationController?.popToRootViewController(animated: true)
+                    // 로그인 성공 시 InitialView로 화면전환
+                    let vc = InitialViewController()
+                    RootVCManager.shared.changeRootVC(vc)
                 case false:
                     owner.showAlertMessage(title: "", message: result.1)
                 }
