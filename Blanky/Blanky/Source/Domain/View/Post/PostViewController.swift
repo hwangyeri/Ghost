@@ -92,13 +92,6 @@ final class PostViewController: BaseViewController {
                 }
             }
             .disposed(by: disposeBag)
-        
-        NotificationCenter.default.rx.notification(.accessTokenRefreshFailed)
-            .observe(on: MainScheduler.instance)
-            .subscribe(with: self) { owner, notification in
-                owner.navigationController?.popToRootViewController(animated: true)
-            }
-            .disposed(by: disposeBag)
     }
     
     ///Image -> Data 메서드
