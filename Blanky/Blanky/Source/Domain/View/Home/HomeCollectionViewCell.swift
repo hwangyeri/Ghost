@@ -41,7 +41,7 @@ final class HomeCollectionViewCell: BaseCollectionViewCell {
     
     override func configureLayout() {
         imageView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(15)
+            make.edges.equalToSuperview()
         }
         
         backView.snp.makeConstraints { make in
