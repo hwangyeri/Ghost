@@ -8,9 +8,18 @@
 import UIKit
 import SnapKit
 import Then
+import Kingfisher
 
 final class HomeTableViewCell: BaseTableViewCell {
-
+    
+    var postData: PostData? {
+        didSet {
+            collectionView.reloadData()
+            updateCollectionViewHeight()
+            print("postData didSet")
+        }
+    }
+    
     let profileImageView = GBorderImageView(
         borderWidth: 0.5,
         cornerRadius: 15
@@ -39,16 +48,18 @@ final class HomeTableViewCell: BaseTableViewCell {
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout()).then {
         $0.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: HomeCollectionViewCell.identifier)
         $0.backgroundColor = .bColor200
+        $0.delegate = self
+        $0.dataSource = self
     }
     
     private func collectionViewLayout() -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = 5
-        layout.minimumInteritemSpacing = 5
-        layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        let spacing: CGFloat = 10
+        layout.minimumLineSpacing = 20
+        layout.minimumInteritemSpacing = spacing
+        layout.sectionInset = UIEdgeInsets(top: spacing, left: 0, bottom: spacing, right: spacing)
         layout.scrollDirection = .horizontal
-        let width = UIScreen.main.bounds.width - 40
-//        let height = UIScreen.main.bounds.height / 2
+        let width = UIScreen.main.bounds.width - 70
         layout.itemSize = CGSize(width: width, height: width)
         return layout
     }
@@ -97,9 +108,9 @@ final class HomeTableViewCell: BaseTableViewCell {
         tintColor: .white,
         cornerRadius: 0
     )
-
+    
     override func configureHierarchy() {
-        [profileImageView, nicknameLabel, dateLabel, titleLabel, contentLabel, collectionView, 
+        [profileImageView, nicknameLabel, dateLabel, titleLabel, contentLabel, collectionView,
          hitsImage, hitsLabel,messageButton, messageLabel, likeButton, likeLabel, bookmarkButton].forEach {
             contentView.addSubview($0)
         }
@@ -124,7 +135,7 @@ final class HomeTableViewCell: BaseTableViewCell {
         
         titleLabel.snp.makeConstraints {
             $0.top.equalTo(profileImageView.snp.bottom).offset(15)
-            $0.leading.equalTo(profileImageView)
+            $0.leading.equalTo(profileImageView).inset(10)
             $0.trailing.equalToSuperview().inset(10)
         }
         
@@ -136,14 +147,15 @@ final class HomeTableViewCell: BaseTableViewCell {
         
         collectionView.snp.makeConstraints { make in
             make.top.equalTo(contentLabel.snp.bottom).offset(10)
-            make.horizontalEdges.equalTo(titleLabel)
-            make.height.equalTo(UIScreen.main.bounds.width - 40)
-//            make.height.equalTo(UIScreen.main.bounds.height / 2)
+            make.leading.equalTo(titleLabel)
+            make.trailing.equalToSuperview()
+            make.height.equalTo(UIScreen.main.bounds.width - 70)
+            //            make.height.equalTo(UIScreen.main.bounds.height / 2)
         }
         
         hitsImage.snp.makeConstraints { make in
             make.top.equalTo(collectionView.snp.bottom).offset(10)
-            make.leading.equalTo(collectionView).inset(5)
+            make.leading.equalTo(collectionView)
             make.size.equalTo(16)
             make.bottom.equalToSuperview().inset(15)
         }
@@ -180,7 +192,7 @@ final class HomeTableViewCell: BaseTableViewCell {
         
         bookmarkButton.snp.makeConstraints { make in
             make.top.equalTo(hitsImage).offset(-10)
-            make.trailing.equalTo(collectionView).inset(10)
+            make.trailing.equalTo(collectionView).inset(20)
             make.bottom.equalToSuperview().inset(5)
         }
     }
@@ -196,4 +208,50 @@ final class HomeTableViewCell: BaseTableViewCell {
         messageLabel.text = "0"
         likeLabel.text = "0"
     }
+    
+    // 데이터 없는 컬렉션뷰 높이 재조정 메서드
+    private func updateCollectionViewHeight() {
+        if postData?.image.isEmpty == true {
+            collectionView.snp.updateConstraints { make in
+                make.height.equalTo(0)
+            }
+        } else {
+            collectionView.snp.updateConstraints { make in
+                make.height.equalTo(UIScreen.main.bounds.width - 40)
+            }
+        }
+    }
+}
+
+extension HomeTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return postData?.image.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeCollectionViewCell.identifier, for: indexPath) as? HomeCollectionViewCell,
+            let imageUrl = postData?.image[indexPath.item] else {
+                return UICollectionViewCell()
+        }
+
+        // 헤더 설정
+        let modifier = AnyModifier { request in
+            var headers = request
+            headers.setValue(KeychainManager.shared.token, forHTTPHeaderField: Constant.authorization)
+            headers.setValue(APIKey.sesacKey, forHTTPHeaderField: Constant.sesacKey)
+            return headers
+        }
+
+        // 이미지 로드
+        cell.imageView.kf.setImage(
+            with: URL(string: APIKey.baseURL + imageUrl),
+            placeholder: UIImage(named: "ghost"),
+            options: [.requestModifier(modifier)]
+        )
+
+        return cell
+    }
+    
+    
 }
