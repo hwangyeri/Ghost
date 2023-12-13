@@ -15,12 +15,12 @@ struct PostCreate: Codable {
 }
 
 //MARK: - 게시글 조회
-struct PostRead: Decodable {
+struct PostRead: Decodable, Hashable {
     let data: [PostData]
     let next_cursor: String
 }
 
-struct PostData: Decodable {
+struct PostData: Decodable, Hashable {
     let likes, image: [String]
     let comments: [Comment]
     let _id, time: String
@@ -28,12 +28,12 @@ struct PostData: Decodable {
     let title, content, product_id: String
 }
 
-struct Comment: Decodable {
+struct Comment: Decodable, Hashable {
     let _id, content, time: String
     let creator: Creator
 }
 
-struct Creator: Decodable {
+struct Creator: Decodable, Hashable {
     let _id, nick: String
 }
 

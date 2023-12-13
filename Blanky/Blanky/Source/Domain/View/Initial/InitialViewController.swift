@@ -17,7 +17,7 @@ final class InitialViewController: UIViewController {
         super.viewDidLoad()
         
         // Debeg
-        UserLoginManager.shared.isLogin = false
+        UserLoginManager.shared.isLogin = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
