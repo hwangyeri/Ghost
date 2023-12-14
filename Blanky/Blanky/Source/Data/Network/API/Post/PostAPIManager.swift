@@ -54,8 +54,8 @@ final class PostAPIManager {
     }
     
     // MARK: 게시글 조회
-    func postRead(next: String, limit: String) -> Single<Result<PostRead, APIError>> {
-        return request(target: .postRead(next: next, limit: limit, product_id: APIKey.productId), model: PostRead.self)
+    func postRead(next: String) -> Single<Result<PostRead, APIError>> {
+        return request(target: .postRead(next: next, limit: "10", product_id: APIKey.productId), model: PostRead.self)
     }
     
     // MARK: 게시글 삭제

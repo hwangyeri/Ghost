@@ -16,8 +16,8 @@ struct PostCreate: Codable {
 
 //MARK: - 게시글 조회
 struct PostRead: Decodable, Hashable {
-    let data: [PostData]
-    let next_cursor: String
+    var data: [PostData]
+    var next_cursor: String
 }
 
 struct PostData: Decodable, Hashable {
