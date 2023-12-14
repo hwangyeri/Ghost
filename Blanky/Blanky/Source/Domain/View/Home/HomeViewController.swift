@@ -12,6 +12,14 @@ import Kingfisher
 
 final class HomeViewController: BaseViewController {
     
+    /*
+     Cursor-based Pagination (게시글 조회 API)
+     1. 초기 데이터 로드: 처음에는 cursor 빈값으로 전달, postRead 메서드 호출
+     2. 다음 페이지 처리: 응답 데이터의 next_cursor 값 cursor 매개변수로 전달, 다음 페이지의 데이터 가져오기
+     3. 데이터 소스 업데이트: 새롭게 받아온 새 게시물 데이터 postDataList에 추가
+     4. 새 게시글 표시를 위한 TableView Reload
+     */
+    
     private let mainView = HomeView()
     
     private let viewModel = HomeViewModel()
@@ -31,29 +39,59 @@ final class HomeViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        postRead()
+        
+        postDataList.data.removeAll()
+        postRead(cursor: "") // 1. 초기 데이터 로드
     }
     
     override func configureLayout() {
         mainView.tableView.delegate = self
         mainView.tableView.dataSource = self
+        mainView.tableView.prefetchDataSource = self
     }
     
-    private func postRead() {
+    private func postRead(cursor: String) {
+        print(#function)
+        
+        // 더이상 로드할 데이터 없을 시 예외처리
+        guard cursor != "0" else {
+            print("더이상 로드 할 데이터가 없습니다.")
+            return
+        }
+        
         // 게시글 조회 API
-        PostAPIManager.shared.postRead(next: "", limit: "5")
+        PostAPIManager.shared.postRead(next: cursor)
             .subscribe(with: self) { [weak self] _, result in
-                print("네트워크 통신 결과: ", result)
                 switch result {
                 case .success(let data):
-                    print("포스트 조회 성공: ", data)
-                    self?.postDataList = data
+                    print("포스트 조회 성공")
+                    
+                    // 3. 데이터 소스 업데이트
+                    self?.postDataList.data.append(contentsOf: data.data)
+                    self?.postDataList.next_cursor = data.next_cursor
+                    
+                    // 4. 테이블뷰 리로드
                     self?.mainView.tableView.reloadData()
+                    
                 case .failure(let error):
                     print("포스트 조회 실패: ", error)
                 }
             }
             .disposed(by: disposeBag)
+    }
+    
+    private func prefetchData(for indexPaths: [IndexPath]) {
+        guard let lastIndexPath = indexPaths.last else {
+            return
+        }
+        
+        let lastIndex = lastIndexPath.row
+        let totalCount = postDataList.data.count
+        
+        if lastIndex >= totalCount - 3 {
+            // 2. 다음 페이지 처리
+            postRead(cursor: postDataList.next_cursor)
+        }
     }
     
     private func bind() {
@@ -106,6 +144,24 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         cell.likeLabel.text = "\(row.likes.count)"
         
         return cell
+    }
+   
+}
+
+extension HomeViewController: UITableViewDataSourcePrefetching {
+    
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        for indexPath in indexPaths {
+            print("prefetchRowsAt: \(indexPath.row)")
+        }
+        
+        prefetchData(for: indexPaths)
+    }
+    
+    func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
+        for indexPath in indexPaths {
+            print("cancelPrefetchingForRowsAt \(indexPath.row)")
+        }
     }
     
 }
