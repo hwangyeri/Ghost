@@ -17,7 +17,7 @@ class JoinStep2ViewController: BaseViewController {
     
     var userInfo: JoinInput?
     
-    let disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
     
     override func loadView() {
         self.view = mainView

@@ -15,7 +15,7 @@ class JoinStep1ViewController: BaseViewController {
     
     private let viewModel = JoinStep1ViewModel()
     
-    let disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
     
     override func loadView() {
         self.view = mainView
