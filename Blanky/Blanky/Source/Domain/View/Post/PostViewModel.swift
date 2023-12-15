@@ -57,7 +57,7 @@ final class PostViewModel: BaseViewModel {
                             print("포스트 작성 성공: ", data)
                             return true
                         case .failure(let error):
-                            print("포스트 작성 실패: ", error)
+                            print("포스트 작성 실패: ", error.errorDescription)
                             return false
                         }
                     }
