@@ -108,8 +108,7 @@ final class DetailViewController: BaseViewController {
             .drive(with: self) { owner, result in
                 switch result {
                 case true:
-                    owner.mainView.contentTextField.text = "" // 텍스트 초기화
-                    owner.showToast(message: "댓글 작성 성공!")
+                    owner.mainView.contentTextField.text = "" // 텍스트 초기화 
                     owner.onePostRead()
                     
                     // 댓글 작성시 맨 아래로 스크롤
