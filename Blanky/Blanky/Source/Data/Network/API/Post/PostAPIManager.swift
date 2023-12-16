@@ -55,7 +55,12 @@ final class PostAPIManager {
     
     // MARK: 게시글 조회
     func postRead(next: String) -> Single<Result<PostRead, APIError>> {
-        return request(target: .postRead(next: next, limit: "10", product_id: APIKey.productId), model: PostRead.self)
+        return request(target: .postRead(next: next, limit: Constant.limitNumber, product_id: APIKey.productId), model: PostRead.self)
+    }
+    
+    // MARK: 특정 게시글 조회
+    func onePostRead(id: String) -> Single<Result<PostData, APIError>> {
+        return request(target: .onePostRead(id: id, product_id: APIKey.productId), model: PostData.self)
     }
     
     // MARK: 게시글 삭제
@@ -71,13 +76,7 @@ final class PostAPIManager {
     // MARK: 댓글 작성
     func commentCreate(id: String, content: String) -> Single<Result<CommentOutput, APIError>> {
         let input = CommentInput(content: content)
-        return request(target: .commentCreate(model: input, id: id), model: CommentOutput.self)
-    }
-    
-    // MARK: 댓글 수정
-    func commentUpdate(id: String, commentID: String, content: String) -> Single<Result<CommentOutput, APIError>> {
-        let input = CommentInput(content: content)
-        return request(target: .commentUpdate(model: input, id: id, commentID: commentID), model: CommentOutput.self)
+        return request(target: .commentCreate(id: id, model: input), model: CommentOutput.self)
     }
     
     // MARK: 댓글 삭제

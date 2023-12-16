@@ -22,7 +22,7 @@ struct PostRead: Decodable, Hashable {
 
 struct PostData: Decodable, Hashable {
     let likes, image: [String]
-    let comments: [Comment]
+    var comments: [Comment]
     let _id, time: String
     let creator: Creator
     let title, content, product_id: String
@@ -37,22 +37,22 @@ struct Creator: Decodable, Hashable {
     let _id, nick: String
 }
 
-// ---- check
-
-// MARK: 게시글 삭제
-struct PostDelete: Decodable {
-    let _id: String
-}
-
-// MARK: 댓글 작성, 수정
+// MARK: 댓글 작성
 struct CommentInput: Encodable {
     let content: String
 }
 
 struct CommentOutput: Decodable {
-    let id, content: String
+    let _id, content: String
     let time: String
     let creator: Creator
+}
+
+// ---- check
+
+// MARK: 게시글 삭제
+struct PostDelete: Decodable {
+    let _id: String
 }
 
 // MARK: 댓글 삭제

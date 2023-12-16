@@ -35,6 +35,12 @@
 		2B76B8F52B27543200F19F7C /* UserLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B76B8F42B27543200F19F7C /* UserLoginManager.swift */; };
 		2B7EE65B2B29819D00C7E9CD /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7EE65A2B29819D00C7E9CD /* ProfileViewController.swift */; };
 		2B7EE65E2B29821700C7E9CD /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7EE65D2B29821700C7E9CD /* ProfileView.swift */; };
+		2B7EE6642B2AEDFB00C7E9CD /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7EE6632B2AEDFB00C7E9CD /* DetailView.swift */; };
+		2B7EE6662B2AEE0900C7E9CD /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7EE6652B2AEE0900C7E9CD /* DetailViewController.swift */; };
+		2B7EE6682B2B10DB00C7E9CD /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7EE6672B2B10DB00C7E9CD /* PostTableViewCell.swift */; };
+		2B7EE66A2B2B10E400C7E9CD /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7EE6692B2B10E400C7E9CD /* CommentTableViewCell.swift */; };
+		2B7EE66F2B2C74EC00C7E9CD /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7EE66E2B2C74EC00C7E9CD /* DetailViewModel.swift */; };
+		2B7EE6712B2CEE8F00C7E9CD /* CustomHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7EE6702B2CEE8F00C7E9CD /* CustomHeaderView.swift */; };
 		2B9406282B133246003FCE94 /* NaviBarButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9406272B133246003FCE94 /* NaviBarButton+.swift */; };
 		2B94062A2B134146003FCE94 /* JoinStep2ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9406292B134146003FCE94 /* JoinStep2ViewModel.swift */; };
 		2B94062E2B139809003FCE94 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B94062D2B139809003FCE94 /* KeychainManager.swift */; };
@@ -112,6 +118,12 @@
 		2B76B8F42B27543200F19F7C /* UserLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginManager.swift; sourceTree = "<group>"; };
 		2B7EE65A2B29819D00C7E9CD /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		2B7EE65D2B29821700C7E9CD /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		2B7EE6632B2AEDFB00C7E9CD /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		2B7EE6652B2AEE0900C7E9CD /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		2B7EE6672B2B10DB00C7E9CD /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		2B7EE6692B2B10E400C7E9CD /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
+		2B7EE66E2B2C74EC00C7E9CD /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		2B7EE6702B2CEE8F00C7E9CD /* CustomHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeaderView.swift; sourceTree = "<group>"; };
 		2B9406272B133246003FCE94 /* NaviBarButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NaviBarButton+.swift"; sourceTree = "<group>"; };
 		2B9406292B134146003FCE94 /* JoinStep2ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinStep2ViewModel.swift; sourceTree = "<group>"; };
 		2B94062D2B139809003FCE94 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
@@ -301,6 +313,19 @@
 			path = Initial;
 			sourceTree = "<group>";
 		};
+		2B7EE6622B2AEDE900C7E9CD /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				2B7EE6652B2AEE0900C7E9CD /* DetailViewController.swift */,
+				2B7EE6632B2AEDFB00C7E9CD /* DetailView.swift */,
+				2B7EE66E2B2C74EC00C7E9CD /* DetailViewModel.swift */,
+				2B7EE6672B2B10DB00C7E9CD /* PostTableViewCell.swift */,
+				2B7EE6692B2B10E400C7E9CD /* CommentTableViewCell.swift */,
+				2B7EE6702B2CEE8F00C7E9CD /* CustomHeaderView.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		2B94062C2B1397F4003FCE94 /* KeyChain */ = {
 			isa = PBXGroup;
 			children = (
@@ -408,6 +433,7 @@
 			isa = PBXGroup;
 			children = (
 				2B7EE65C2B2981E300C7E9CD /* Initial */,
+				2B7EE6622B2AEDE900C7E9CD /* Detail */,
 				2B7EE6592B29817F00C7E9CD /* Profile */,
 				2BC60D5C2B1C97080016584E /* Post */,
 				2BC60D192B18ACC70016584E /* Home */,
@@ -647,6 +673,7 @@
 				2B76B8E42B25D79E00F19F7C /* GBorderImageView.swift in Sources */,
 				2BD741B52B06051F006C11B2 /* InitialViewController.swift in Sources */,
 				2BC60D1F2B18AD060016584E /* HomeViewModel.swift in Sources */,
+				2B7EE6682B2B10DB00C7E9CD /* PostTableViewCell.swift in Sources */,
 				2B6D6E532B0CC362004A8DA9 /* APIError.swift in Sources */,
 				2BC60D652B1CC3230016584E /* PostCollectionViewCell.swift in Sources */,
 				2B7EE65B2B29819D00C7E9CD /* ProfileViewController.swift in Sources */,
@@ -655,11 +682,13 @@
 				2B76B8E72B26207200F19F7C /* GBackView.swift in Sources */,
 				2BC60D542B1C55550016584E /* ReusableViewProtocol+.swift in Sources */,
 				2BC60D5E2B1C97290016584E /* PostViewController.swift in Sources */,
+				2B7EE6712B2CEE8F00C7E9CD /* CustomHeaderView.swift in Sources */,
 				2B61ACE62B12573400C3F29E /* NicknameDataModel.swift in Sources */,
 				2BC60D602B1C97810016584E /* PostView.swift in Sources */,
 				2B6D6DE92B09DF31004A8DA9 /* GPasswordTextField.swift in Sources */,
 				2BD741F52B07B8D9006C11B2 /* GLabel.swift in Sources */,
 				2B9406692B17244C003FCE94 /* PostAPIManager.swift in Sources */,
+				2B7EE66A2B2B10E400C7E9CD /* CommentTableViewCell.swift in Sources */,
 				2BD742012B08DA3C006C11B2 /* JoinStep2ViewController.swift in Sources */,
 				2BC60D4C2B1C4CD10016584E /* BaseTableViewCell.swift in Sources */,
 				2BD741B12B06051F006C11B2 /* AppDelegate.swift in Sources */,
@@ -667,6 +696,7 @@
 				2BC60D5B2B1C5EE00016584E /* HomeCollectionViewCell.swift in Sources */,
 				2B6D6E2D2B0B5491004A8DA9 /* APIKey.swift in Sources */,
 				2BD742032B08DA4B006C11B2 /* JoinStep2View.swift in Sources */,
+				2B7EE6662B2AEE0900C7E9CD /* DetailViewController.swift in Sources */,
 				2BC60D1D2B18ACFD0016584E /* HomeView.swift in Sources */,
 				2B21049E2B1F0AEA005CA1F0 /* GTextField.swift in Sources */,
 				2BD741F22B079FF8006C11B2 /* Font+.swift in Sources */,
@@ -679,6 +709,7 @@
 				2BBBBDBA2B2888C70035179C /* Constant.swift in Sources */,
 				2B94064C2B1602EC003FCE94 /* PostModel.swift in Sources */,
 				2B94063F2B1498B0003FCE94 /* Notification+.swift in Sources */,
+				2B7EE6642B2AEDFB00C7E9CD /* DetailView.swift in Sources */,
 				2BD741FF2B08A49C006C11B2 /* JoinStep1View.swift in Sources */,
 				2B7EE65E2B29821700C7E9CD /* ProfileView.swift in Sources */,
 				2B94063D2B14749E003FCE94 /* LoginViewModel.swift in Sources */,
@@ -694,6 +725,7 @@
 				2BD741FB2B088255006C11B2 /* GButton.swift in Sources */,
 				2B9406282B133246003FCE94 /* NaviBarButton+.swift in Sources */,
 				2B6D6DEB2B09F62A004A8DA9 /* BaseViewModel.swift in Sources */,
+				2B7EE66F2B2C74EC00C7E9CD /* DetailViewModel.swift in Sources */,
 				2BD741DD2B079469006C11B2 /* LoginView.swift in Sources */,
 				2BD741FD2B088DBA006C11B2 /* GTextButton.swift in Sources */,
 				2BD741B32B06051F006C11B2 /* SceneDelegate.swift in Sources */,

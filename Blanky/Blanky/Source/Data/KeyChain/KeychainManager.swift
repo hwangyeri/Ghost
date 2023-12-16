@@ -15,8 +15,22 @@ final class KeychainManager {
     private init() {}
     
     private struct KeychainKeys {
+        static let userID: String = "User.UserID.Key"
         static let tokenKey: String = "User.Token.Key"
         static let refreshTokenKey: String = "User.RefreshToken.Key"
+    }
+    
+    var userID: String? {
+        get {
+            KeychainWrapper.standard.string(forKey: KeychainKeys.userID)
+        }
+        set {
+            if let value = newValue {
+                KeychainWrapper.standard.set(value, forKey: KeychainKeys.userID)
+            } else {
+                KeychainWrapper.standard.removeObject(forKey: KeychainKeys.userID)
+            }
+        }
     }
     
     var token: String? {

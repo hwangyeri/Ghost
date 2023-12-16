@@ -25,7 +25,7 @@ final class PostViewController: BaseViewController {
     
     private let viewModel = PostViewModel()
     
-    let disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
     
     private var selectedImages: [UIImage] = [] {
         didSet {

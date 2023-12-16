@@ -24,9 +24,11 @@ final class HomeViewController: BaseViewController {
     
     private let viewModel = HomeViewModel()
     
-    let disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
     
     private var postDataList = PostRead(data: [], next_cursor: "")
+    
+    private var postID: String?
     
     override func loadView() {
         self.view = mainView
@@ -40,6 +42,7 @@ final class HomeViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.tabBarController?.tabBar.isHidden = false
         postDataList.data.removeAll()
         postRead(cursor: "") // 1. 초기 데이터 로드
     }
@@ -61,17 +64,17 @@ final class HomeViewController: BaseViewController {
         
         // 게시글 조회 API
         PostAPIManager.shared.postRead(next: cursor)
-            .subscribe(with: self) { [weak self] _, result in
+            .subscribe(with: self) { owner, result in
                 switch result {
                 case .success(let data):
                     print("포스트 조회 성공")
                     
                     // 3. 데이터 소스 업데이트
-                    self?.postDataList.data.append(contentsOf: data.data)
-                    self?.postDataList.next_cursor = data.next_cursor
+                    owner.postDataList.data.append(contentsOf: data.data)
+                    owner.postDataList.next_cursor = data.next_cursor
                     
                     // 4. 테이블뷰 리로드
-                    self?.mainView.tableView.reloadData()
+                    owner.mainView.tableView.reloadData()
                     
                 case .failure(let error):
                     print("포스트 조회 실패: ", error)
@@ -135,8 +138,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let row = postDataList.data[indexPath.row]
         
         cell.postData = row // PostData 값 전달
+        self.postID = row._id
         
-        cell.nicknameLabel.text = row.creator.nick //"익명의유령\(indexPath.row)"
+//        cell.nicknameLabel.text = row.creator.nick //"익명의유령\(indexPath.row)"
         cell.dateLabel.text = row.time
         cell.titleLabel.text = row.title
         cell.contentLabel.text = row.content
@@ -144,6 +148,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         cell.likeLabel.text = "\(row.likes.count)"
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = DetailViewController()
+        let temp = postDataList.data[indexPath.row]._id
+        vc.postID = temp
+        print("포스트 아이디: ", temp)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
    
 }

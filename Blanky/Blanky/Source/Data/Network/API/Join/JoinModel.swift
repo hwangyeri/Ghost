@@ -36,6 +36,7 @@ struct LoginInput: Encodable {
 }
 
 struct LoginOutput: Decodable {
+    let _id: String
     let token: String
     let refreshToken: String
 }
