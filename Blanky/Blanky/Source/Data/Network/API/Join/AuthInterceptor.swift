@@ -76,7 +76,6 @@ final class AuthInterceptor: RequestInterceptor { // == RequestAdapter, RequestR
             } else {
                 print("AcessToken 갱신 실패: 로그인 화면으로 전환")
                 UserLoginManager.shared.isLogin = false
-//                NotificationCenter.default.post(name: .tokenRefreshFailedAlert, object: nil)
                 let vc = InitialViewController()
                 RootVCManager.shared.changeRootVC(vc)
                 completion(.doNotRetryWithError(error))
