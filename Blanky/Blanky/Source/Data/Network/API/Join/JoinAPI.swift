@@ -67,15 +67,15 @@ extension JoinAPI: TargetType {
     var headers: [String : String]? {
         switch self {
         case .join, .validationEmail, .login:
-            ["Content-Type": "application/json",
-             "SesacKey": APIKey.sesacKey]
+            [Constant.contentType: "application/json",
+             Constant.sesacKey: APIKey.sesacKey]
         case .refresh:
-            ["Authorization": KeychainManager.shared.token ?? "token error",
-             "SesacKey": APIKey.sesacKey,
-             "Refresh": KeychainManager.shared.refreshToken ?? "refreshToken error"]
+            [Constant.authorization: KeychainManager.shared.token ?? "token error",
+             Constant.sesacKey: APIKey.sesacKey,
+             Constant.refresh: KeychainManager.shared.refreshToken ?? "refreshToken error"]
         case .withdraw:
-            ["Authorization": KeychainManager.shared.token ?? "token error",
-             "SesacKey": APIKey.sesacKey]
+            [Constant.authorization: KeychainManager.shared.token ?? "token error",
+             Constant.sesacKey: APIKey.sesacKey]
         }
     }
     
