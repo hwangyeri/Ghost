@@ -119,6 +119,15 @@ final class HomeViewController: BaseViewController {
                 owner.navigationController?.pushViewController(vc, animated: true)
             }
             .disposed(by: disposeBag)
+
+        NotificationCenter.default.rx.notification(.postSuccessAlert)
+            .observe(on: MainScheduler.instance)
+            .subscribe(with: self, onNext: { owner, notification in
+                owner.showToast(message: "게시글 작성 성공!")
+                let topIndexPath = IndexPath(row: 0, section: 0)
+                owner.mainView.tableView.scrollToRow(at: topIndexPath, at: .top, animated: true)
+            })
+            .disposed(by: disposeBag)
     }
 
 }
