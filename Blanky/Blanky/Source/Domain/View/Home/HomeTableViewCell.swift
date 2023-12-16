@@ -28,22 +28,26 @@ final class HomeTableViewCell: BaseTableViewCell {
     let nicknameLabel = GLabel(
         text: "익명의유령",
         fontWeight: .medium,
-        fontSize: .XS)
+        fontSize: .XS
+    )
     
     let dateLabel = GLabel(
         text: "",
         fontWeight: .thin,
-        fontSize: .XXS)
+        fontSize: .XXS
+    )
     
     let titleLabel = GLabel(
         text: "",
         fontWeight: .semiBold,
-        fontSize: .M)
+        fontSize: .M
+    )
     
     let contentLabel = GLabel(
         text: "",
         fontWeight: .regular,
-        fontSize: .S)
+        fontSize: .S
+    )
     
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout()).then {
         $0.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: HomeCollectionViewCell.identifier)
@@ -73,7 +77,8 @@ final class HomeTableViewCell: BaseTableViewCell {
     let hitsLabel = GLabel(
         text: "0",
         fontWeight: .regular,
-        fontSize: .XS)
+        fontSize: .XS
+    )
     
     let messageButton = GImageButton(
         imageSize: 13,
@@ -86,7 +91,8 @@ final class HomeTableViewCell: BaseTableViewCell {
     let messageLabel = GLabel(
         text: "0",
         fontWeight: .regular,
-        fontSize: .XS)
+        fontSize: .XS
+    )
     
     let likeButton = GImageButton(
         imageSize: 15,
@@ -99,7 +105,8 @@ final class HomeTableViewCell: BaseTableViewCell {
     let likeLabel = GLabel(
         text: "0",
         fontWeight: .regular,
-        fontSize: .XS)
+        fontSize: .XS
+    )
     
     let bookmarkButton = GImageButton(
         imageSize: 14,
