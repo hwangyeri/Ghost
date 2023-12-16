@@ -52,12 +52,22 @@ final class DetailView: BaseView {
         cornerRadius: 0
     )
     
+    let topScrollButton = GImageButton(
+        imageSize: 16,
+        imageName: "arrow.up",
+        backgroundColor: .bColor100,
+        tintColor: .white,
+        cornerRadius: 20
+    )
+    
     override func configureHierarchy() {
         [loadingIndicator, tableView, commentsView].forEach {
             self.addSubview($0)
         }
         
-        commentsView.addSubview(borderView)
+        [borderView, topScrollButton].forEach {
+            commentsView.addSubview($0)
+        }
         
         [contentTextField, writeButton].forEach {
             borderView.addSubview($0)
@@ -70,7 +80,7 @@ final class DetailView: BaseView {
         }
         
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(self.safeAreaLayoutGuide).inset(30)
+            make.top.equalTo(self.safeAreaLayoutGuide).inset(20)
             make.bottom.equalTo(commentsView.snp.top).offset(30)
             make.horizontalEdges.equalToSuperview()
         }
@@ -78,12 +88,12 @@ final class DetailView: BaseView {
         commentsView.snp.makeConstraints { make in
             make.bottom.equalToSuperview()
             make.horizontalEdges.equalToSuperview()
-            make.height.equalTo(120)
+            make.height.equalTo(90)
         }
         
         borderView.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(20)
-            make.horizontalEdges.equalToSuperview().inset(15)
+            make.top.equalToSuperview().inset(12)
+            make.leading.equalToSuperview().inset(15)
             make.height.equalTo(55)
         }
         
@@ -98,6 +108,13 @@ final class DetailView: BaseView {
             make.leading.equalTo(contentTextField.snp.trailing).offset(10)
             make.trailing.equalToSuperview().inset(15)
             make.width.equalTo(30)
+        }
+        
+        topScrollButton.snp.makeConstraints { make in
+            make.centerY.equalTo(writeButton)
+            make.leading.equalTo(borderView.snp.trailing).offset(8)
+            make.trailing.equalToSuperview().inset(15)
+            make.size.equalTo(40)
         }
     }
     
