@@ -11,10 +11,10 @@ import Moya
 enum PostAPI {
     case postCreate(model: PostCreate) //게시글 작성
     case postRead(next: String, limit: String, product_id: String) //게시글 조회
+    case onePostRead(id: String, product_id: String) //특정 게시글 조회
     case postDelete(id: String) //게시글 삭제
     case postUser(id: String, next: String, limit: String, product_id: String) //유저별 작성한 게시글 조회
-    case commentCreate(model: CommentInput, id: String) //댓글 작성
-    case commentUpdate(model: CommentInput, id: String, commentID: String) //댓글 수정
+    case commentCreate(id: String, model: CommentInput) //댓글 작성
     case commentDelete(id: String, commentID: String) //댓글 삭제
     case like(id: String) //좋아요
     case likeMe(next: String, limit: String) //좋아요한 게시글 조회
@@ -30,22 +30,25 @@ extension PostAPI: TargetType {
         switch self {
         case .postCreate, .postRead:
             return "post"
-            // 게시글 수정/삭제 - id
-        case .postDelete(let id):
-            return "post/:\(id)"
+        case .postDelete(let id): 
+            // 게시글 삭제 - id
+            return "post/\(id)"
         case .postUser(let id, _, _, _):
-            return "post/user/:\(id)"
+            return "post/user/\(id)"
+        case .commentCreate(let id, _):
             // 댓글 작성 - id
-        case .commentCreate(_, let id):
-            return "post/:\(id)/comment"
-            // 댓글 수정/삭제 - id, commentID
-        case .commentUpdate(_, let id, let commentID), .commentDelete(let id, let commentID):
+            return "post/\(id)/comment"
+        case .commentDelete(let id, let commentID):
+            // 댓글 삭제 - id, commentID
             return "post/:\(id)/comment/:\(commentID)"
-            // 좋아요 - id
         case .like(let id):
-            return "post/like/:\(id)"
+            // 좋아요 - id
+            return "post/like/\(id)"
         case .likeMe:
             return "post/like/me"
+        case .onePostRead(let id, _):
+            // 특정 게시글 조회 - id
+            return "post/\(id)"
         }
     }
     
@@ -54,12 +57,9 @@ extension PostAPI: TargetType {
         //POST: 게시글/댓글 작성, 좋아요
         case .postCreate, .commentCreate, .like:
             return .post
-        //GET: 게시글 조회, 유저별 작성한 게시글 조회
-        case .postRead, .postUser, .likeMe:
+        //GET: 게시글 조회, 유저별 작성한 게시글 조회, 특정 게시글 조회
+        case .postRead, .postUser, .likeMe, .onePostRead:
             return .get
-        //PUT: 게시글/댓글 수정
-        case .commentUpdate:
-            return .put
         //DEL: 게시글/댓글 삭제
         case .postDelete, .commentDelete:
             return .delete
@@ -91,14 +91,15 @@ extension PostAPI: TargetType {
         case .postRead(let next, let limit, let product_id), .postUser(_, let next, let limit, let product_id):
             let parameters: [String: String] = ["next": next, "limit": limit, "product_id": product_id]
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
-        case .commentCreate(let model, _):
-            return .requestJSONEncodable(model)
-        case .commentUpdate(let model, _, _):
+        case .commentCreate(_, let model):
             return .requestJSONEncodable(model)
         case .postDelete(_), .like(_), .commentDelete(_, _):
             return .requestPlain
         case .likeMe(next: let next, limit: let limit):
             let parameters: [String: String] = ["next": next, "limit": limit]
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
+        case .onePostRead(_, let product_id):
+            let parameters: [String: String] = ["product_id": product_id]
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         }
     }
@@ -106,16 +107,16 @@ extension PostAPI: TargetType {
     var headers: [String : String]? {
         switch self {
         case .postCreate:
-            ["Authorization": KeychainManager.shared.token ?? "token error",
-             "Content-Type": "multipart/form-data",
-             "SesacKey": APIKey.sesacKey]
-        case .postRead, .postDelete, .postUser, .commentDelete, .like, .likeMe:
-            ["Authorization": KeychainManager.shared.token ?? "token error",
-             "SesacKey": APIKey.sesacKey]
-        case .commentCreate, .commentUpdate:
-            ["Authorization": KeychainManager.shared.token ?? "token error",
-             "Content-Type": "application/json",
-             "SesacKey": APIKey.sesacKey]
+            [Constant.authorization: KeychainManager.shared.token ?? "token error",
+             Constant.contentType: "multipart/form-data",
+             Constant.sesacKey: APIKey.sesacKey]
+        case .postRead, .postDelete, .postUser, .commentDelete, .like, .likeMe, .onePostRead:
+            [Constant.authorization: KeychainManager.shared.token ?? "token error",
+             Constant.sesacKey: APIKey.sesacKey]
+        case .commentCreate:
+            [Constant.authorization: KeychainManager.shared.token ?? "token error",
+             Constant.contentType: "application/json",
+             Constant.sesacKey: APIKey.sesacKey]
         }
     }
     
