@@ -17,6 +17,7 @@ enum Constant {
     
     //Image Name
     static let heart = "heart"
+    static let heartFill = "heart.fill"
     static let message = "message"
     static let trash = "trash"
     static let pencil = "pencil"
