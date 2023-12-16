@@ -64,5 +64,12 @@ final class CommentTableViewCell: BaseTableViewCell {
             make.height.equalTo(0.5)
         }
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        dateLabel.text = ""
+        commentLabel.text = ""
+    }
 
 }
