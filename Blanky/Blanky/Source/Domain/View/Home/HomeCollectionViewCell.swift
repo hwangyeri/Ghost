@@ -58,7 +58,6 @@ final class HomeCollectionViewCell: BaseCollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        imageView.image = UIImage(named: "ghost")
         imageCountLabel.text = "1/5"
     }
     
