@@ -86,6 +86,7 @@ final class PostViewController: BaseViewController {
             .drive(with: self) { owner, result in
                 switch result {
                 case true:
+                    NotificationCenter.default.post(name: .postSuccessAlert, object: nil)
                     owner.navigationController?.popViewController(animated: true)
                 case false:
                     owner.showAlertMessage(title: "", message: "게시글 작성에 실패했습니다. 다시 시도해 주세요.")

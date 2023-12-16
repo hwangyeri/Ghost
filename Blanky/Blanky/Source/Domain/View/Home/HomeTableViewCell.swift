@@ -136,7 +136,7 @@ final class HomeTableViewCell: BaseTableViewCell {
         
         dateLabel.snp.makeConstraints { make in
             make.bottom.equalTo(nicknameLabel)
-            make.leading.equalTo(nicknameLabel.snp.trailing).offset(5)
+            make.leading.equalTo(nicknameLabel.snp.trailing).offset(6)
             make.trailing.equalToSuperview().inset(10)
         }
         
@@ -207,13 +207,12 @@ final class HomeTableViewCell: BaseTableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        nicknameLabel.text = "익명의유령"
         dateLabel.text = ""
         titleLabel.text = ""
         contentLabel.text = ""
         hitsLabel.text = "0"
-        messageLabel.text = "0"
-        likeLabel.text = "0"
+        messageLabel.text = ""
+        likeLabel.text = ""
     }
     
     // 데이터 없는 컬렉션뷰 높이 재조정 메서드

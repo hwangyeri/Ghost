@@ -119,15 +119,20 @@ final class HomeViewController: BaseViewController {
                 owner.navigationController?.pushViewController(vc, animated: true)
             }
             .disposed(by: disposeBag)
+
+        NotificationCenter.default.rx.notification(.postSuccessAlert)
+            .observe(on: MainScheduler.instance)
+            .subscribe(with: self, onNext: { owner, notification in
+                owner.showToast(message: "게시글 작성 성공!")
+                let topIndexPath = IndexPath(row: 0, section: 0)
+                owner.mainView.tableView.scrollToRow(at: topIndexPath, at: .top, animated: true)
+            })
+            .disposed(by: disposeBag)
     }
 
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
-    
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return "header Test"
-//    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return postDataList.data.count
@@ -141,11 +146,17 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         self.postID = row._id
         
 //        cell.nicknameLabel.text = row.creator.nick //"익명의유령\(indexPath.row)"
+        
         cell.dateLabel.text = row.time
         cell.titleLabel.text = row.title
         cell.contentLabel.text = row.content
         cell.messageLabel.text = "\(row.comments.count)"
         cell.likeLabel.text = "\(row.likes.count)"
+        
+        let isContained = row.likes.contains(KeychainManager.shared.userID ?? "userID Error")
+        
+        cell.likeButton.setImage(UIImage(systemName: isContained ? Constant.heartFill : Constant.heart), for: .normal)
+        cell.likeButton.tintColor = isContained ? .systemIndigo : .white
         
         return cell
     }

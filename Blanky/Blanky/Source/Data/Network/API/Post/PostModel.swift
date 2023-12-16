@@ -62,5 +62,5 @@ struct CommentDelete: Decodable {
 
 // MARK: 좋아요
 struct Like: Decodable {
-    let like_status: Bool
+    var like_status: Bool
 }

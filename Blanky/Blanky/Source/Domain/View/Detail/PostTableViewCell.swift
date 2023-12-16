@@ -50,7 +50,7 @@ final class PostTableViewCell: BaseTableViewCell {
     let likeLabel = GLabel(
         text: "0",
         fontWeight: .regular,
-        fontSize: .XS
+        fontSize: .XXS
     )
     
     let messageButton = GImageButton(
@@ -64,19 +64,27 @@ final class PostTableViewCell: BaseTableViewCell {
     let messageLabel = GLabel(
         text: "0",
         fontWeight: .regular,
-        fontSize: .XS
+        fontSize: .XXS
     )
     
     let divider = GDivider().then {
         $0.backgroundColor = .bColor300
     }
     
+    weak var delegate: PostTableViewCellDelegate?
+    
     override func configureHierarchy() {
         [profileImageView, nicknameLabel, titleLabel, contentLabel, likeButton, likeLabel, messageButton, messageLabel, dateLabel, divider].forEach {
             contentView.addSubview($0)
         }
+        
+        likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
     }
     
+    @objc private func likeButtonTapped() {
+        delegate?.likeButtonTapped()
+    }
+   
     override func configureLayout() {
         profileImageView.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(5)
@@ -112,7 +120,7 @@ final class PostTableViewCell: BaseTableViewCell {
         
         likeLabel.snp.makeConstraints { make in
             make.centerY.equalTo(likeButton)
-            make.leading.equalTo(likeButton.snp.trailing).offset(5)
+            make.leading.equalTo(likeButton.snp.trailing).offset(3)
         }
         
         messageButton.snp.makeConstraints { make in
@@ -123,7 +131,7 @@ final class PostTableViewCell: BaseTableViewCell {
         
         messageLabel.snp.makeConstraints { make in
             make.centerY.equalTo(messageButton)
-            make.leading.equalTo(messageButton.snp.trailing).offset(5)
+            make.leading.equalTo(messageButton.snp.trailing).offset(3)
         }
         
         divider.snp.makeConstraints { make in
@@ -132,6 +140,16 @@ final class PostTableViewCell: BaseTableViewCell {
             make.height.equalTo(0.5)
             make.bottom.equalToSuperview()
         }
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        dateLabel.text = ""
+        titleLabel.text = ""
+        contentLabel.text = ""
+        likeLabel.text = ""
+        messageLabel.text = ""
     }
 
     

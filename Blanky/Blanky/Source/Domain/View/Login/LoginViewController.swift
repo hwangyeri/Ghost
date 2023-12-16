@@ -86,13 +86,6 @@ class LoginViewController: BaseViewController {
                 }
             }
             .disposed(by: disposeBag)
-        
-//        NotificationCenter.default.rx.notification(.tokenRefreshFailedAlert)
-//            .observe(on: MainScheduler.instance)
-//            .subscribe(with: self) { owner, notification in
-//                owner.showAlertMessage(title: "", message: "장기간 움직임이 없어 로그아웃 되었습니다.\n다시 로그인해 주세요.")
-//            }
-//            .disposed(by: disposeBag)
     }
     
 }

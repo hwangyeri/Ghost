@@ -9,6 +9,10 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+protocol PostTableViewCellDelegate: AnyObject {
+    func likeButtonTapped()
+}
+
 final class DetailViewController: BaseViewController {
     
     private let mainView = DetailView()
@@ -20,7 +24,8 @@ final class DetailViewController: BaseViewController {
     private var postData = PostData(likes: [], image: [], comments: [], _id: "", time: "", creator: Creator(_id: "", nick: ""), title: "", content: "", product_id: "")
     
     var postID: String?
-    var postIDBehavior = BehaviorRelay<String>(value: "")
+    
+    var isLiked: Bool = false
     
     override func loadView() {
         self.view = mainView
@@ -36,7 +41,6 @@ final class DetailViewController: BaseViewController {
     override func configureLayout() {
         self.tabBarController?.tabBar.isHidden = true
         setCustomBackButton()
-        postIDBehavior.accept(postID ?? "postID error")
         mainView.tableView.delegate = self
         mainView.tableView.dataSource = self
     }
@@ -68,6 +72,9 @@ final class DetailViewController: BaseViewController {
                     owner.postData = data
                     // 댓글 순서 바꾸기
                     owner.postData.comments.sort { $0.time < $1.time }
+                    // 좋아요 버튼 이미지 설정
+                    owner.isLiked = owner.postData.likes.contains(KeychainManager.shared.userID ?? "userID Error")
+                    // 테이블뷰 리로드
                     owner.mainView.tableView.reloadData()
                 case .failure(let error):
                     print("특정 게시글 조회 실패: ", error.errorDescription)
@@ -85,7 +92,8 @@ final class DetailViewController: BaseViewController {
         let input = DetailViewModel.Input(
             postID: postID,
             contentTextField: mainView.contentTextField.rx.text.orEmpty,
-            writeButton: mainView.writeButton.rx.tap
+            writeButton: mainView.writeButton.rx.tap,
+            topScrollButton: mainView.topScrollButton.rx.tap
         )
         
         let output = viewModel.transform(input: input)
@@ -100,12 +108,24 @@ final class DetailViewController: BaseViewController {
             .drive(with: self) { owner, result in
                 switch result {
                 case true:
-                    // 댓글 작성 성공시 텍스트필드 텍스트 초기화
-                    owner.mainView.contentTextField.text = ""
+                    owner.mainView.contentTextField.text = "" // 텍스트 초기화 
                     owner.onePostRead()
+                    
+                    // 댓글 작성시 맨 아래로 스크롤
+                    guard !owner.postData.comments.isEmpty else { return }
+                    let lastCommentIndexPath = IndexPath(row: owner.postData.comments.count - 1, section: 1)
+                    owner.mainView.tableView.scrollToRow(at: lastCommentIndexPath, at: .bottom, animated: true)
+                    
                 case false:
                     owner.showAlertMessage(title: "", message: "댓글 작성에 실패했습니다.\n다시 시도해 주세요.")
                 }
+            }
+            .disposed(by: disposeBag)
+        
+        output.topScrollButtonTap
+            .drive(with: self) { owner, _ in
+                let topIndexPath = IndexPath(row: 0, section: 0)
+                owner.mainView.tableView.scrollToRow(at: topIndexPath, at: .top, animated: true)
             }
             .disposed(by: disposeBag)
     }
@@ -147,6 +167,11 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             cell.dateLabel.text = data.time
             cell.likeLabel.text = "\(data.likes.count)"
             cell.messageLabel.text = "\(data.comments.count)"
+            cell.likeButton.setImage(UIImage(systemName: isLiked ? Constant.heartFill : Constant.heart), for: .normal)
+            cell.likeButton.tintColor = isLiked ? .systemIndigo : .white
+            
+            // 대리자 설정
+            cell.delegate = self
             
             return cell
         case 1:
@@ -166,5 +191,33 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    
+}
+
+extension DetailViewController: PostTableViewCellDelegate {
+    
+    // Cell 안에 좋아요 버튼 클릭 이벤트 처리
+    func likeButtonTapped() {
+        print(#function)
+        
+        guard let postID = self.postID else {
+            print("postID Error")
+            return
+        }
+        
+        // 게시글 좋아요 API
+        PostAPIManager.shared.like(id: postID)
+            .subscribe(with: self) { owner, result in
+                switch result {
+                case .success(let data):
+                    owner.isLiked = data.like_status
+                    //섹션 리로드
+                    owner.mainView.tableView.reloadSections(IndexSet(0...0), with: .automatic)
+                case .failure(let error):
+                    print(error.errorDescription)
+                }
+            }
+            .disposed(by: disposeBag)
+    }
     
 }
