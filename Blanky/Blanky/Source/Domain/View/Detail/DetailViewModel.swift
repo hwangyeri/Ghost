@@ -15,11 +15,13 @@ final class DetailViewModel: BaseViewModel {
         let postID: String
         let contentTextField: ControlProperty<String> // 댓글 텍스트필드
         let writeButton: ControlEvent<Void> // 댓글 작성 버튼
+        let topScrollButton: ControlEvent<Void> // 상단 스크롤 버튼
     }
     
     struct Output {
         let contentTextFieldValidation: Driver<Bool>
         let writeButtonTap: Driver<Bool>
+        let topScrollButtonTap: Driver<Void>
     }
     
     func transform(input: Input) -> Output {
@@ -49,10 +51,19 @@ final class DetailViewModel: BaseViewModel {
             }
             .asDriver(onErrorJustReturn: false)
         
+        // 상단 스크롤 버튼 탭
+        let topScrollButtonTap = input.topScrollButton
+            .do(onNext: { _ in
+                print("topScrollButtonTap")
+            })
+            .throttle(.seconds(1), scheduler: MainScheduler.instance)
+            .asDriver(onErrorJustReturn: ())
+        
         
         return Output(
             contentTextFieldValidation: contentTextFieldValidation, 
-            writeButtonTap: writeButtonTap
+            writeButtonTap: writeButtonTap, 
+            topScrollButtonTap: topScrollButtonTap
         )
     }
     
