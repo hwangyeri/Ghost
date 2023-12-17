@@ -48,6 +48,11 @@ struct CommentOutput: Decodable {
     let creator: Creator
 }
 
+struct ProfileMe: Decodable {
+    let posts: [String]
+    let _id, email, nick: String
+}
+
 // ---- check
 
 // MARK: 게시글 삭제
