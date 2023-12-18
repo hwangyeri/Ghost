@@ -9,15 +9,16 @@ import Foundation
 import Moya
 
 enum PostAPI {
-    case postCreate(model: PostCreate) //게시글 작성
-    case postRead(next: String, limit: String, product_id: String) //게시글 조회
-    case onePostRead(id: String, product_id: String) //특정 게시글 조회
-    case postDelete(id: String) //게시글 삭제
-    case postUser(id: String, next: String, limit: String, product_id: String) //유저별 작성한 게시글 조회
-    case commentCreate(id: String, model: CommentInput) //댓글 작성
-    case commentDelete(id: String, commentID: String) //댓글 삭제
-    case like(id: String) //좋아요
-    case likeMe(next: String, limit: String) //좋아요한 게시글 조회
+    case postCreate(model: PostCreate) // 게시글 작성
+    case postRead(next: String, limit: String, product_id: String) // 게시글 조회
+    case onePostRead(id: String, product_id: String) // 특정 게시글 조회
+    case postDelete(id: String) // 게시글 삭제
+    case postUser(id: String, next: String, limit: String, product_id: String) // 유저별 작성한 게시글 조회
+    case commentCreate(id: String, model: CommentInput) // 댓글 작성
+    case commentDelete(id: String, commentID: String) // 댓글 삭제
+    case like(id: String) // 좋아요
+    case likeMe(next: String, limit: String) // 좋아요한 게시글 조회
+    case profileMe // 내 프로필 조회
 }
 
 extension PostAPI: TargetType {
@@ -49,6 +50,9 @@ extension PostAPI: TargetType {
         case .onePostRead(let id, _):
             // 특정 게시글 조회 - id
             return "post/\(id)"
+        case .profileMe:
+            // 내 프로필 조회
+            return "profile/me"
         }
     }
     
@@ -57,8 +61,8 @@ extension PostAPI: TargetType {
         //POST: 게시글/댓글 작성, 좋아요
         case .postCreate, .commentCreate, .like:
             return .post
-        //GET: 게시글 조회, 유저별 작성한 게시글 조회, 특정 게시글 조회
-        case .postRead, .postUser, .likeMe, .onePostRead:
+        //GET: 게시글 조회, 유저별 작성한 게시글 조회, 특정 게시글 조회, 내 프로필 조회
+        case .postRead, .postUser, .likeMe, .onePostRead, .profileMe:
             return .get
         //DEL: 게시글/댓글 삭제
         case .postDelete, .commentDelete:
@@ -101,6 +105,8 @@ extension PostAPI: TargetType {
         case .onePostRead(_, let product_id):
             let parameters: [String: String] = ["product_id": product_id]
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
+        case .profileMe:
+            return .requestPlain
         }
     }
     
@@ -110,7 +116,7 @@ extension PostAPI: TargetType {
             [Constant.authorization: KeychainManager.shared.token ?? "token error",
              Constant.contentType: "multipart/form-data",
              Constant.sesacKey: APIKey.sesacKey]
-        case .postRead, .postDelete, .postUser, .commentDelete, .like, .likeMe, .onePostRead:
+        case .postRead, .postDelete, .postUser, .commentDelete, .like, .likeMe, .onePostRead, .profileMe:
             [Constant.authorization: KeychainManager.shared.token ?? "token error",
              Constant.sesacKey: APIKey.sesacKey]
         case .commentCreate:

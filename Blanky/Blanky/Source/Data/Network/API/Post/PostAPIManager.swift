@@ -90,8 +90,13 @@ final class PostAPIManager {
     }
     
     // MARK: 좋아요한 게시글 조회
-    func likeMe(next: String, limit: String) -> Single<Result<PostRead, APIError>> {
-        return request(target: .likeMe(next: next, limit: limit), model: PostRead.self)
+    func likeMe(next: String) -> Single<Result<PostRead, APIError>> {
+        return request(target: .likeMe(next: next, limit: "10"), model: PostRead.self)
+    }
+    
+    // MARK: 나의 프로필 조회
+    func profileMe() -> Single<Result<ProfileMe, APIError>> {
+        return request(target: .profileMe, model: ProfileMe.self)
     }
     
 }

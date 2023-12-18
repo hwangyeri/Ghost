@@ -6,10 +6,23 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
-class ProfileViewController: BaseViewController {
+/*
+ 프로필 화면
+ - 내 프로필 조회: 내가 작성한 게시글 수, 이메일, 닉네임
+ - 내가 좋아요한 게시글 조회: 좋아요한 글
+ - 유저별 작성한 게시글 조회: 작성한 글
+ */
+
+final class ProfileViewController: BaseViewController {
     
     private let mainView = ProfileView()
+    
+    private let disposeBag = DisposeBag()
+    
+    private var profileData = ProfileMe(posts: [], _id: "", email: "", nick: "")
     
     override func loadView() {
         self.view = mainView
@@ -17,8 +30,52 @@ class ProfileViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        setProfileData()
+        setLikeCountLabel()
     }
     
+    override func configureLayout() {
+        let settingButton = UIBarButtonItem(image: UIImage(systemName: "gearshape"), style: .plain, target: self, action: #selector(settingButtonTap))
+        settingButton.tintColor = .white
+        self.navigationItem.rightBarButtonItem = settingButton
+    }
+    
+    @objc private func settingButtonTap() {
+        print(#function)
+    }
+    
+    private func setProfileData() {
+        // 내 프로필 조회 API
+        PostAPIManager.shared.profileMe()
+            .subscribe(with: self) { owner, result in
+                switch result {
+                case .success(let data):
+                    print("내 프로필 조회 성공")
+                    owner.profileData = data
+                    owner.mainView.nicknameLabel.text = data.nick
+                    owner.mainView.emailLabel.text = data.email
+                    owner.mainView.postCountLabel.text = "\(data.posts.count)"
+                case .failure(let error):
+                    print("내 프로필 조회 실패: ",error.errorDescription)
+                }
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    private func setLikeCountLabel() {
+        // 좋아요한 게시글 조회 API
+        PostAPIManager.shared.likeMe(next: "")
+            .subscribe(with: self) { owner, result in
+                switch result {
+                case .success(let data):
+                    print("좋아요한 게시글 조회 성공")
+                    owner.mainView.likeCountLabel.text = "\(data.data.count)"
+                case .failure(let error):
+                    print("좋아요한 게시글 조회 실패", error.errorDescription)
+                }
+            }
+            .disposed(by: disposeBag)
+    }
 
 }
