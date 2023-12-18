@@ -163,9 +163,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = DetailViewController()
-        let temp = postDataList.data[indexPath.row]._id
-        vc.postID = temp
-        print("포스트 아이디: ", temp)
+        let postID = postDataList.data[indexPath.row]._id
+        vc.postID = postID
+        //print("포스트 아이디: ", postID)
         self.navigationController?.pushViewController(vc, animated: true)
     }
    
