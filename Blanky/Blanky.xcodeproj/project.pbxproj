@@ -201,6 +201,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B412CF62B305F5000087BAF /* ReuseCell */ = {
+			isa = PBXGroup;
+			children = (
+				2BC60D5A2B1C5EE00016584E /* HomeCollectionViewCell.swift */,
+			);
+			path = ReuseCell;
+			sourceTree = "<group>";
+		};
 		2B61ACDF2B12539600C3F29E /* RandomNickname */ = {
 			isa = PBXGroup;
 			children = (
@@ -369,7 +377,6 @@
 				2BC60D1A2B18ACF50016584E /* HomeViewController.swift */,
 				2BC60D1C2B18ACFD0016584E /* HomeView.swift */,
 				2BC60D552B1C56590016584E /* HomeTableViewCell.swift */,
-				2BC60D5A2B1C5EE00016584E /* HomeCollectionViewCell.swift */,
 				2BC60D1E2B18AD060016584E /* HomeViewModel.swift */,
 			);
 			path = Home;
@@ -435,6 +442,7 @@
 		2BD741C62B06078D006C11B2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2B412CF62B305F5000087BAF /* ReuseCell */,
 				2B7EE65C2B2981E300C7E9CD /* Initial */,
 				2B7EE6622B2AEDE900C7E9CD /* Detail */,
 				2B7EE6592B29817F00C7E9CD /* Profile */,

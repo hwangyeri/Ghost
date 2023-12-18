@@ -7,8 +7,17 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 final class PostTableViewCell: BaseTableViewCell {
+    
+    var postData: PostData? {
+        didSet {
+            collectionView.reloadData()
+            updateCollectionViewHeight()
+            print("postData didSet")
+        }
+    }
     
     let profileImageView = GBorderImageView(
         borderWidth: 1,
@@ -38,6 +47,25 @@ final class PostTableViewCell: BaseTableViewCell {
         fontWeight: .regular,
         fontSize: .M
     )
+    
+    lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout()).then {
+        $0.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: HomeCollectionViewCell.identifier)
+        $0.backgroundColor = .bColor200
+        $0.delegate = self
+        $0.dataSource = self
+    }
+    
+    private func collectionViewLayout() -> UICollectionViewFlowLayout {
+        let layout = UICollectionViewFlowLayout()
+        let spacing: CGFloat = 10
+        layout.minimumLineSpacing = 20
+        layout.minimumInteritemSpacing = spacing
+        layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
+        layout.scrollDirection = .horizontal
+        let width = UIScreen.main.bounds.width
+        layout.itemSize = CGSize(width: width - 55, height: width - 60)
+        return layout
+    }
     
     let likeButton = GImageButton(
         imageSize: 18,
@@ -74,7 +102,7 @@ final class PostTableViewCell: BaseTableViewCell {
     weak var delegate: PostTableViewCellDelegate?
     
     override func configureHierarchy() {
-        [profileImageView, nicknameLabel, titleLabel, contentLabel, likeButton, likeLabel, messageButton, messageLabel, dateLabel, divider].forEach {
+        [profileImageView, nicknameLabel, titleLabel, contentLabel, collectionView, likeButton, likeLabel, messageButton, messageLabel, dateLabel, divider].forEach {
             contentView.addSubview($0)
         }
         
@@ -113,8 +141,15 @@ final class PostTableViewCell: BaseTableViewCell {
             make.horizontalEdges.equalTo(titleLabel)
         }
         
+        collectionView.snp.makeConstraints { make in
+            make.top.equalTo(contentLabel.snp.bottom).offset(10)
+            make.leading.equalTo(titleLabel)
+            make.trailing.equalToSuperview()
+            make.height.equalTo(UIScreen.main.bounds.width - 60)
+        }
+        
         likeButton.snp.makeConstraints { make in
-            make.top.equalTo(contentLabel.snp.bottom).offset(30)
+            make.top.equalTo(collectionView.snp.bottom).offset(30)
             make.leading.equalTo(titleLabel)
         }
         
@@ -151,6 +186,51 @@ final class PostTableViewCell: BaseTableViewCell {
         likeLabel.text = ""
         messageLabel.text = ""
     }
+    
+    // 데이터 없는 컬렉션뷰 높이 재조정 메서드
+    private func updateCollectionViewHeight() {
+        if postData?.image.isEmpty == true {
+            collectionView.snp.updateConstraints { make in
+                make.height.equalTo(0)
+            }
+        } else {
+            collectionView.snp.updateConstraints { make in
+                make.height.equalTo(UIScreen.main.bounds.width - 40)
+            }
+        }
+    }
 
+    
+}
+
+extension PostTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return postData?.image.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeCollectionViewCell.identifier, for: indexPath) as? HomeCollectionViewCell,
+            let imageUrl = postData?.image[indexPath.item] else {
+                return UICollectionViewCell()
+        }
+
+        // 헤더 설정
+        let modifier = AnyModifier { request in
+            var headers = request
+            headers.setValue(KeychainManager.shared.token, forHTTPHeaderField: Constant.authorization)
+            headers.setValue(APIKey.sesacKey, forHTTPHeaderField: Constant.sesacKey)
+            return headers
+        }
+    
+        // 이미지 로드
+        cell.imageView.kf.setImage(
+            with: URL(string: APIKey.baseURL + imageUrl),
+            placeholder: UIImage(named: "ghost"),
+            options: [.requestModifier(modifier)]
+        )
+
+        return cell
+    }
     
 }

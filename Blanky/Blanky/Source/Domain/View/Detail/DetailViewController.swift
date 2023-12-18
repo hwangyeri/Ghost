@@ -172,6 +172,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             
             // 대리자 설정
             cell.delegate = self
+            cell.postData = data
             
             return cell
         case 1:
