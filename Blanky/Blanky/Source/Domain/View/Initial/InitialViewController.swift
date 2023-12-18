@@ -44,13 +44,15 @@ final class InitialViewController: UIViewController {
     private func switchToFeedVC() {
         let tabBar = UITabBarController()
         
+        //MARK: Tab 홈, 랭킹, 프로필, 댓글/알림?
+        
         let homeVC = HomeViewController()
         let firstVC = UINavigationController(rootViewController: homeVC)
-        firstVC.tabBarItem = UITabBarItem(title: .none, image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house"))
+        firstVC.tabBarItem = UITabBarItem(title: .none, image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
         
-        let tempVC = PostViewController()
-        let secondVC = UINavigationController(rootViewController: tempVC)
-        secondVC.tabBarItem = UITabBarItem(title: .none, image: UIImage(systemName: "star"), selectedImage: UIImage(systemName: "star"))
+        let profileVC = ProfileViewController()
+        let secondVC = UINavigationController(rootViewController: profileVC)
+        secondVC.tabBarItem = UITabBarItem(title: .none, image: UIImage(systemName: "person"), selectedImage: UIImage(systemName: "person.fill"))
         
         tabBar.viewControllers = [firstVC, secondVC]
         tabBar.tabBar.backgroundColor = UIColor.systemBackground
