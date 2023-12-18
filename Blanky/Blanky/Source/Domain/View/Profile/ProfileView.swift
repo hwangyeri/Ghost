@@ -98,27 +98,15 @@ final class ProfileView: BaseView {
         $0.backgroundColor = .bColor100
     }
     
-    lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout()).then {
-        $0.register(ProfileCollectionViewCell.self, forCellWithReuseIdentifier: ProfileCollectionViewCell.identifier)
+    lazy var tableView = UITableView().then {
+        $0.rowHeight = UITableView.automaticDimension
+        $0.estimatedRowHeight =  100
+        $0.register(ProfileTableViewCell.self, forCellReuseIdentifier: ProfileTableViewCell.identifier)
         $0.backgroundColor = .bColor200
-//        $0.delegate = self
-//        $0.dataSource = self
-    }
-    
-    private func collectionViewLayout() -> UICollectionViewFlowLayout {
-        let layout = UICollectionViewFlowLayout()
-        let spacing: CGFloat = 10
-        layout.minimumLineSpacing = 20
-        layout.minimumInteritemSpacing = spacing
-        layout.sectionInset = UIEdgeInsets(top: spacing, left: 0, bottom: spacing, right: spacing)
-        layout.scrollDirection = .horizontal
-        let width = UIScreen.main.bounds.width - 70
-        layout.itemSize = CGSize(width: width, height: width)
-        return layout
     }
     
     override func configureHierarchy() {
-        [nicknameLabel, emailLabel, profileImageView, stackView].forEach {
+        [nicknameLabel, emailLabel, profileImageView, stackView, tableView].forEach {
             self.addSubview($0)
         }
         
@@ -174,7 +162,7 @@ final class ProfileView: BaseView {
             make.height.equalTo(80)
         }
         
-        collectionView.snp.makeConstraints { make in
+        tableView.snp.makeConstraints { make in
             make.top.equalTo(stackView.snp.bottom)
             make.horizontalEdges.equalToSuperview()
             make.bottom.equalTo(self.safeAreaLayoutGuide)
