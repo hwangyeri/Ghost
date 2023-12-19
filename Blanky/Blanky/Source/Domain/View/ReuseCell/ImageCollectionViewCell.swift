@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class HomeCollectionViewCell: BaseCollectionViewCell {
+final class ImageCollectionViewCell: BaseCollectionViewCell {
     
     //MEMO: 낚시용 이미지 고려해서 1번 이미지 크게 보여주기
     
