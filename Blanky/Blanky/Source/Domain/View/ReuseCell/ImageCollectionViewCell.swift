@@ -45,7 +45,7 @@ final class ImageCollectionViewCell: BaseCollectionViewCell {
         }
         
         backView.snp.makeConstraints { make in
-            make.bottom.trailing.equalToSuperview().inset(35)
+            make.bottom.trailing.equalToSuperview().inset(20)
             make.width.equalTo(30)
             make.height.equalTo(28)
         }
@@ -58,7 +58,7 @@ final class ImageCollectionViewCell: BaseCollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        imageCountLabel.text = "1/5"
+        imageCountLabel.text = ""
     }
     
 }
