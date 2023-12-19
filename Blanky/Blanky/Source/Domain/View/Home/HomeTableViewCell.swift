@@ -16,6 +16,7 @@ final class HomeTableViewCell: BaseTableViewCell {
         didSet {
             collectionView.reloadData()
             updateCollectionViewHeight()
+            updateBackViewHeight()
             print("postData didSet")
         }
     }
@@ -50,7 +51,7 @@ final class HomeTableViewCell: BaseTableViewCell {
     )
     
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout()).then {
-        $0.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: HomeCollectionViewCell.identifier)
+        $0.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: ImageCollectionViewCell.identifier)
         $0.backgroundColor = .bColor200
         $0.delegate = self
         $0.dataSource = self
@@ -58,27 +59,27 @@ final class HomeTableViewCell: BaseTableViewCell {
     
     private func collectionViewLayout() -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
-        let spacing: CGFloat = 10
+//        let spacing: CGFloat = 10
         layout.minimumLineSpacing = 20
-        layout.minimumInteritemSpacing = spacing
-        layout.sectionInset = UIEdgeInsets(top: spacing, left: 0, bottom: spacing, right: spacing)
+//        layout.minimumInteritemSpacing = 0
+//        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: spacing)
         layout.scrollDirection = .horizontal
         let width = UIScreen.main.bounds.width - 70
-        layout.itemSize = CGSize(width: width, height: width)
+        layout.itemSize = CGSize(width: width, height: width - 40)
         return layout
     }
     
-    let hitsImage = UIImageView().then {
-        $0.image = UIImage(systemName: "eyes")
-        $0.contentMode = .scaleAspectFit
-        $0.tintColor = .white
-    }
-    
-    let hitsLabel = GLabel(
-        text: "0",
-        fontWeight: .regular,
-        fontSize: .XS
-    )
+//    let hitsImage = UIImageView().then {
+//        $0.image = UIImage(systemName: "eyes")
+//        $0.contentMode = .scaleAspectFit
+//        $0.tintColor = .white
+//    }
+//    
+//    let hitsLabel = GLabel(
+//        text: "0",
+//        fontWeight: .regular,
+//        fontSize: .XS
+//    )
     
     let messageButton = GImageButton(
         imageSize: 13,
@@ -108,18 +109,52 @@ final class HomeTableViewCell: BaseTableViewCell {
         fontSize: .XS
     )
     
-    let bookmarkButton = GImageButton(
-        imageSize: 14,
-        imageName: "bookmark",
-        backgroundColor: .bColor200,
-        tintColor: .white,
-        cornerRadius: 0
+//    let bookmarkButton = GImageButton(
+//        imageSize: 14,
+//        imageName: "bookmark",
+//        backgroundColor: .bColor200,
+//        tintColor: .white,
+//        cornerRadius: 0
+//    )
+    
+    let backView = UIView().then {
+        $0.backgroundColor = .bColor300.withAlphaComponent(0.8)
+        $0.layer.cornerRadius = 14
+    }
+    
+    let commentTitleLabel = GLabel(
+        text: "댓글",
+        fontWeight: .medium,
+        fontSize: .XXS
     )
+    
+    let commentProfileImageView = GBorderImageView(
+        borderWidth: 0.5,
+        cornerRadius: 10
+    )
+    
+    let commentContentLabel = GLabel(
+        text: "댓글입니다.",
+        fontWeight: .regular,
+        fontSize: .XXS
+    ).then {
+        $0.numberOfLines = 2
+    }
+    
+    let chevronDownImageView = UIImageView().then {
+        $0.image = UIImage(systemName: "chevron.down")
+        $0.contentMode = .scaleAspectFit
+        $0.tintColor = .white
+    }
     
     override func configureHierarchy() {
         [profileImageView, nicknameLabel, dateLabel, titleLabel, contentLabel, collectionView,
-         hitsImage, hitsLabel,messageButton, messageLabel, likeButton, likeLabel, bookmarkButton].forEach {
+         messageButton, messageLabel, likeButton, likeLabel, backView].forEach {
             contentView.addSubview($0)
+        }
+        
+        [commentTitleLabel, commentProfileImageView, commentContentLabel, chevronDownImageView].forEach {
+            backView.addSubview($0)
         }
     }
     
@@ -142,65 +177,93 @@ final class HomeTableViewCell: BaseTableViewCell {
         
         titleLabel.snp.makeConstraints {
             $0.top.equalTo(profileImageView.snp.bottom).offset(15)
-            $0.leading.equalTo(profileImageView).inset(10)
+            $0.leading.equalTo(profileImageView).inset(5)
             $0.trailing.equalToSuperview().inset(10)
         }
         
         contentLabel.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(10)
             $0.horizontalEdges.equalTo(titleLabel)
-            $0.height.lessThanOrEqualTo(120)
+            $0.height.lessThanOrEqualTo(100)
         }
         
         collectionView.snp.makeConstraints { make in
-            make.top.equalTo(contentLabel.snp.bottom).offset(10)
+            make.top.equalTo(contentLabel.snp.bottom)
             make.leading.equalTo(titleLabel)
             make.trailing.equalToSuperview()
-            make.height.equalTo(UIScreen.main.bounds.width - 70)
-            //            make.height.equalTo(UIScreen.main.bounds.height / 2)
+            make.height.equalTo(UIScreen.main.bounds.width - 110)
         }
         
-        hitsImage.snp.makeConstraints { make in
-            make.top.equalTo(collectionView.snp.bottom).offset(10)
-            make.leading.equalTo(collectionView)
-            make.size.equalTo(16)
-            make.bottom.equalToSuperview().inset(15)
-        }
-        
-        hitsLabel.snp.makeConstraints { make in
-            make.centerY.equalTo(hitsImage)
-            make.leading.equalTo(hitsImage.snp.trailing).offset(5)
-            make.bottom.equalTo(hitsImage)
-        }
+//        hitsImage.snp.makeConstraints { make in
+//            make.top.equalTo(collectionView.snp.bottom).offset(10)
+//            make.leading.equalTo(collectionView)
+//            make.size.equalTo(16)
+//            make.bottom.equalToSuperview().inset(15)
+//        }
+//        
+//        hitsLabel.snp.makeConstraints { make in
+//            make.centerY.equalTo(hitsImage)
+//            make.leading.equalTo(hitsImage.snp.trailing).offset(5)
+//            make.bottom.equalTo(hitsImage)
+//        }
         
         messageButton.snp.makeConstraints { make in
-            make.top.equalTo(hitsLabel)
-            make.leading.equalTo(hitsLabel.snp.trailing).offset(12)
-            make.bottom.equalTo(hitsImage)
+            make.top.equalTo(collectionView.snp.bottom)
+            make.leading.equalTo(collectionView)
+            make.bottom.equalTo(backView.snp.top).offset(-10)
         }
         
         messageLabel.snp.makeConstraints { make in
             make.centerY.equalTo(messageButton)
             make.leading.equalTo(messageButton.snp.trailing).offset(5)
-            make.bottom.equalTo(hitsImage)
+            make.bottom.equalTo(messageButton)
         }
         
         likeButton.snp.makeConstraints { make in
-            make.top.equalTo(hitsLabel)
+            make.top.equalTo(messageButton)
             make.leading.equalTo(messageLabel.snp.trailing).offset(12)
-            make.bottom.equalTo(hitsImage)
+            make.bottom.equalTo(messageButton)
         }
         
         likeLabel.snp.makeConstraints { make in
             make.centerY.equalTo(likeButton)
             make.leading.equalTo(likeButton.snp.trailing).offset(5)
-            make.bottom.equalTo(hitsImage)
+            make.bottom.equalTo(messageButton)
         }
         
-        bookmarkButton.snp.makeConstraints { make in
-            make.top.equalTo(hitsImage).offset(-10)
-            make.trailing.equalTo(collectionView).inset(20)
-            make.bottom.equalToSuperview().inset(5)
+//        bookmarkButton.snp.makeConstraints { make in
+//            make.top.equalTo(hitsImage).offset(-10)
+//            make.trailing.equalTo(collectionView).inset(20)
+//            make.bottom.equalToSuperview().inset(5)
+//        }
+        
+        backView.snp.makeConstraints { make in
+            make.top.equalTo(messageButton.snp.bottom).offset(30)
+            make.horizontalEdges.equalToSuperview().inset(10)
+            make.bottom.equalToSuperview().inset(10)
+        }
+        
+        commentTitleLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(10)
+            make.leading.equalToSuperview().inset(15)
+        }
+        
+        commentProfileImageView.snp.makeConstraints { make in
+            make.top.equalTo(commentTitleLabel.snp.bottom).offset(10)
+            make.leading.equalTo(commentTitleLabel)
+            make.size.equalTo(20)
+        }
+        
+        commentContentLabel.snp.makeConstraints { make in
+            make.top.equalTo(commentProfileImageView).offset(3)
+            make.leading.equalTo(commentProfileImageView.snp.trailing).offset(5)
+            make.trailing.equalToSuperview().inset(10)
+            make.bottom.equalToSuperview().inset(20)
+        }
+        
+        chevronDownImageView.snp.makeConstraints { make in
+            make.bottom.trailing.equalToSuperview().inset(15)
+            make.size.equalTo(17)
         }
     }
     
@@ -210,20 +273,39 @@ final class HomeTableViewCell: BaseTableViewCell {
         dateLabel.text = ""
         titleLabel.text = ""
         contentLabel.text = ""
-        hitsLabel.text = "0"
+//        hitsLabel.text = "0"
         messageLabel.text = ""
         likeLabel.text = ""
+        commentContentLabel.text = ""
     }
     
-    // 데이터 없는 컬렉션뷰 높이 재조정 메서드
+    // 이미지 데이터 없는 컬렉션뷰 높이 재조정 메서드
     private func updateCollectionViewHeight() {
         if postData?.image.isEmpty == true {
             collectionView.snp.updateConstraints { make in
-                make.height.equalTo(0)
+                make.height.equalTo(15)
             }
         } else {
             collectionView.snp.updateConstraints { make in
                 make.height.equalTo(UIScreen.main.bounds.width - 40)
+            }
+        }
+    }
+    
+    // 댓글 데이터 없는 백뷰 높이 재조정 메서드
+    private func updateBackViewHeight() {
+        if postData?.comments.isEmpty == true {
+            backView.snp.remakeConstraints { make in
+                make.top.equalTo(messageButton.snp.bottom).offset(30)
+                make.horizontalEdges.equalToSuperview().inset(10)
+                make.bottom.equalToSuperview().inset(10)
+                make.height.equalTo(0)
+            }
+        } else {
+            backView.snp.remakeConstraints { make in
+                make.top.equalTo(messageButton.snp.bottom).offset(30)
+                make.horizontalEdges.equalToSuperview().inset(10)
+                make.bottom.equalToSuperview().inset(10)
             }
         }
     }
@@ -236,7 +318,7 @@ extension HomeTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeCollectionViewCell.identifier, for: indexPath) as? HomeCollectionViewCell,
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollectionViewCell.identifier, for: indexPath) as? ImageCollectionViewCell,
             let imageUrl = postData?.image[indexPath.item] else {
                 return UICollectionViewCell()
         }
