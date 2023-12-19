@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class HomeCollectionViewCell: BaseCollectionViewCell {
+final class ImageCollectionViewCell: BaseCollectionViewCell {
     
     //MEMO: 낚시용 이미지 고려해서 1번 이미지 크게 보여주기
     
@@ -45,7 +45,7 @@ final class HomeCollectionViewCell: BaseCollectionViewCell {
         }
         
         backView.snp.makeConstraints { make in
-            make.bottom.trailing.equalToSuperview().inset(35)
+            make.bottom.trailing.equalToSuperview().inset(20)
             make.width.equalTo(30)
             make.height.equalTo(28)
         }
@@ -58,7 +58,7 @@ final class HomeCollectionViewCell: BaseCollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        imageCountLabel.text = "1/5"
+        imageCountLabel.text = ""
     }
     
 }

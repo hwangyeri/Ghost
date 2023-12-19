@@ -153,6 +153,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         cell.messageLabel.text = "\(row.comments.count)"
         cell.likeLabel.text = "\(row.likes.count)"
         
+        if row.comments.isEmpty {
+            cell.backView.isHidden = true
+        } else {
+            cell.backView.isHidden = false
+            cell.commentContentLabel.text = row.comments.last?.content
+        }
+        
         let isContained = row.likes.contains(KeychainManager.shared.userID ?? "userID Error")
         
         cell.likeButton.setImage(UIImage(systemName: isContained ? Constant.heartFill : Constant.heart), for: .normal)
