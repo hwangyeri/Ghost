@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		2B21049E2B1F0AEA005CA1F0 /* GTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B21049D2B1F0AEA005CA1F0 /* GTextField.swift */; };
+		2B34AEAE2B329E7D00924B18 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = 2B34AEAD2B329E7D00924B18 /* Tabman */; };
+		2B34AEB02B32A12300924B18 /* SwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B34AEAF2B32A12300924B18 /* SwipeViewController.swift */; };
+		2B34AEB22B32A1D000924B18 /* FirstSwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B34AEB12B32A1D000924B18 /* FirstSwipeViewController.swift */; };
+		2B34AEB42B32A1EB00924B18 /* SecondSwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B34AEB32B32A1EB00924B18 /* SecondSwipeViewController.swift */; };
+		2B34AEB62B32B1D600924B18 /* FirstSwipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B34AEB52B32B1D600924B18 /* FirstSwipeTableViewCell.swift */; };
+		2B34AEB82B32B34600924B18 /* FirstSwipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B34AEB72B32B34600924B18 /* FirstSwipeView.swift */; };
+		2B34AEBD2B32D80D00924B18 /* SecondSwipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B34AEBC2B32D80D00924B18 /* SecondSwipeView.swift */; };
+		2B34AEBF2B32D8C300924B18 /* SecondSwipeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B34AEBE2B32D8C300924B18 /* SecondSwipeCollectionViewCell.swift */; };
 		2B61ACDE2B107B0E00C3F29E /* Alert+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B61ACDD2B107B0E00C3F29E /* Alert+.swift */; };
 		2B61ACE12B12543C00C3F29E /* RandomNickname.json in Resources */ = {isa = PBXBuildFile; fileRef = 2B61ACE02B12543C00C3F29E /* RandomNickname.json */; };
 		2B61ACE32B1256AC00C3F29E /* NicknameDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B61ACE22B1256AC00C3F29E /* NicknameDataManager.swift */; };
@@ -65,7 +73,6 @@
 		2BC60D602B1C97810016584E /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC60D5F2B1C97810016584E /* PostView.swift */; };
 		2BC60D652B1CC3230016584E /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC60D642B1CC3230016584E /* PostCollectionViewCell.swift */; };
 		2BC60D672B1CD23B0016584E /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC60D662B1CD23B0016584E /* PostViewModel.swift */; };
-		2BD089FD2B303893002A8812 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD089FC2B303893002A8812 /* ProfileTableViewCell.swift */; };
 		2BD741B12B06051F006C11B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741B02B06051F006C11B2 /* AppDelegate.swift */; };
 		2BD741B32B06051F006C11B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741B22B06051F006C11B2 /* SceneDelegate.swift */; };
 		2BD741B52B06051F006C11B2 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD741B42B06051F006C11B2 /* InitialViewController.swift */; };
@@ -99,6 +106,13 @@
 
 /* Begin PBXFileReference section */
 		2B21049D2B1F0AEA005CA1F0 /* GTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GTextField.swift; sourceTree = "<group>"; };
+		2B34AEAF2B32A12300924B18 /* SwipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeViewController.swift; sourceTree = "<group>"; };
+		2B34AEB12B32A1D000924B18 /* FirstSwipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSwipeViewController.swift; sourceTree = "<group>"; };
+		2B34AEB32B32A1EB00924B18 /* SecondSwipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondSwipeViewController.swift; sourceTree = "<group>"; };
+		2B34AEB52B32B1D600924B18 /* FirstSwipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSwipeTableViewCell.swift; sourceTree = "<group>"; };
+		2B34AEB72B32B34600924B18 /* FirstSwipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSwipeView.swift; sourceTree = "<group>"; };
+		2B34AEBC2B32D80D00924B18 /* SecondSwipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondSwipeView.swift; sourceTree = "<group>"; };
+		2B34AEBE2B32D8C300924B18 /* SecondSwipeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondSwipeCollectionViewCell.swift; sourceTree = "<group>"; };
 		2B61ACDD2B107B0E00C3F29E /* Alert+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert+.swift"; sourceTree = "<group>"; };
 		2B61ACE02B12543C00C3F29E /* RandomNickname.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RandomNickname.json; sourceTree = "<group>"; };
 		2B61ACE22B1256AC00C3F29E /* NicknameDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameDataManager.swift; sourceTree = "<group>"; };
@@ -147,7 +161,6 @@
 		2BC60D5F2B1C97810016584E /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		2BC60D642B1CC3230016584E /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
 		2BC60D662B1CD23B0016584E /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
-		2BD089FC2B303893002A8812 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		2BD741AD2B06051F006C11B2 /* Blanky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blanky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BD741B02B06051F006C11B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BD741B22B06051F006C11B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -189,6 +202,7 @@
 				2B9406472B15D35C003FCE94 /* SwiftKeychainWrapper in Frameworks */,
 				2B6D6E672B0DE629004A8DA9 /* Moya in Frameworks */,
 				2BD741DB2B079341006C11B2 /* SnapKit in Frameworks */,
+				2B34AEAE2B329E7D00924B18 /* Tabman in Frameworks */,
 				2B6D6E602B0DE611004A8DA9 /* RxCocoa in Frameworks */,
 				2B6D6DE72B09DE8F004A8DA9 /* Then in Frameworks */,
 				2B6D6E692B0DE629004A8DA9 /* RxMoya in Frameworks */,
@@ -201,6 +215,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B34AEB92B32B48D00924B18 /* SwipeView */ = {
+			isa = PBXGroup;
+			children = (
+				2B34AEAF2B32A12300924B18 /* SwipeViewController.swift */,
+				2B34AEBA2B32B4A100924B18 /* First */,
+				2B34AEBB2B32B4B600924B18 /* Second */,
+			);
+			path = SwipeView;
+			sourceTree = "<group>";
+		};
+		2B34AEBA2B32B4A100924B18 /* First */ = {
+			isa = PBXGroup;
+			children = (
+				2B34AEB12B32A1D000924B18 /* FirstSwipeViewController.swift */,
+				2B34AEB72B32B34600924B18 /* FirstSwipeView.swift */,
+				2B34AEB52B32B1D600924B18 /* FirstSwipeTableViewCell.swift */,
+			);
+			path = First;
+			sourceTree = "<group>";
+		};
+		2B34AEBB2B32B4B600924B18 /* Second */ = {
+			isa = PBXGroup;
+			children = (
+				2B34AEB32B32A1EB00924B18 /* SecondSwipeViewController.swift */,
+				2B34AEBC2B32D80D00924B18 /* SecondSwipeView.swift */,
+				2B34AEBE2B32D8C300924B18 /* SecondSwipeCollectionViewCell.swift */,
+			);
+			path = Second;
+			sourceTree = "<group>";
+		};
 		2B412CF62B305F5000087BAF /* ReuseCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -311,7 +355,7 @@
 			children = (
 				2B7EE65A2B29819D00C7E9CD /* ProfileViewController.swift */,
 				2B7EE65D2B29821700C7E9CD /* ProfileView.swift */,
-				2BD089FC2B303893002A8812 /* ProfileTableViewCell.swift */,
+				2B34AEB92B32B48D00924B18 /* SwipeView */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -602,6 +646,7 @@
 				2B6D6E682B0DE629004A8DA9 /* RxMoya */,
 				2B9406462B15D35C003FCE94 /* SwiftKeychainWrapper */,
 				2BBBBDB62B2865130035179C /* Kingfisher */,
+				2B34AEAD2B329E7D00924B18 /* Tabman */,
 			);
 			productName = Blanky;
 			productReference = 2BD741AD2B06051F006C11B2 /* Blanky.app */;
@@ -640,6 +685,7 @@
 				2B6D6E652B0DE629004A8DA9 /* XCRemoteSwiftPackageReference "Moya" */,
 				2B9406452B15D35C003FCE94 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
 				2BBBBDB52B2865130035179C /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				2B34AEAC2B329E7D00924B18 /* XCRemoteSwiftPackageReference "Tabman" */,
 			);
 			productRefGroup = 2BD741AE2B06051F006C11B2 /* Products */;
 			projectDirPath = "";
@@ -694,11 +740,14 @@
 				2BC60D542B1C55550016584E /* ReusableViewProtocol+.swift in Sources */,
 				2BC60D5E2B1C97290016584E /* PostViewController.swift in Sources */,
 				2B7EE6712B2CEE8F00C7E9CD /* CustomHeaderView.swift in Sources */,
+				2B34AEBF2B32D8C300924B18 /* SecondSwipeCollectionViewCell.swift in Sources */,
 				2B61ACE62B12573400C3F29E /* NicknameDataModel.swift in Sources */,
+				2B34AEB22B32A1D000924B18 /* FirstSwipeViewController.swift in Sources */,
 				2BC60D602B1C97810016584E /* PostView.swift in Sources */,
 				2B6D6DE92B09DF31004A8DA9 /* GPasswordTextField.swift in Sources */,
 				2BD741F52B07B8D9006C11B2 /* GLabel.swift in Sources */,
 				2B9406692B17244C003FCE94 /* PostAPIManager.swift in Sources */,
+				2B34AEB82B32B34600924B18 /* FirstSwipeView.swift in Sources */,
 				2B7EE66A2B2B10E400C7E9CD /* CommentTableViewCell.swift in Sources */,
 				2BD742012B08DA3C006C11B2 /* JoinStep2ViewController.swift in Sources */,
 				2BC60D4C2B1C4CD10016584E /* BaseTableViewCell.swift in Sources */,
@@ -711,13 +760,16 @@
 				2BC60D1D2B18ACFD0016584E /* HomeView.swift in Sources */,
 				2B21049E2B1F0AEA005CA1F0 /* GTextField.swift in Sources */,
 				2BD741F22B079FF8006C11B2 /* Font+.swift in Sources */,
+				2B34AEB62B32B1D600924B18 /* FirstSwipeTableViewCell.swift in Sources */,
 				2B94062A2B134146003FCE94 /* JoinStep2ViewModel.swift in Sources */,
 				2B6D6DEF2B09F805004A8DA9 /* JoinStep1ViewModel.swift in Sources */,
+				2B34AEBD2B32D80D00924B18 /* SecondSwipeView.swift in Sources */,
 				2BD741D62B07905F006C11B2 /* BaseView.swift in Sources */,
 				2B94064E2B1602F5003FCE94 /* PostAPI.swift in Sources */,
 				2BD741F92B07CE01006C11B2 /* GDivider.swift in Sources */,
 				2BC60D1B2B18ACF50016584E /* HomeViewController.swift in Sources */,
 				2BBBBDBA2B2888C70035179C /* Constant.swift in Sources */,
+				2B34AEB02B32A12300924B18 /* SwipeViewController.swift in Sources */,
 				2B94064C2B1602EC003FCE94 /* PostModel.swift in Sources */,
 				2B94063F2B1498B0003FCE94 /* Notification+.swift in Sources */,
 				2B7EE6642B2AEDFB00C7E9CD /* DetailView.swift in Sources */,
@@ -725,7 +777,6 @@
 				2B7EE65E2B29821700C7E9CD /* ProfileView.swift in Sources */,
 				2B94063D2B14749E003FCE94 /* LoginViewModel.swift in Sources */,
 				2BD741CC2B061F5C006C11B2 /* LoginViewController.swift in Sources */,
-				2BD089FD2B303893002A8812 /* ProfileTableViewCell.swift in Sources */,
 				2B6D6E312B0B6CFD004A8DA9 /* JoinModel.swift in Sources */,
 				2B94062E2B139809003FCE94 /* KeychainManager.swift in Sources */,
 				2B6D6E2A2B0B5480004A8DA9 /* JoinAPI.swift in Sources */,
@@ -736,6 +787,7 @@
 				2BC60D562B1C56590016584E /* HomeTableViewCell.swift in Sources */,
 				2BD741FB2B088255006C11B2 /* GButton.swift in Sources */,
 				2B9406282B133246003FCE94 /* NaviBarButton+.swift in Sources */,
+				2B34AEB42B32A1EB00924B18 /* SecondSwipeViewController.swift in Sources */,
 				2B6D6DEB2B09F62A004A8DA9 /* BaseViewModel.swift in Sources */,
 				2B7EE66F2B2C74EC00C7E9CD /* DetailViewModel.swift in Sources */,
 				2BD741DD2B079469006C11B2 /* LoginView.swift in Sources */,
@@ -964,6 +1016,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2B34AEAC2B329E7D00924B18 /* XCRemoteSwiftPackageReference "Tabman" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/uias/Tabman";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.2;
+			};
+		};
 		2B6D6DE52B09DE8F004A8DA9 /* XCRemoteSwiftPackageReference "Then" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/devxoul/Then";
@@ -1031,6 +1091,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2B34AEAD2B329E7D00924B18 /* Tabman */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2B34AEAC2B329E7D00924B18 /* XCRemoteSwiftPackageReference "Tabman" */;
+			productName = Tabman;
+		};
 		2B6D6DE62B09DE8F004A8DA9 /* Then */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2B6D6DE52B09DE8F004A8DA9 /* XCRemoteSwiftPackageReference "Then" */;
