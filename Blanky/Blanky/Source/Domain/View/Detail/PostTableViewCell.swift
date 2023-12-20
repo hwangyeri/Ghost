@@ -58,12 +58,12 @@ final class PostTableViewCell: BaseTableViewCell {
     private func collectionViewLayout() -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
         let spacing: CGFloat = 10
-        layout.minimumLineSpacing = 20
+        layout.minimumLineSpacing = spacing * 2
         layout.minimumInteritemSpacing = spacing
-        layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
+        layout.sectionInset = UIEdgeInsets(top: spacing, left: 5, bottom: spacing, right: spacing)
         layout.scrollDirection = .horizontal
         let width = UIScreen.main.bounds.width
-        layout.itemSize = CGSize(width: width - 55, height: width - 60)
+        layout.itemSize = CGSize(width: width - 50, height: width - 60)
         return layout
     }
     
@@ -102,7 +102,8 @@ final class PostTableViewCell: BaseTableViewCell {
     weak var delegate: PostTableViewCellDelegate?
     
     override func configureHierarchy() {
-        [profileImageView, nicknameLabel, titleLabel, contentLabel, collectionView, likeButton, likeLabel, messageButton, messageLabel, dateLabel, divider].forEach {
+        [profileImageView, nicknameLabel, titleLabel, contentLabel, collectionView, 
+         messageButton, messageLabel, likeButton, likeLabel, dateLabel, divider].forEach {
             contentView.addSubview($0)
         }
         
@@ -132,7 +133,7 @@ final class PostTableViewCell: BaseTableViewCell {
         
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(profileImageView.snp.bottom).offset(20)
-            make.leading.equalTo(profileImageView).inset(5)
+            make.leading.equalTo(profileImageView).inset(10)
             make.trailing.equalToSuperview().inset(10)
         }
         
@@ -148,25 +149,25 @@ final class PostTableViewCell: BaseTableViewCell {
             make.height.equalTo(UIScreen.main.bounds.width - 60)
         }
         
-        likeButton.snp.makeConstraints { make in
-            make.top.equalTo(collectionView.snp.bottom).offset(30)
-            make.leading.equalTo(titleLabel)
-        }
-        
-        likeLabel.snp.makeConstraints { make in
-            make.centerY.equalTo(likeButton)
-            make.leading.equalTo(likeButton.snp.trailing).offset(3)
-        }
-        
         messageButton.snp.makeConstraints { make in
-            make.top.equalTo(likeButton)
-            make.leading.equalTo(likeLabel.snp.trailing).offset(15)
-            make.bottom.equalTo(likeButton)
+            make.top.equalTo(collectionView.snp.bottom).offset(10)
+            make.leading.equalTo(titleLabel)
         }
         
         messageLabel.snp.makeConstraints { make in
             make.centerY.equalTo(messageButton)
             make.leading.equalTo(messageButton.snp.trailing).offset(3)
+        }
+        
+        likeButton.snp.makeConstraints { make in
+            make.top.equalTo(messageButton)
+            make.leading.equalTo(messageLabel.snp.trailing).offset(15)
+            make.bottom.equalTo(messageButton)
+        }
+        
+        likeLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(likeButton)
+            make.leading.equalTo(likeButton.snp.trailing).offset(3)
         }
         
         divider.snp.makeConstraints { make in
@@ -183,8 +184,8 @@ final class PostTableViewCell: BaseTableViewCell {
         dateLabel.text = ""
         titleLabel.text = ""
         contentLabel.text = ""
-        likeLabel.text = ""
         messageLabel.text = ""
+        likeLabel.text = ""
     }
     
     // 데이터 없는 컬렉션뷰 높이 재조정 메서드
@@ -229,6 +230,10 @@ extension PostTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
             placeholder: UIImage(named: "ghost"),
             options: [.requestModifier(modifier)]
         )
+        
+        let imageCount = "\(postData?.image.count ?? 0)"
+        
+        cell.imageCountLabel.text = "\(indexPath.row + 1)/\(imageCount)"
 
         return cell
     }
