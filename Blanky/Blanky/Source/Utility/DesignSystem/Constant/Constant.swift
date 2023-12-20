@@ -16,6 +16,7 @@ enum Constant {
     static let limitNumber = "10"
     
     //Image Name
+    static let ghost = "ghost"
     static let heart = "heart"
     static let heartFill = "heart.fill"
     static let message = "message"
