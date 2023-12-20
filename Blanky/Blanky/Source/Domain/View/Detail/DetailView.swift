@@ -56,7 +56,7 @@ final class DetailView: BaseView {
         imageSize: 16,
         imageName: "arrow.up",
         backgroundColor: .bColor100,
-        tintColor: .white,
+        tintColor: .point,
         cornerRadius: 20
     )
     

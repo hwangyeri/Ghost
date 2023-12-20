@@ -16,7 +16,7 @@ final class GBorderImageView: UIImageView {
         self.layer.borderColor = UIColor.bColor300.cgColor
         self.layer.borderWidth = borderWidth
         self.layer.cornerRadius = cornerRadius
-        self.contentMode = .scaleAspectFit
+        self.contentMode = .scaleAspectFill
         self.layer.masksToBounds = true
     }
     

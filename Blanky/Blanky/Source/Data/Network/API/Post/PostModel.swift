@@ -48,9 +48,15 @@ struct CommentOutput: Decodable {
     let creator: Creator
 }
 
+// MARK: 나의 프로필 조회
 struct ProfileMe: Decodable {
     let posts: [String]
     let _id, email, nick: String
+}
+
+// MARK: 좋아요
+struct Like: Decodable {
+    var like_status: Bool
 }
 
 // ---- check
@@ -65,7 +71,3 @@ struct CommentDelete: Decodable {
     let postID, commentID: String
 }
 
-// MARK: 좋아요
-struct Like: Decodable {
-    var like_status: Bool
-}

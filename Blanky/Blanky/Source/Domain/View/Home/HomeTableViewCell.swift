@@ -62,10 +62,10 @@ final class HomeTableViewCell: BaseTableViewCell {
 //        let spacing: CGFloat = 10
         layout.minimumLineSpacing = 20
 //        layout.minimumInteritemSpacing = 0
-//        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: spacing)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         layout.scrollDirection = .horizontal
-        let width = UIScreen.main.bounds.width - 70
-        layout.itemSize = CGSize(width: width, height: width - 40)
+        let width = UIScreen.main.bounds.width - 80
+        layout.itemSize = CGSize(width: width, height: width - 50)
         return layout
     }
     
@@ -156,6 +156,9 @@ final class HomeTableViewCell: BaseTableViewCell {
         [commentTitleLabel, commentProfileImageView, commentContentLabel, chevronDownImageView].forEach {
             backView.addSubview($0)
         }
+        
+//        collectionView.backgroundColor = .point
+//        contentView.backgroundColor = .systemPink
     }
     
     override func configureLayout() {
@@ -191,7 +194,7 @@ final class HomeTableViewCell: BaseTableViewCell {
             make.top.equalTo(contentLabel.snp.bottom)
             make.leading.equalTo(titleLabel)
             make.trailing.equalToSuperview()
-            make.height.equalTo(UIScreen.main.bounds.width - 110)
+            make.height.equalTo(UIScreen.main.bounds.width - 100)
         }
         
 //        hitsImage.snp.makeConstraints { make in
@@ -287,7 +290,7 @@ final class HomeTableViewCell: BaseTableViewCell {
             }
         } else {
             collectionView.snp.updateConstraints { make in
-                make.height.equalTo(UIScreen.main.bounds.width - 40)
+                make.height.equalTo(UIScreen.main.bounds.width - 100)
             }
         }
     }
@@ -337,6 +340,10 @@ extension HomeTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
             placeholder: UIImage(named: "ghost"),
             options: [.requestModifier(modifier)]
         )
+        
+        let imageCount = "\(postData?.image.count ?? 0)"
+        
+        cell.imageCountLabel.text = "\(indexPath.row + 1)/\(imageCount)"
 
         return cell
     }
