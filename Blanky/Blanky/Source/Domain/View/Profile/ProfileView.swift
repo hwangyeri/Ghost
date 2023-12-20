@@ -98,15 +98,17 @@ final class ProfileView: BaseView {
         $0.backgroundColor = .bColor100
     }
     
-    lazy var tableView = UITableView().then {
-        $0.rowHeight = UITableView.automaticDimension
-        $0.estimatedRowHeight =  100
-        $0.register(ProfileTableViewCell.self, forCellReuseIdentifier: ProfileTableViewCell.identifier)
-        $0.backgroundColor = .bColor200
-    }
+//    lazy var tableView = UITableView().then {
+//        $0.rowHeight = UITableView.automaticDimension
+//        $0.estimatedRowHeight =  100
+//        $0.register(ProfileTableViewCell.self, forCellReuseIdentifier: ProfileTableViewCell.identifier)
+//        $0.backgroundColor = .bColor200
+//    }
+    
+    let swipeVC = SwipeViewController()
     
     override func configureHierarchy() {
-        [nicknameLabel, emailLabel, profileImageView, stackView, tableView].forEach {
+        [nicknameLabel, emailLabel, profileImageView, stackView, swipeVC.view].forEach {
             self.addSubview($0)
         }
         
@@ -162,7 +164,7 @@ final class ProfileView: BaseView {
             make.height.equalTo(80)
         }
         
-        tableView.snp.makeConstraints { make in
+        swipeVC.view.snp.makeConstraints { make in
             make.top.equalTo(stackView.snp.bottom)
             make.horizontalEdges.equalToSuperview()
             make.bottom.equalTo(self.safeAreaLayoutGuide)
