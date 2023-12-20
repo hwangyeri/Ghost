@@ -36,6 +36,7 @@ final class ProfileViewController: BaseViewController {
     }
     
     override func configureLayout() {
+        // 설정 버튼
         let settingButton = UIBarButtonItem(image: UIImage(systemName: "gearshape"), style: .plain, target: self, action: #selector(settingButtonTap))
         settingButton.tintColor = .white
         self.navigationItem.rightBarButtonItem = settingButton
