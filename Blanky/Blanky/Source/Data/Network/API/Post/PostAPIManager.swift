@@ -63,14 +63,14 @@ final class PostAPIManager {
         return request(target: .onePostRead(id: id, product_id: APIKey.productId), model: PostData.self)
     }
     
+    // MARK: 유저별 작성한 게시글 조회
+    func postUser(id: String, next: String) -> Single<Result<PostRead, APIError>> {
+        return request(target: .postUser(id: id, next: next, limit: Constant.limitNumber, product_id: APIKey.productId), model: PostRead.self)
+    }
+    
     // MARK: 게시글 삭제
     func postDelete(id: String) -> Single<Result<PostDelete, APIError>> {
         return request(target: .postDelete(id: id), model: PostDelete.self)
-    }
-    
-    // MARK: 유저별 작성한 게시글 조회
-    func postUser(id: String, next: String, limit: String) -> Single<Result<PostDelete, APIError>> {
-        return request(target: .postUser(id: id, next: next, limit: limit, product_id: APIKey.productId), model: PostDelete.self)
     }
     
     // MARK: 댓글 작성
