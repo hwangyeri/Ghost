@@ -48,7 +48,7 @@ struct RefreshOutput: Decodable {
 
 // MARK: 회원 탈퇴
 struct WithdrawOutput: Decodable {
-    let id: String
+    let _id: String
     let email: String
     let nick: String
 }
