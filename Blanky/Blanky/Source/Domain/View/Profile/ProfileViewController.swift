@@ -44,6 +44,9 @@ final class ProfileViewController: BaseViewController {
     
     @objc private func settingButtonTap() {
         print(#function)
+        let vc = SettingViewController()
+        vc.email = profileData.email
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     private func setProfileData() {

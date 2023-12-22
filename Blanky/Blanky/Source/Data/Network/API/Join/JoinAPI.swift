@@ -35,7 +35,7 @@ extension JoinAPI: TargetType {
         case .refresh:
             return "refresh"
         case .withdraw:
-            return "refresh"
+            return "withdraw"
         }
     }
     

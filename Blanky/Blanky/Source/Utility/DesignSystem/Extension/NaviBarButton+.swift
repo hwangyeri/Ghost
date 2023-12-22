@@ -11,11 +11,11 @@ import Then
 
 extension UIViewController {
     
-    //MARK: 왼쪽 네비바 버튼, Back Button <
+    //MARK: 배경 있는 왼쪽 네비바 버튼, Back Button <
     func setCustomBackButton() {
         let backButton = GImageButton(imageSize: 18, imageName: "chevron.backward", backgroundColor: .bColor200, tintColor: .white, cornerRadius: 15)
         
-        backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        backButton.addTarget(self, action: #selector(customBackButtonTapped), for: .touchUpInside)
         
         backButton.snp.makeConstraints { make in
             make.size.equalTo(42)
@@ -28,7 +28,7 @@ extension UIViewController {
     }
     
     //이전 뷰로 화면 전환
-    @objc func backButtonTapped() {
+    @objc func customBackButtonTapped() {
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -71,6 +71,22 @@ extension UIViewController {
     
     //게시글 작성 취소 버튼
     @objc func xButtonTapped() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    //MARK: 왼쪽 네비바 버튼, Back Button <
+    func setBackButton() {
+        let backButton = GImageButton(imageSize: 20, imageName: "chevron.backward", backgroundColor: .clear, tintColor: .white, cornerRadius: 0)
+        
+        backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        
+        let customBackButton = UIBarButtonItem(customView: backButton)
+        
+        self.navigationItem.leftBarButtonItem = customBackButton
+    }
+    
+    //이전 뷰로 화면 전환
+    @objc func backButtonTapped() {
         self.navigationController?.popViewController(animated: true)
     }
     

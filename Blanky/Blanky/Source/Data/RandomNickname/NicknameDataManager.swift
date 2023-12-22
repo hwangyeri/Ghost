@@ -15,7 +15,7 @@ final class NicknameDataManager {
         loadData()
     }
     
-    var nicknameList: [NicknameData] = []
+    var nicknameList: Nickname?
     
     //JSON 파일을 읽고 데이터를 디코딩하여 nicknameList에 저장하는 함수
     private func loadData() {
@@ -23,7 +23,7 @@ final class NicknameDataManager {
             do {
                 //JSON 파일을 불러오는 코드
                 let decodedData = try JSONDecoder().decode(Nickname.self, from: jsonData)
-                self.nicknameList = decodedData.nicknameData
+                self.nicknameList = decodedData
             } catch {
                 print("Error decoding JSON: \(error)")
             }
@@ -57,9 +57,9 @@ final class NicknameDataManager {
     
     //랜덤 닉네임 생성
     func createRandomNickname() -> String {
-        let data = nicknameList[0]
-        let determiner = data.determiners.randomElement() ?? "똑쟁이"
-        let color = data.colors.randomElement() ?? "까만색"
+        let data = nicknameList?.nicknameData[0]
+        let determiner = data?.determiners.randomElement() ?? "똑쟁이"
+        let color = data?.colors.randomElement() ?? "까만색"
         return "\(determiner)\(color)유령"
     }
     

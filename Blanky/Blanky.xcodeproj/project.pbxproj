@@ -102,6 +102,10 @@
 		2BD742032B08DA4B006C11B2 /* JoinStep2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD742022B08DA4B006C11B2 /* JoinStep2View.swift */; };
 		2BD742062B08DCEC006C11B2 /* TextFieldEffects in Frameworks */ = {isa = PBXBuildFile; productRef = 2BD742052B08DCEC006C11B2 /* TextFieldEffects */; };
 		2BE01DE62B28538900AB6B0F /* RootVCManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE01DE52B28538900AB6B0F /* RootVCManager.swift */; };
+		2BF10E872B34136B0009D7B0 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF10E862B34136B0009D7B0 /* SettingViewController.swift */; };
+		2BF10E892B3413E40009D7B0 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF10E882B3413E40009D7B0 /* SettingView.swift */; };
+		2BF10E8B2B3414F40009D7B0 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF10E8A2B3414F40009D7B0 /* SettingTableViewCell.swift */; };
+		2BF10E8D2B3424150009D7B0 /* SettingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF10E8C2B3424150009D7B0 /* SettingHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -190,6 +194,10 @@
 		2BD742002B08DA3C006C11B2 /* JoinStep2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinStep2ViewController.swift; sourceTree = "<group>"; };
 		2BD742022B08DA4B006C11B2 /* JoinStep2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinStep2View.swift; sourceTree = "<group>"; };
 		2BE01DE52B28538900AB6B0F /* RootVCManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootVCManager.swift; sourceTree = "<group>"; };
+		2BF10E862B34136B0009D7B0 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		2BF10E882B3413E40009D7B0 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		2BF10E8A2B3414F40009D7B0 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		2BF10E8C2B3424150009D7B0 /* SettingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -355,6 +363,7 @@
 			children = (
 				2B7EE65A2B29819D00C7E9CD /* ProfileViewController.swift */,
 				2B7EE65D2B29821700C7E9CD /* ProfileView.swift */,
+				2BF10E852B3413430009D7B0 /* Setting */,
 				2B34AEB92B32B48D00924B18 /* SwipeView */,
 			);
 			path = Profile;
@@ -618,6 +627,17 @@
 			path = RootVCManager;
 			sourceTree = "<group>";
 		};
+		2BF10E852B3413430009D7B0 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				2BF10E862B34136B0009D7B0 /* SettingViewController.swift */,
+				2BF10E882B3413E40009D7B0 /* SettingView.swift */,
+				2BF10E8A2B3414F40009D7B0 /* SettingTableViewCell.swift */,
+				2BF10E8C2B3424150009D7B0 /* SettingHeaderView.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -770,8 +790,10 @@
 				2BC60D1B2B18ACF50016584E /* HomeViewController.swift in Sources */,
 				2BBBBDBA2B2888C70035179C /* Constant.swift in Sources */,
 				2B34AEB02B32A12300924B18 /* SwipeViewController.swift in Sources */,
+				2BF10E8D2B3424150009D7B0 /* SettingHeaderView.swift in Sources */,
 				2B94064C2B1602EC003FCE94 /* PostModel.swift in Sources */,
 				2B94063F2B1498B0003FCE94 /* Notification+.swift in Sources */,
+				2BF10E892B3413E40009D7B0 /* SettingView.swift in Sources */,
 				2B7EE6642B2AEDFB00C7E9CD /* DetailView.swift in Sources */,
 				2BD741FF2B08A49C006C11B2 /* JoinStep1View.swift in Sources */,
 				2B7EE65E2B29821700C7E9CD /* ProfileView.swift in Sources */,
@@ -782,6 +804,7 @@
 				2B6D6E2A2B0B5480004A8DA9 /* JoinAPI.swift in Sources */,
 				2BC60D452B19C7580016584E /* BaseCollectionViewCell.swift in Sources */,
 				2B76B8F52B27543200F19F7C /* UserLoginManager.swift in Sources */,
+				2BF10E872B34136B0009D7B0 /* SettingViewController.swift in Sources */,
 				2BD741D82B079084006C11B2 /* BaseViewController.swift in Sources */,
 				2BE01DE62B28538900AB6B0F /* RootVCManager.swift in Sources */,
 				2BC60D562B1C56590016584E /* HomeTableViewCell.swift in Sources */,
@@ -793,6 +816,7 @@
 				2BD741DD2B079469006C11B2 /* LoginView.swift in Sources */,
 				2BD741FD2B088DBA006C11B2 /* GTextButton.swift in Sources */,
 				2BD741B32B06051F006C11B2 /* SceneDelegate.swift in Sources */,
+				2BF10E8B2B3414F40009D7B0 /* SettingTableViewCell.swift in Sources */,
 				2BD741F72B07C708006C11B2 /* GHoshiTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
