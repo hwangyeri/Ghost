@@ -61,6 +61,8 @@
 		2B9406692B17244C003FCE94 /* PostAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9406682B17244C003FCE94 /* PostAPIManager.swift */; };
 		2BBBBDB72B2865130035179C /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 2BBBBDB62B2865130035179C /* Kingfisher */; };
 		2BBBBDBA2B2888C70035179C /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBBBDB92B2888C70035179C /* Constant.swift */; };
+		2BC555BD2B3701480042620E /* RankingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC555BC2B3701480042620E /* RankingView.swift */; };
+		2BC555BF2B3701580042620E /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC555BE2B3701580042620E /* RankingViewController.swift */; };
 		2BC60D1B2B18ACF50016584E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC60D1A2B18ACF50016584E /* HomeViewController.swift */; };
 		2BC60D1D2B18ACFD0016584E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC60D1C2B18ACFD0016584E /* HomeView.swift */; };
 		2BC60D1F2B18AD060016584E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC60D1E2B18AD060016584E /* HomeViewModel.swift */; };
@@ -153,6 +155,8 @@
 		2B94064D2B1602F5003FCE94 /* PostAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAPI.swift; sourceTree = "<group>"; };
 		2B9406682B17244C003FCE94 /* PostAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAPIManager.swift; sourceTree = "<group>"; };
 		2BBBBDB92B2888C70035179C /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		2BC555BC2B3701480042620E /* RankingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingView.swift; sourceTree = "<group>"; };
+		2BC555BE2B3701580042620E /* RankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
 		2BC60D1A2B18ACF50016584E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2BC60D1C2B18ACFD0016584E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2BC60D1E2B18AD060016584E /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -424,6 +428,15 @@
 			path = Constant;
 			sourceTree = "<group>";
 		};
+		2BC555BB2B3701020042620E /* Ranking */ = {
+			isa = PBXGroup;
+			children = (
+				2BC555BE2B3701580042620E /* RankingViewController.swift */,
+				2BC555BC2B3701480042620E /* RankingView.swift */,
+			);
+			path = Ranking;
+			sourceTree = "<group>";
+		};
 		2BC60D192B18ACC70016584E /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -495,6 +508,7 @@
 		2BD741C62B06078D006C11B2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2BC555BB2B3701020042620E /* Ranking */,
 				2B7EE65C2B2981E300C7E9CD /* Initial */,
 				2B412CF62B305F5000087BAF /* ReuseCell */,
 				2B7EE6622B2AEDE900C7E9CD /* Detail */,
@@ -753,6 +767,7 @@
 				2B7EE6682B2B10DB00C7E9CD /* PostTableViewCell.swift in Sources */,
 				2B6D6E532B0CC362004A8DA9 /* APIError.swift in Sources */,
 				2BC60D652B1CC3230016584E /* PostCollectionViewCell.swift in Sources */,
+				2BC555BF2B3701580042620E /* RankingViewController.swift in Sources */,
 				2B7EE65B2B29819D00C7E9CD /* ProfileViewController.swift in Sources */,
 				2B61ACDE2B107B0E00C3F29E /* Alert+.swift in Sources */,
 				2B6D6E5D2B0DAA5A004A8DA9 /* JoinAPIManager.swift in Sources */,
@@ -764,6 +779,7 @@
 				2B61ACE62B12573400C3F29E /* NicknameDataModel.swift in Sources */,
 				2B34AEB22B32A1D000924B18 /* FirstSwipeViewController.swift in Sources */,
 				2BC60D602B1C97810016584E /* PostView.swift in Sources */,
+				2BC555BD2B3701480042620E /* RankingView.swift in Sources */,
 				2B6D6DE92B09DF31004A8DA9 /* GPasswordTextField.swift in Sources */,
 				2BD741F52B07B8D9006C11B2 /* GLabel.swift in Sources */,
 				2B9406692B17244C003FCE94 /* PostAPIManager.swift in Sources */,
