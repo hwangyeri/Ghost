@@ -334,11 +334,16 @@ extension HomeTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
             return headers
         }
 
-        // 이미지 로드
+        // 이미지 로드 + 다운샘플링
         cell.imageView.kf.setImage(
             with: URL(string: APIKey.baseURL + imageUrl),
             placeholder: UIImage(named: "ghost"),
-            options: [.requestModifier(modifier)]
+            options: [
+                .requestModifier(modifier),
+                .processor(DownsamplingImageProcessor(size: cell.imageView.bounds.size)),
+                .scaleFactor(UIScreen.main.scale),
+                .cacheOriginalImage
+            ]
         )
         
         let imageCount = "\(postData?.image.count ?? 0)"
