@@ -58,7 +58,7 @@ SeSAC iOS LSLP :: Ghost 익명 커뮤니티 앱
 <br/>
 
 ### 3.2 Tools
-- `Figma/FigJam`, `Git/Github`, `Jandi`, `Notion`, `Discode`
+- `Figma/FigJam`, `Git/Github`, `Insomnia`, `Jandi`, `Notion`, `Discode`
 <br/>
 
 ## 4. 핵심 기능 (수정중)
