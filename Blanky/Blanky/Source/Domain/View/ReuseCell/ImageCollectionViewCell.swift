@@ -1,5 +1,5 @@
 //
-//  HomeCollectionViewCell.swift
+//  ImageCollectionViewCell.swift
 //  Blanky
 //
 //  Created by Yeri Hwang on 2023/12/03.
