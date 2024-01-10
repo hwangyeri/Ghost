@@ -34,6 +34,7 @@ final class DetailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setRightButton()
         onePostRead()
         bind()
     }
@@ -43,6 +44,30 @@ final class DetailViewController: BaseViewController {
         setCustomBackButton()
         mainView.tableView.delegate = self
         mainView.tableView.dataSource = self
+    }
+    
+    // 메뉴 버튼 (네비바 오른쪽)
+    func setRightButton() {
+        let rightButton = GImageButton(imageSize: 16, imageName: Constant.ellipsis, backgroundColor: .bColor200, tintColor: .white, cornerRadius: 15).then {
+            let imageConfig = UIImage.SymbolConfiguration(pointSize: 16, weight: .semibold)
+            let image = UIImage(systemName: Constant.ellipsis, withConfiguration: imageConfig)
+            
+            $0.setImage(image, for: .normal)
+        }
+        
+        rightButton.addTarget(self, action: #selector(rightButtonTapped), for: .touchUpInside)
+        
+        rightButton.snp.makeConstraints { make in
+            make.size.equalTo(42)
+        }
+        
+        let customButton = UIBarButtonItem(customView: rightButton)
+        
+        self.navigationItem.rightBarButtonItem = customButton
+    }
+    
+    @objc func rightButtonTapped() {
+        print(#function)
     }
     
     private func showLoadingIndicator() {
@@ -164,11 +189,14 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             
             cell.titleLabel.text = data.title
             cell.contentLabel.text = data.content
-            cell.dateLabel.text = data.time
+            
+            let time = Date().timeAgo(from: data.time)
+            cell.dateLabel.text = time
+            
             cell.likeLabel.text = "\(data.likes.count)"
             cell.messageLabel.text = "\(data.comments.count)"
             cell.likeButton.setImage(UIImage(systemName: isLiked ? Constant.heartFill : Constant.heart), for: .normal)
-            cell.likeButton.tintColor = isLiked ? .systemIndigo : .white
+            cell.likeButton.tintColor = isLiked ? .point : .white
             
             // 대리자 설정
             cell.delegate = self
@@ -180,7 +208,9 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             let row = postData.comments[indexPath.row]
             
             cell.commentLabel.text = row.content
-            cell.dateLabel.text = row.time
+            
+            let time = Date().timeAgo(from: row.time)
+            cell.dateLabel.text = time
             
             // 댓글 작성자 아닌 경우, 삭제 버튼 히든 처리
             cell.deleteButton.isHidden = row.creator._id != KeychainManager.shared.userID

@@ -22,4 +22,5 @@ enum Constant {
     static let message = "message"
     static let trash = "trash"
     static let pencil = "pencil"
+    static let ellipsis = "ellipsis"
 }
