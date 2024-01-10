@@ -147,7 +147,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
 //        cell.nicknameLabel.text = row.creator.nick //"익명의유령\(indexPath.row)"
         
-        cell.dateLabel.text = row.time
+        let time = Date().timeAgo(from: row.time)
+        cell.dateLabel.text = time
+        
         cell.titleLabel.text = row.title
         cell.contentLabel.text = row.content
         cell.messageLabel.text = "\(row.comments.count)"
@@ -163,7 +165,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let isContained = row.likes.contains(KeychainManager.shared.userID ?? "userID Error")
         
         cell.likeButton.setImage(UIImage(systemName: isContained ? Constant.heartFill : Constant.heart), for: .normal)
-        cell.likeButton.tintColor = isContained ? .systemIndigo : .white
+        cell.likeButton.tintColor = isContained ? .point : .white
         
         return cell
     }
