@@ -16,6 +16,7 @@
 		2B34AEB82B32B34600924B18 /* FirstSwipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B34AEB72B32B34600924B18 /* FirstSwipeView.swift */; };
 		2B34AEBD2B32D80D00924B18 /* SecondSwipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B34AEBC2B32D80D00924B18 /* SecondSwipeView.swift */; };
 		2B34AEBF2B32D8C300924B18 /* SecondSwipeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B34AEBE2B32D8C300924B18 /* SecondSwipeCollectionViewCell.swift */; };
+		2B53A1022B4577370077BF6C /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B53A1012B4577370077BF6C /* Date+.swift */; };
 		2B61ACDE2B107B0E00C3F29E /* Alert+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B61ACDD2B107B0E00C3F29E /* Alert+.swift */; };
 		2B61ACE12B12543C00C3F29E /* RandomNickname.json in Resources */ = {isa = PBXBuildFile; fileRef = 2B61ACE02B12543C00C3F29E /* RandomNickname.json */; };
 		2B61ACE32B1256AC00C3F29E /* NicknameDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B61ACE22B1256AC00C3F29E /* NicknameDataManager.swift */; };
@@ -119,6 +120,7 @@
 		2B34AEB72B32B34600924B18 /* FirstSwipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSwipeView.swift; sourceTree = "<group>"; };
 		2B34AEBC2B32D80D00924B18 /* SecondSwipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondSwipeView.swift; sourceTree = "<group>"; };
 		2B34AEBE2B32D8C300924B18 /* SecondSwipeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondSwipeCollectionViewCell.swift; sourceTree = "<group>"; };
+		2B53A1012B4577370077BF6C /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		2B61ACDD2B107B0E00C3F29E /* Alert+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert+.swift"; sourceTree = "<group>"; };
 		2B61ACE02B12543C00C3F29E /* RandomNickname.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RandomNickname.json; sourceTree = "<group>"; };
 		2B61ACE22B1256AC00C3F29E /* NicknameDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameDataManager.swift; sourceTree = "<group>"; };
@@ -612,6 +614,7 @@
 				2B9406272B133246003FCE94 /* NaviBarButton+.swift */,
 				2B94063E2B1498B0003FCE94 /* Notification+.swift */,
 				2BC60D532B1C55550016584E /* ReusableViewProtocol+.swift */,
+				2B53A1012B4577370077BF6C /* Date+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -796,6 +799,7 @@
 				2BC60D1D2B18ACFD0016584E /* HomeView.swift in Sources */,
 				2B21049E2B1F0AEA005CA1F0 /* GTextField.swift in Sources */,
 				2BD741F22B079FF8006C11B2 /* Font+.swift in Sources */,
+				2B53A1022B4577370077BF6C /* Date+.swift in Sources */,
 				2B34AEB62B32B1D600924B18 /* FirstSwipeTableViewCell.swift in Sources */,
 				2B94062A2B134146003FCE94 /* JoinStep2ViewModel.swift in Sources */,
 				2B6D6DEF2B09F805004A8DA9 /* JoinStep1ViewModel.swift in Sources */,
