@@ -8,7 +8,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import Kingfisher
 
 final class HomeViewController: BaseViewController {
     
@@ -182,6 +181,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension HomeViewController: UITableViewDataSourcePrefetching {
     
+    // 테이블 뷰에서 특정 행이 곧 표시될 것으로 예상할 때 호출됨
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         for indexPath in indexPaths {
             print("prefetchRowsAt: \(indexPath.row)")
@@ -190,6 +190,7 @@ extension HomeViewController: UITableViewDataSourcePrefetching {
         prefetchData(for: indexPaths)
     }
     
+    // 테이블 뷰에서 프리패칭된 특정 행이 더이상 표시되지 않을 것이라고 결정될 때 호출됨
     func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
         for indexPath in indexPaths {
             print("cancelPrefetchingForRowsAt \(indexPath.row)")

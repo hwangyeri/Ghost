@@ -8,7 +8,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import Kingfisher
 
 final class FirstSwipeViewController: BaseViewController {
     
@@ -81,19 +80,18 @@ extension FirstSwipeViewController: UITableViewDataSource, UITableViewDelegate {
         cell.dateLabel.text = row.time
         cell.commentButton.setTitle("\(row.comments.count)", for: .normal)
         
+        // 프로필 이미지가 있는 경우
         if !row.image.isEmpty {
-            let modifier = AnyModifier { request in
-                var headers = request
-                headers.setValue(KeychainManager.shared.token, forHTTPHeaderField: Constant.authorization)
-                headers.setValue(APIKey.sesacKey, forHTTPHeaderField: Constant.sesacKey)
-                return headers
+            // 이미지 로드 + 다운샘플링
+            cell.postImageView.setImage(withURL: row.image[0], downsamplingSize: cell.postImageView.bounds.size) { result in
+                switch result {
+                case .success(_):
+                    print("🩵 이미지 로드 성공")
+                    break
+                case .failure(let error):
+                    print("💛 이미지 로드 실패: \(error)")
+                }
             }
-            
-            cell.postImageView.kf.setImage(
-                with: URL(string: APIKey.baseURL + (row.image[0])),
-                placeholder: UIImage(named: "ghost"),
-                options: [.requestModifier(modifier)]
-            )
         }
         
         return cell

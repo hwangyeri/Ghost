@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B18BC632B664467007636EC /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B18BC622B664467007636EC /* UIImageView+.swift */; };
 		2B21049E2B1F0AEA005CA1F0 /* GTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B21049D2B1F0AEA005CA1F0 /* GTextField.swift */; };
 		2B34AEAE2B329E7D00924B18 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = 2B34AEAD2B329E7D00924B18 /* Tabman */; };
 		2B34AEB02B32A12300924B18 /* SwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B34AEAF2B32A12300924B18 /* SwipeViewController.swift */; };
@@ -112,6 +113,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B18BC622B664467007636EC /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		2B21049D2B1F0AEA005CA1F0 /* GTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GTextField.swift; sourceTree = "<group>"; };
 		2B34AEAF2B32A12300924B18 /* SwipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeViewController.swift; sourceTree = "<group>"; };
 		2B34AEB12B32A1D000924B18 /* FirstSwipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSwipeViewController.swift; sourceTree = "<group>"; };
@@ -615,6 +617,7 @@
 				2B94063E2B1498B0003FCE94 /* Notification+.swift */,
 				2BC60D532B1C55550016584E /* ReusableViewProtocol+.swift */,
 				2B53A1012B4577370077BF6C /* Date+.swift */,
+				2B18BC622B664467007636EC /* UIImageView+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -837,6 +840,7 @@
 				2BD741FD2B088DBA006C11B2 /* GTextButton.swift in Sources */,
 				2BD741B32B06051F006C11B2 /* SceneDelegate.swift in Sources */,
 				2BF10E8B2B3414F40009D7B0 /* SettingTableViewCell.swift in Sources */,
+				2B18BC632B664467007636EC /* UIImageView+.swift in Sources */,
 				2BD741F72B07C708006C11B2 /* GHoshiTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
