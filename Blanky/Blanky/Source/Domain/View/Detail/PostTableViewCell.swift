@@ -215,26 +215,17 @@ extension PostTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
             let imageUrl = postData?.image[indexPath.item] else {
                 return UICollectionViewCell()
         }
-
-        // 헤더 설정
-        let modifier = AnyModifier { request in
-            var headers = request
-            headers.setValue(KeychainManager.shared.token, forHTTPHeaderField: Constant.authorization)
-            headers.setValue(APIKey.sesacKey, forHTTPHeaderField: Constant.sesacKey)
-            return headers
-        }
     
         // 이미지 로드 + 다운샘플링
-        cell.imageView.kf.setImage(
-            with: URL(string: APIKey.baseURL + imageUrl),
-            placeholder: UIImage(named: "ghost"),
-            options: [
-                .requestModifier(modifier),
-                .processor(DownsamplingImageProcessor(size: cell.imageView.bounds.size)),
-                .scaleFactor(UIScreen.main.scale),
-                .cacheOriginalImage
-            ]
-        )
+        cell.imageView.setImage(withURL: imageUrl, downsamplingSize: cell.imageView.bounds.size) { result in
+            switch result {
+            case .success(_):
+                print("🩵 이미지 로드 성공")
+                break
+            case .failure(let error):
+                print("💛 이미지 로드 실패: \(error)")
+            }
+        }
         
         let imageCount = "\(postData?.image.count ?? 0)"
         
