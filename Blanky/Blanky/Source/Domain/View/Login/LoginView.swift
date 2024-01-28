@@ -17,7 +17,7 @@ class LoginView: BaseView {
     }
     
     let subLabel = GLabel(
-        text: "FIXME: 완전한 익명, 자유로운 유령 (슬로건)",
+        text: "완전한 익명, 자유로운 유령들의 놀이터",
         fontWeight: .bold,
         fontSize: .M
     )
