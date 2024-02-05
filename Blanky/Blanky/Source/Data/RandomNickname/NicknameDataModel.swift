@@ -12,5 +12,5 @@ struct Nickname: Codable, Hashable {
 }
 
 struct NicknameData: Codable, Hashable {
-    let determiners, colors, animals: [String]
+    let determiners, colors: [String]
 }
