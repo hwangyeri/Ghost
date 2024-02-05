@@ -47,7 +47,9 @@ class JoinStep2ViewModel: BaseViewModel {
         let randomButtonTap = input.randomButton
             .throttle(.seconds(1), scheduler: MainScheduler.instance)
             .map { _ in
-                return NicknameDataManager.shared.createRandomNickname()
+                var randomNickname = NicknameDataManager.shared.createRandomNickname()
+                print("✅ 랜덤 닉네임 생성: ", randomNickname)
+                return randomNickname
             }
             .asDriver(onErrorJustReturn: "")
         
