@@ -77,6 +77,7 @@ final class HomeViewController: BaseViewController {
                     
                 case .failure(let error):
                     print("포스트 조회 실패: ", error)
+                    owner.showAlertMessage(title: "Error", message: "게시글 조회에 실패했어요. 😢\n다시 시도해 주세요.")
                 }
             }
             .disposed(by: disposeBag)
