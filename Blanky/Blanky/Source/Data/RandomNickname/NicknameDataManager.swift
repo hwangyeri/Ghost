@@ -57,9 +57,13 @@ final class NicknameDataManager {
     
     //랜덤 닉네임 생성
     func createRandomNickname() -> String {
-        let data = nicknameList?.nicknameData[0]
-        let determiner = data?.determiners.randomElement() ?? "똑쟁이"
-        let color = data?.colors.randomElement() ?? "까만색"
+        guard let data = nicknameList?.nicknameData.randomElement() else {
+            return "익명의까만색유령"
+        }
+        
+        let determiner = data.determiners.randomElement() ?? "익명의"
+        let color = data.colors.randomElement() ?? "까만색"
+        
         return "\(determiner)\(color)유령"
     }
     
