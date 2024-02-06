@@ -187,6 +187,8 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier, for: indexPath) as? PostTableViewCell else { return UITableViewCell() }
             let data = postData
             
+            cell.selectionStyle = .none
+            
             cell.titleLabel.text = data.title
             cell.contentLabel.text = data.content
             
@@ -207,9 +209,11 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: CommentTableViewCell.identifier, for: indexPath) as? CommentTableViewCell else { return UITableViewCell() }
             let row = postData.comments[indexPath.row]
             
+            cell.selectionStyle = .none
+            
             cell.commentLabel.text = row.content
             
-            let time = Date().timeAgo(from: row.time)
+            var time = Date().timeAgo(from: row.time)
             cell.dateLabel.text = time
             
             // 댓글 작성자 아닌 경우, 삭제 버튼 히든 처리
@@ -218,6 +222,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         default:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier, for: indexPath) as? PostTableViewCell else { return UITableViewCell() }
+            cell.selectionStyle = .none
             return cell
         }
     }
@@ -229,7 +234,7 @@ extension DetailViewController: PostTableViewCellDelegate {
     
     // Cell 안에 좋아요 버튼 클릭 이벤트 처리
     func likeButtonTapped() {
-        print(#function)
+        print(#function, "✅ 좋아요 버튼 클릭")
         
         guard let postID = self.postID else {
             print("postID Error")
@@ -242,10 +247,10 @@ extension DetailViewController: PostTableViewCellDelegate {
                 switch result {
                 case .success(let data):
                     owner.isLiked = data.like_status
-                    //섹션 리로드
-                    owner.mainView.tableView.reloadSections(IndexSet(0...0), with: .automatic)
+                    owner.onePostRead()
                 case .failure(let error):
                     print(error.errorDescription)
+                    owner.showAlertMessage(title: "Error", message: "에러가 발생했어요.😢\n다시 시도해 주세요.")
                 }
             }
             .disposed(by: disposeBag)
