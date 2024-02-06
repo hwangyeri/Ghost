@@ -20,7 +20,7 @@ final class SecondSwipeCollectionViewCell: BaseCollectionViewCell {
     let titleLabel = GLabel(
         text: "타이틀 라벨 입니다.",
         fontWeight: .regular,
-        fontSize: .M
+        fontSize: .S
     ).then {
         $0.numberOfLines = 1
     }
@@ -32,7 +32,7 @@ final class SecondSwipeCollectionViewCell: BaseCollectionViewCell {
     )
     
     let messageButton = GImageButton(
-        imageSize: 13,
+        imageSize: 10,
         imageName: "message",
         backgroundColor: .bColor200,
         tintColor: .white,
@@ -42,21 +42,21 @@ final class SecondSwipeCollectionViewCell: BaseCollectionViewCell {
     let messageLabel = GLabel(
         text: "0",
         fontWeight: .regular,
-        fontSize: .XS
+        fontSize: .XXS
     )
     
     let likeButton = GImageButton(
-        imageSize: 15,
-        imageName: "heart",
+        imageSize: 12,
+        imageName: "heart.fill",
         backgroundColor: .bColor200,
-        tintColor: .white,
+        tintColor: .point,
         cornerRadius: 0
     )
     
     let likeLabel = GLabel(
         text: "0",
         fontWeight: .regular,
-        fontSize: .XS
+        fontSize: .XXS
     )
     
     override func configureHierarchy() {
@@ -84,7 +84,7 @@ final class SecondSwipeCollectionViewCell: BaseCollectionViewCell {
         messageButton.snp.makeConstraints { make in
             make.top.equalTo(dateLabel.snp.bottom).offset(8)
             make.leading.equalToSuperview().inset(10)
-            make.bottom.equalToSuperview().inset(8)
+            make.bottom.equalToSuperview()
         }
         
         messageLabel.snp.makeConstraints { make in
