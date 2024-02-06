@@ -28,7 +28,7 @@ final class HomeView: BaseView {
     }
     
     let profileImageView1 = UIImageView().then {
-        $0.image = UIImage(named: "ghost")
+        $0.image = UIImage(named: "userImage")
         $0.layer.cornerRadius = 17
         $0.contentMode = .scaleAspectFit
         $0.layer.masksToBounds = true
@@ -98,8 +98,8 @@ final class HomeView: BaseView {
         
         profileImageView1.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.leading.equalToSuperview().inset(3)
-            make.size.equalTo(34)
+            make.leading.equalToSuperview().inset(5)
+            make.size.equalTo(32)
         }
         
         profileImageView2.snp.makeConstraints { make in
