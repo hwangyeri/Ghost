@@ -142,6 +142,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewCell.identifier, for: indexPath) as? HomeTableViewCell else { return UITableViewCell() }
         let row = postDataList.data[indexPath.row]
         
+        cell.selectionStyle = .none
+        
         cell.postData = row // PostData 값 전달
         self.postID = row._id
         
