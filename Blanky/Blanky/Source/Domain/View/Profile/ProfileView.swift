@@ -28,7 +28,9 @@ final class ProfileView: BaseView {
     let profileImageView = GBorderImageView(
         borderWidth: 1 ,
         cornerRadius: 28
-    )
+    ).then {
+        $0.image = .user
+    }
     
     let postStackView = UIStackView().then {
         $0.isLayoutMarginsRelativeArrangement = true
