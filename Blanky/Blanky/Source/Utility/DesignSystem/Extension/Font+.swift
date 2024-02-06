@@ -20,6 +20,7 @@ extension UIFont {
     }
     
     enum CustomFontSize: CGFloat {
+        case XXXS = 11
         case XXS = 12
         case XS = 13
         case S = 14
