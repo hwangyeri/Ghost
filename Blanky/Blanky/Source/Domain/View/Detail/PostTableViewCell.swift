@@ -53,6 +53,7 @@ final class PostTableViewCell: BaseTableViewCell {
         $0.backgroundColor = .bColor200
         $0.delegate = self
         $0.dataSource = self
+        $0.showsHorizontalScrollIndicator = false
     }
     
     private func collectionViewLayout() -> UICollectionViewFlowLayout {
