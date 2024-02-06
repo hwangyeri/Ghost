@@ -31,6 +31,7 @@ final class SettingViewController: BaseViewController {
     
     override func configureLayout() {
         setBackButton()
+        self.navigationItem.title = "설정"
         mainView.tableView.dataSource = self
         mainView.tableView.delegate = self
     }
@@ -86,7 +87,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             headerView.titleLabel.text = "내 정보"
         default:
-            headerView.titleLabel.text = "설정"
+            headerView.titleLabel.text = "시스템"
         }
         
         return headerView
