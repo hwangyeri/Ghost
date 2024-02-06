@@ -22,9 +22,9 @@ extension Date {
             let calendar = Calendar.current
             let now = Date()
             
-            // 오늘이면
+            // 오늘 날짜인 경우
             if calendar.isDateInToday(date) {
-                let components = calendar.dateComponents([.hour, .minute], from: self, to: now)
+                let components = calendar.dateComponents([.hour, .minute], from: date, to: now)
                 
                 if let hour = components.hour, hour > 0 {
                     return "\(hour)시간 전"
@@ -33,32 +33,32 @@ extension Date {
                 } else {
                     return "방금"
                 }
-                // 어제인 경우
+                
+            // 어제 날짜인 경우
             } else if calendar.isDateInYesterday(date) {
                 return "어제"
             } else {
-                let components = calendar.dateComponents([.day], from: self, to: now)
+                let components = calendar.dateComponents([.day], from: date, to: now)
+                
                 if let day = components.day, day > 0 {
+                    // 30일 이상인 경우
                     if day > 30 {
                         let dateFormatter = DateFormatter()
                         dateFormatter.dateFormat = "yyyy-MM-dd"
-                        return dateFormatter.string(from: self)
+                        return dateFormatter.string(from: date)
                     } else {
+                        // 30일 이전인 경우
                         return "\(day)일 전"
                     }
-                }
-                // 30일 이상인 경우
-                else {
+                } else {
                     let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "yyyy-MM-dd"
                     return dateFormatter.string(from: date)
                 }
             }
-        }
-        else {
+        } else {
             return ""
         }
     }
-    
     
 }
