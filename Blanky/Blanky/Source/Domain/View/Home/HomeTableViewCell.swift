@@ -54,17 +54,17 @@ final class HomeTableViewCell: BaseTableViewCell {
         $0.backgroundColor = .bColor200
         $0.delegate = self
         $0.dataSource = self
+        $0.showsHorizontalScrollIndicator = false
     }
     
     private func collectionViewLayout() -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
-//        let spacing: CGFloat = 10
-        layout.minimumLineSpacing = 20
-//        layout.minimumInteritemSpacing = 0
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        let spacing: CGFloat = 20
+        layout.minimumLineSpacing = spacing
+        layout.sectionInset = UIEdgeInsets(top: spacing, left: 0, bottom: spacing, right: 10)
         layout.scrollDirection = .horizontal
-        let width = UIScreen.main.bounds.width - 80
-        layout.itemSize = CGSize(width: width, height: width - 50)
+        let width = UIScreen.main.bounds.width - 90
+        layout.itemSize = CGSize(width: width, height: width - 30)
         return layout
     }
     
@@ -118,7 +118,7 @@ final class HomeTableViewCell: BaseTableViewCell {
     
     let backView = UIView().then {
         $0.backgroundColor = .bColor300.withAlphaComponent(0.8)
-        $0.layer.cornerRadius = 14
+        $0.layer.cornerRadius = 10
     }
     
     let commentTitleLabel = GLabel(
@@ -162,7 +162,8 @@ final class HomeTableViewCell: BaseTableViewCell {
     
     override func configureLayout() {
         profileImageView.snp.makeConstraints { make in
-            make.top.leading.equalToSuperview().inset(10)
+            make.top.equalToSuperview().inset(10)
+            make.leading.equalToSuperview()
             make.size.equalTo(30)
         }
         
@@ -174,12 +175,12 @@ final class HomeTableViewCell: BaseTableViewCell {
         dateLabel.snp.makeConstraints { make in
             make.bottom.equalTo(nicknameLabel)
             make.leading.equalTo(nicknameLabel.snp.trailing).offset(6)
-            make.trailing.equalToSuperview().inset(10)
+//            make.trailing.equalToSuperview().inset(10)
         }
         
         titleLabel.snp.makeConstraints {
-            $0.top.equalTo(profileImageView.snp.bottom).offset(15)
-            $0.leading.equalTo(profileImageView).inset(5)
+            $0.top.equalTo(profileImageView.snp.bottom).offset(12)
+            $0.leading.equalTo(profileImageView).inset(25)
             $0.trailing.equalToSuperview().inset(10)
         }
         
@@ -241,18 +242,19 @@ final class HomeTableViewCell: BaseTableViewCell {
         
         backView.snp.makeConstraints { make in
             make.top.equalTo(messageButton.snp.bottom).offset(30)
-            make.horizontalEdges.equalToSuperview().inset(10)
-            make.bottom.equalToSuperview().inset(10)
+            make.leading.equalTo(titleLabel)
+            make.trailing.equalToSuperview().inset(22)
+            make.bottom.equalToSuperview().inset(15)
         }
         
         commentTitleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(10)
-            make.leading.equalToSuperview().inset(15)
+            make.leading.equalToSuperview().inset(12)
         }
         
         commentProfileImageView.snp.makeConstraints { make in
             make.top.equalTo(commentTitleLabel.snp.bottom).offset(10)
-            make.leading.equalTo(commentTitleLabel)
+            make.leading.equalTo(commentTitleLabel).offset(-2)
             make.size.equalTo(20)
         }
         
@@ -299,14 +301,16 @@ final class HomeTableViewCell: BaseTableViewCell {
         if postData?.comments.isEmpty == true {
             backView.snp.remakeConstraints { make in
                 make.top.equalTo(messageButton.snp.bottom).offset(30)
-                make.horizontalEdges.equalToSuperview().inset(10)
+                make.leading.equalTo(titleLabel)
+                make.trailing.equalToSuperview().inset(22)
                 make.bottom.equalToSuperview().inset(10)
                 make.height.equalTo(0)
             }
         } else {
             backView.snp.remakeConstraints { make in
                 make.top.equalTo(messageButton.snp.bottom).offset(30)
-                make.horizontalEdges.equalToSuperview().inset(10)
+                make.leading.equalTo(titleLabel)
+                make.trailing.equalToSuperview().inset(22)
                 make.bottom.equalToSuperview().inset(10)
             }
         }
