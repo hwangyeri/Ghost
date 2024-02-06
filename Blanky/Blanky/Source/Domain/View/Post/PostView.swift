@@ -71,16 +71,17 @@ final class PostView: BaseView {
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout()).then {
         $0.register(PostCollectionViewCell.self, forCellWithReuseIdentifier: PostCollectionViewCell.identifier)
         $0.backgroundColor = .bColor100
+        $0.showsHorizontalScrollIndicator = false
     }
     
     private func collectionViewLayout() -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = 10
-        layout.minimumInteritemSpacing = 10
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        let spacing: CGFloat = 10
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
+        layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
         layout.scrollDirection = .horizontal
-        //let size = UIScreen.main.bounds.width
-        layout.itemSize = CGSize(width: 90, height: 90)
+        layout.itemSize = CGSize(width: 105, height: 105)
         return layout
     }
     
