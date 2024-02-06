@@ -15,20 +15,20 @@ final class ImageCollectionViewCell: BaseCollectionViewCell {
     
     let imageView = GBorderImageView(
         borderWidth: 1,
-        cornerRadius: 25
+        cornerRadius: 22
     ).then {
         $0.backgroundColor = .bColor200
     }
     
     let backView = UIView().then {
-        $0.backgroundColor = UIColor.bColor200
-        $0.layer.cornerRadius = 8
+        $0.backgroundColor = UIColor.bColor200.withAlphaComponent(0.8)
+        $0.layer.cornerRadius = 12
     }
     
     let imageCountLabel = GLabel(
         text: "1/5",
         fontWeight: .medium,
-        fontSize: .XXS
+        fontSize: .XXXS
     )
     
     override func configureHierarchy() {
@@ -45,9 +45,9 @@ final class ImageCollectionViewCell: BaseCollectionViewCell {
         }
         
         backView.snp.makeConstraints { make in
-            make.bottom.trailing.equalToSuperview().inset(20)
-            make.width.equalTo(30)
-            make.height.equalTo(28)
+            make.top.trailing.equalToSuperview().inset(20)
+            make.width.equalTo(32)
+            make.height.equalTo(25)
         }
         
         imageCountLabel.snp.makeConstraints { make in
