@@ -1,6 +1,6 @@
 # Ghost
 
-FIXME: 이미지 추가 예정
+![ghostMockUp](https://github.com/hwangyeri/Ghost/assets/114602459/ab68d37d-7ec5-43dc-8bcb-f49d02b48962)
 
 ### 완전한 익명성을 보장하는 자유로운 익명 커뮤니티 앱입니다.
 - 회원가입 및 자동 로그인 기능을 제공합니다.
@@ -119,7 +119,9 @@ private func postRead(cursor: String) {
 <br/>
 
 ## 6. UI/UX
-FIXME: gif 추가 예정
+|<img src="https://github.com/hwangyeri/Ghost/assets/114602459/90f05dbb-c955-498c-8c9f-3f2f65feadfa.gif" width=240></img>|<img src="https://github.com/hwangyeri/Ghost/assets/114602459/cc4bcf34-9744-489a-b586-7873f4a923cb.gif" width=240></img>|<img src="https://github.com/hwangyeri/Ghost/assets/114602459/0e97bca6-646a-4d84-a21d-ec28b8fe4603.gif" width=240></img>|
+|:-:|:-:|:-:|
+|`회원가입/로그인 기능`|`좋아요/댓글 기능`|`게시글 작성/로그아웃 기능`|
 <br/>
 
 ## 7. 회고
