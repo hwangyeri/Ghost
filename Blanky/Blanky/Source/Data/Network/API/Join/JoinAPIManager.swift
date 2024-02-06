@@ -18,8 +18,6 @@ final class JoinAPIManager {
         plugins: [NetworkLoggerPlugin(configuration: .init(logOptions: .verbose))]
     )
     
-    private let disposeBag = DisposeBag()
-    
     private init() { }
     
     func request<T: Decodable>(target: JoinAPI, model: T.Type) -> Single<Result<T, APIError>> {

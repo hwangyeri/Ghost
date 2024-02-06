@@ -19,8 +19,6 @@ final class PostAPIManager {
         plugins: [NetworkLoggerPlugin(configuration: .init(logOptions: .verbose))]
     )
     
-    private let disposeBag = DisposeBag()
-    
     private init() { }
     
     func request<T: Decodable>(target: PostAPI, model: T.Type) -> Single<Result<T, APIError>> {
