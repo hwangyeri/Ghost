@@ -76,7 +76,10 @@ extension SecondSwipeViewController: UICollectionViewDelegate, UICollectionViewD
         let row = likePostData.data[indexPath.item]
         
         cell.titleLabel.text = row.title
-        cell.dateLabel.text = row.time
+        
+        let time = Date().timeAgo(from: row.time)
+        cell.dateLabel.text = time
+        
         cell.messageLabel.text = "\(row.comments.count)"
         cell.likeLabel.text = "\(row.likes.count)"
         

@@ -77,8 +77,10 @@ extension FirstSwipeViewController: UITableViewDataSource, UITableViewDelegate {
         let row = myData.data[indexPath.row]
         
         cell.titleLabel.text = row.title
-        cell.dateLabel.text = row.time
         cell.commentButton.setTitle("\(row.comments.count)", for: .normal)
+        
+        let time = Date().timeAgo(from: row.time)
+        cell.dateLabel.text = time
         
         // 프로필 이미지가 있는 경우
         if !row.image.isEmpty {

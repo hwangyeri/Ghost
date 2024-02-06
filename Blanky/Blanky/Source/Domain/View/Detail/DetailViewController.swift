@@ -213,7 +213,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             
             cell.commentLabel.text = row.content
             
-            var time = Date().timeAgo(from: row.time)
+            let time = Date().timeAgo(from: row.time)
             cell.dateLabel.text = time
             
             // 댓글 작성자 아닌 경우, 삭제 버튼 히든 처리
