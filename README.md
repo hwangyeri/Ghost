@@ -28,7 +28,7 @@
 ## 핵심 기술
 - `RxSwift`와 `Alamofire Interceptor`를 이용한 `JWT` 기반의 회원 인증 로직 구현
 - `Regular Expression`과 서버 통신을 이용한 로그인/회원가입 사용자 입력 정보 유효성 검증
-- `filter`, `withLatestFrom` 등 `operator`를 이용한 `RxSwift` 기반의 반응형 UI 구현
+- `flatMap`, `withLatestFrom` 등 `operator`를 이용한 `RxSwift` 기반의 반응형 UI 구현
 - `Moya`, `Enum` 및 `Metatype`을 이용한 네트워트 구조 모듈화
 - `Generic`과 `Router Pattern`을 이용한 API 메서드 추상화
 - `debounce`, `distinctUntilChanged` 등 `operator`를 이용한 불필요한 네트워크 호출 최소화
