@@ -110,7 +110,7 @@ private func postRead(cursor: String) {
 
 ### 2. 사용자의 event에 따른 반응형 UI 구현
 - **문제 상황** : 각기 다른 스트림에서 발생하는 입력 값으로 인해 반응이 뒤늦게 나타나는 문제가 발생함.
-- **해결 방법** : 정규표현식과 filter, flatMap, withLatestFrom, combineLatest 등의 operator를 활용하여 적절한 시점에 유효성을 검증하고 UI를 업데이트함.
+- **해결 방법** : 정규표현식과 flatMap, withLatestFrom, combineLatest 등의 operator를 활용하여 적절한 시점에 유효성을 검증하고 UI를 업데이트함.
 
 
 ``` swift
