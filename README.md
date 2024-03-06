@@ -1,4 +1,6 @@
 # Ghost
+<img width="70" alt="스크린샷 2024-03-07 오전 1 33 43" src="https://github.com/hwangyeri/Ghost/assets/114602459/34f1231f-b7ff-44da-8051-5a525e9e9e3c">
+
 ### 완전한 익명성을 보장하는 자유로운 익명 커뮤니티 앱입니다.
 
 ![ghostMockUp](https://github.com/hwangyeri/Ghost/assets/114602459/ab68d37d-7ec5-43dc-8bcb-f49d02b48962)
