@@ -1,57 +1,48 @@
 # Ghost
+### 완전한 익명성을 보장하는 자유로운 익명 커뮤니티 앱입니다.
 
 ![ghostMockUp](https://github.com/hwangyeri/Ghost/assets/114602459/ab68d37d-7ec5-43dc-8bcb-f49d02b48962)
 
-### 완전한 익명성을 보장하는 자유로운 익명 커뮤니티 앱입니다.
-- 회원가입 및 자동 로그인 기능을 제공합니다.
-- 회원 탈퇴 시, DB에 저장된 사용자 데이터 삭제됩니다.
-- 여러 개의 이미지와 글이 담긴 게시글을 피드 형식으로 보여줍니다.
-- 게시글에 댓글과 좋아요를 남길 수 있습니다.
-- 모든 게시글과 댓글은 익명으로 처리됩니다.
-- 내가 작성한/좋아요한 게시글을 관리할 수 있습니다.
+## 주요 기능
+- 회원가입 • 회원탈퇴 • 로그아웃 • 자동 로그인 기능
+- 익명 기반의 게시글 • 댓글 • 좋아요 기능
+- 내가 작성한 / 좋아요한 게시글 관리 기능
 <br/>
 
-## 1. 개발 환경
-- Xcooe 15.0.1
-- Deployment Target iOS 16.0
-- Only Portrait
-- Only Dark Mode
-<br/>
-
-## 2. 개인 프로젝트
-- **개발 기간** : 2023.11.16 ~ 2023.12.16 (4주)
+## 개발 환경
+- **최소 버전** : iOS 16.0
 - **개발 인원** : 1명
+- **개발 기간** : 2023.11.16 ~ 2023.12.16 (4주)
+- **기타** : Dark Mode 지원
 <br/>
 
-## 3. 기술 스택
-- `UIKit`, `CodeBaseUI`, `SPM`
-- `MVVM`, `Input-Output`, `Singleton`, `Design System`
+## 기술 스택
+- `UIKit`, `CodeBaseUI`, `RxSwift`
+- `MVVM`, `Input-Output`, `Singleton`, `Repository`, `Design System`
 - `Autolayout`, `Compositional Layout`, `Diffable DataSource`
-- `RxSwift`, `Kingfisher`, `Snapkit`, `Then`
-- `Moya`, `Alamofire`, `Interceptor`, `SwiftKeychainWrapper`
-- `TextFieldEffects`, `IQKeyboardManagerSwift`, `Tabman`
+- `Snapkit`, `Then`, `Kingfisher`, `SPM`
+- `Moya`, `Alamofire`, `SwiftKeychainWrapper`
+- `Tabman`, `TextFieldEffects`, `IQKeyboardManagerSwift`
 <br/>
 
-### 3.2 Tools
-- `Figma/FigJam`, `Git/Github`, `Insomnia`, `Jandi`, `Notion`, `Discode`
+## 핵심 기술
+- `RxSwift`와 `Alamofire Interceptor`를 이용한 `JWT` 기반의 회원 인증 로직 구현
+- `Regular Expression`과 서버 통신을 이용한 로그인/회원가입 사용자 입력 정보 유효성 검증
+- `filter`, `withLatestFrom` 등 `operator`를 이용한 `RxSwift` 기반의 반응형 UI 구현
+- `Moya`, `Enum` 및 `Metatype`을 이용한 네트워트 구조 모듈화
+- `Generic`과 `Router Pattern`을 이용한 API 메서드 추상화
+- `debounce`, `distinctUntilChanged` 등 `operator`를 이용한 불필요한 네트워크 호출 최소화
+- `Multipart/form-data` 형식의 여러 장의 이미지 업로드, 캐싱 및 다운샘플링 구현
+- `prefetchRowsAt` 메서드를 이용한 `Cursor-based Pagination` 구현
 <br/>
 
-## 4. 핵심 기능
-- `RxSwift`와 서버 통신을 통한 `JWT` 인증 로직 구현
-- `Alamofire Interceptor`를 활용해 `AccessToken` 갱신과 `RefreshToken` 만료 로직 구현
-- 정규표현식을 활용해 사용자 정보에 대한 유효성 검증 및 회원가입 인증 로직 구현
-- `Moya`, `Enum` 및 `Metatype`을 활용해 API 메서드 모듈화
-- `Generic`과 `Router` 패턴을 활용해 코드 재사용성 향상
-- `Kingfisher`를 활용해 `multipart/form-data` 형식의 이미지 업로드 및 다운샘플링 기능 구현
-- `RxSwift`와 `MVVM` 패턴을 활용해 반응형 프로그래밍 구현 및 Cursor-based `Pagination` 기능 구현 (수정 필요)
-<br/>
+## 문제 해결
+### 1. 실시간으로 게시글이 추가/삭제되는 경우, 중복 데이터 발생
+- **문제 상황** : API 통신을 통해 가져온 대량의 데이터를 효과적으로 처리하고 화면(피드)에 표시하는 것이 필요했음.
+- **해결 방법** : viewWillAppear 메서드와 Cursor-based Pagination 구현을 통해 실시간으로 데이터를 반영해서 중복되는 문제를 해결함. 마지막으로 로드된 데이터를 기반으로 다음 데이터셋을 가져와 서버 로드를 줄이고 데이터 일관성을 보장하며 사용자 경험을 최적화함.
 
-## 5. 트러블 슈팅
-### 데이터 중복을 방지하기 위해 Cursor-based Pagination 도입
-- **문제 상황** : 게시글 조회 API를 통해 대량의 데이터를 효과적으로 처리하고 화면(피드)에 표시하는 것이 필요했습니다. 중간에 게시글이 추가되거나 삭제될 경우, 데이터 중복 문제가 발생했습니다.
-- **해결 방법** : 데이터 중복 문제를 해결하기 위해 Cursor-based Pagination 기능을 구현했습니다. 마지막으로 로드된 데이터를 기반으로 다음 데이터셋을 가져와 서버 로드를 줄이고 데이터 일관성을 보장하며 사용자 경험을 최적화했습니다.
 
-1. 게시글이 새롭게 추가되거나 수정/삭제된 경우, 실시간으로 반영하기 위해 viewWillAppear 메서드에 구현했습니다.
+a. 게시글이 새롭게 추가되거나 수정/삭제된 경우, 실시간으로 반영하기 위해 viewWillAppear 메서드에 구현했습니다.
 ``` swift
 override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -62,7 +53,7 @@ override func viewWillAppear(_ animated: Bool) {
     }
 ```
 
-2. 마지막에 표시되는 셀의 인덱스가 지정한 범위 내에 있는지 확인하고, 커서 값과 함께 postRead 메서드를 사용해 현재 콘텐츠의 끝에 도달하기 전에 데이터를 사전에 로드시켰습니다.
+b. 마지막에 표시되는 셀의 인덱스가 지정한 범위 내에 있는지 확인하고, 커서 값과 함께 postRead 메서드를 사용해 현재 콘텐츠의 끝에 도달하기 전에 데이터를 사전에 로드시켰습니다.
 ``` swift
  private func prefetchData(for indexPaths: [IndexPath]) {
         guard let lastIndexPath = indexPaths.last else {
@@ -79,7 +70,7 @@ override func viewWillAppear(_ animated: Bool) {
     }
 ```
 
-3. 불필요한 오류를 방지하기 위해 guard 문을 사용하여 예외 처리를 구현했습니다.
+c. 불필요한 오류를 방지하기 위해 guard 문을 사용하여 예외 처리를 구현했습니다.
 ``` swift
 private func postRead(cursor: String) {
         print(#function)
@@ -113,27 +104,74 @@ private func postRead(cursor: String) {
     }
 ```
 
-#### 5-1. 해당 이슈에 대한 블로그 링크
+#### 1-1. 해당 이슈에 대한 블로그 링크
 🔗 [Cursor-based Pagination 구현하기 (+ Prefetching)](https://yeridev.tistory.com/entry/XFile-42)
 
+
+### 2. 사용자의 event에 따른 반응형 UI 구현
+- **문제 상황** : 각기 다른 스트림에서 발생하는 입력 값으로 인해 반응이 뒤늦게 나타나는 문제가 발생함.
+- **해결 방법** : 정규표현식과 filter, flatMap, withLatestFrom, combineLatest 등의 operator를 활용하여 적절한 시점에 유효성을 검증하고 UI를 업데이트함.
+
+
+``` swift
+class LoginViewModel: BaseViewModel {
+
+// 이전 코드 생략..
+
+    func transform(input: Input) -> Output {
+        
+        // 이메일 유효성 검사
+        let emailValidation = input.emailTextField
+            .debounce(.milliseconds(400), scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
+            .map { text in
+                let emailRegex = "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$"
+                guard let _ = text.range(of: emailRegex, options: .regularExpression) else {
+                    return false
+                }
+                return true
+            }
+            .asDriver(onErrorJustReturn: false)
+
+        // 코드 생략..
+
+        // 로그인 버튼 탭
+        let loginButtonTap = input.loginButton
+            .throttle(.seconds(1), scheduler: MainScheduler.instance)
+            .withLatestFrom(Observable.combineLatest(input.emailTextField, input.passwordTextField))
+            .flatMap { email, password in
+                JoinAPIManager.shared.login(email: email, password: password)
+                    .map { result in
+                        switch result {
+                        case .success(let data):
+                            print("🩵 로그인 성공")
+                            UserLoginManager.shared.isLogin = true
+                            // 키체인에 유저 정보 저장
+                            KeychainManager.shared.userID = data._id
+                            KeychainManager.shared.token = data.token
+                            KeychainManager.shared.refreshToken = data.refreshToken
+                            return (true, "")
+                        case .failure(let error):
+                            print("💛 로그인 실패")
+                            UserLoginManager.shared.isLogin = false
+                            return (false, error.errorDescription)
+                        }
+                    }
+            }
+            .asDriver(onErrorJustReturn: (false, ""))
+
+        // 코드 생략..
+}
+```
 <br/>
 
-## 6. UI/UX
+## UI/UX
 |<img src="https://github.com/hwangyeri/Ghost/assets/114602459/90f05dbb-c955-498c-8c9f-3f2f65feadfa.gif" width=240></img>|<img src="https://github.com/hwangyeri/Ghost/assets/114602459/cc4bcf34-9744-489a-b586-7873f4a923cb.gif" width=240></img>|<img src="https://github.com/hwangyeri/Ghost/assets/114602459/0e97bca6-646a-4d84-a21d-ec28b8fe4603.gif" width=240></img>|
 |:-:|:-:|:-:|
 |`회원가입/로그인 기능`|`좋아요/댓글 기능`|`게시글 작성/로그아웃 기능`|
 <br/>
 
-## 7. 회고
-### Keep
-- 수정 예정
-  
-### Problem • Try
-- 수정 예정
-
-<br/>
-
-## 8. Commit Convention
+## Commit Convention
 ```
 - [Feat] 새로운 기능 구현
 - [Style] UI 디자인 변경
@@ -148,7 +186,7 @@ private func postRead(cursor: String) {
 
 <br/>
 
-## 9. 개발 공수
+## 개발 공수
 | 진행 사항 | 진행 기간 | 세부 내용 |
 | ------- | :----: | ------- |
 | 프로젝트 설정 및 개발 환경 구성  | `2023.11.16 ~ 2023.11.19` | Design Sysytem, GColor, 로그인 및 회원가입 UI 구현 |
